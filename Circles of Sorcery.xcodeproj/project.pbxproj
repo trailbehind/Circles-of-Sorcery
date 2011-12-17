@@ -1,0 +1,428 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A0EF8D9B149C35BF003C0926 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF8D9A149C35BF003C0926 /* UIKit.framework */; };
+		A0EF8D9D149C35BF003C0926 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF8D9C149C35BF003C0926 /* Foundation.framework */; };
+		A0EF8D9F149C35BF003C0926 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF8D9E149C35BF003C0926 /* CoreGraphics.framework */; };
+		A0EF8DA5149C35BF003C0926 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A0EF8DA3149C35BF003C0926 /* InfoPlist.strings */; };
+		A0EF8DA7149C35BF003C0926 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EF8DA6149C35BF003C0926 /* main.m */; };
+		A0EF8DAB149C35BF003C0926 /* SOCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EF8DAA149C35BF003C0926 /* SOCAppDelegate.m */; };
+		A0EF8DB3149C35BF003C0926 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF8DB2149C35BF003C0926 /* SenTestingKit.framework */; };
+		A0EF8DB4149C35BF003C0926 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF8D9A149C35BF003C0926 /* UIKit.framework */; };
+		A0EF8DB5149C35BF003C0926 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF8D9C149C35BF003C0926 /* Foundation.framework */; };
+		A0EF8DBD149C35BF003C0926 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A0EF8DBB149C35BF003C0926 /* InfoPlist.strings */; };
+		A0EF8DC0149C35BF003C0926 /* Circles_of_SorceryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EF8DBF149C35BF003C0926 /* Circles_of_SorceryTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A0EF8DB6149C35BF003C0926 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A0EF8D8D149C35BF003C0926 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A0EF8D95149C35BF003C0926;
+			remoteInfo = "Circles of Sorcery";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A0EF8D96149C35BF003C0926 /* Circles of Sorcery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Circles of Sorcery.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0EF8D9A149C35BF003C0926 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A0EF8D9C149C35BF003C0926 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A0EF8D9E149C35BF003C0926 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A0EF8DA2149C35BF003C0926 /* Circles of Sorcery-Info.plist */ = {isa = PBXFileReference; path = "Circles of Sorcery-Info.plist"; sourceTree = "<group>"; };
+		A0EF8DA4149C35BF003C0926 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A0EF8DA6149C35BF003C0926 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A0EF8DA8149C35BF003C0926 /* Circles of Sorcery-Prefix.pch */ = {isa = PBXFileReference; path = "Circles of Sorcery-Prefix.pch"; sourceTree = "<group>"; };
+		A0EF8DA9149C35BF003C0926 /* SOCAppDelegate.h */ = {isa = PBXFileReference; path = SOCAppDelegate.h; sourceTree = "<group>"; };
+		A0EF8DAA149C35BF003C0926 /* SOCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SOCAppDelegate.m; sourceTree = "<group>"; };
+		A0EF8DB1149C35BF003C0926 /* Circles of SorceryTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Circles of SorceryTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0EF8DB2149C35BF003C0926 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		A0EF8DBA149C35BF003C0926 /* Circles of SorceryTests-Info.plist */ = {isa = PBXFileReference; path = "Circles of SorceryTests-Info.plist"; sourceTree = "<group>"; };
+		A0EF8DBC149C35BF003C0926 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A0EF8DBE149C35BF003C0926 /* Circles_of_SorceryTests.h */ = {isa = PBXFileReference; path = Circles_of_SorceryTests.h; sourceTree = "<group>"; };
+		A0EF8DBF149C35BF003C0926 /* Circles_of_SorceryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Circles_of_SorceryTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A0EF8D93149C35BF003C0926 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0EF8D9B149C35BF003C0926 /* UIKit.framework in Frameworks */,
+				A0EF8D9D149C35BF003C0926 /* Foundation.framework in Frameworks */,
+				A0EF8D9F149C35BF003C0926 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0EF8DAD149C35BF003C0926 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0EF8DB3149C35BF003C0926 /* SenTestingKit.framework in Frameworks */,
+				A0EF8DB4149C35BF003C0926 /* UIKit.framework in Frameworks */,
+				A0EF8DB5149C35BF003C0926 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A0EF8D8B149C35BF003C0926 = {
+			isa = PBXGroup;
+			children = (
+				A0EF8DA0149C35BF003C0926 /* Circles of Sorcery */,
+				A0EF8DB8149C35BF003C0926 /* Circles of SorceryTests */,
+				A0EF8D99149C35BF003C0926 /* Frameworks */,
+				A0EF8D97149C35BF003C0926 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A0EF8D97149C35BF003C0926 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A0EF8D96149C35BF003C0926 /* Circles of Sorcery.app */,
+				A0EF8DB1149C35BF003C0926 /* Circles of SorceryTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A0EF8D99149C35BF003C0926 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A0EF8D9A149C35BF003C0926 /* UIKit.framework */,
+				A0EF8D9C149C35BF003C0926 /* Foundation.framework */,
+				A0EF8D9E149C35BF003C0926 /* CoreGraphics.framework */,
+				A0EF8DB2149C35BF003C0926 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A0EF8DA0149C35BF003C0926 /* Circles of Sorcery */ = {
+			isa = PBXGroup;
+			children = (
+				A0EF8DA9149C35BF003C0926 /* SOCAppDelegate.h */,
+				A0EF8DAA149C35BF003C0926 /* SOCAppDelegate.m */,
+				A0EF8DA1149C35BF003C0926 /* Supporting Files */,
+			);
+			path = "Circles of Sorcery";
+			sourceTree = "<group>";
+		};
+		A0EF8DA1149C35BF003C0926 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A0EF8DA2149C35BF003C0926 /* Circles of Sorcery-Info.plist */,
+				A0EF8DA3149C35BF003C0926 /* InfoPlist.strings */,
+				A0EF8DA6149C35BF003C0926 /* main.m */,
+				A0EF8DA8149C35BF003C0926 /* Circles of Sorcery-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A0EF8DB8149C35BF003C0926 /* Circles of SorceryTests */ = {
+			isa = PBXGroup;
+			children = (
+				A0EF8DBE149C35BF003C0926 /* Circles_of_SorceryTests.h */,
+				A0EF8DBF149C35BF003C0926 /* Circles_of_SorceryTests.m */,
+				A0EF8DB9149C35BF003C0926 /* Supporting Files */,
+			);
+			path = "Circles of SorceryTests";
+			sourceTree = "<group>";
+		};
+		A0EF8DB9149C35BF003C0926 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A0EF8DBA149C35BF003C0926 /* Circles of SorceryTests-Info.plist */,
+				A0EF8DBB149C35BF003C0926 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A0EF8D95149C35BF003C0926 /* Circles of Sorcery */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A0EF8DC3149C35BF003C0926 /* Build configuration list for PBXNativeTarget "Circles of Sorcery" */;
+			buildPhases = (
+				A0EF8D92149C35BF003C0926 /* Sources */,
+				A0EF8D93149C35BF003C0926 /* Frameworks */,
+				A0EF8D94149C35BF003C0926 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Circles of Sorcery";
+			productName = "Circles of Sorcery";
+			productReference = A0EF8D96149C35BF003C0926 /* Circles of Sorcery.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A0EF8DB0149C35BF003C0926 /* Circles of SorceryTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A0EF8DC6149C35BF003C0926 /* Build configuration list for PBXNativeTarget "Circles of SorceryTests" */;
+			buildPhases = (
+				A0EF8DAC149C35BF003C0926 /* Sources */,
+				A0EF8DAD149C35BF003C0926 /* Frameworks */,
+				A0EF8DAE149C35BF003C0926 /* Resources */,
+				A0EF8DAF149C35BF003C0926 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A0EF8DB7149C35BF003C0926 /* PBXTargetDependency */,
+			);
+			name = "Circles of SorceryTests";
+			productName = "Circles of SorceryTests";
+			productReference = A0EF8DB1149C35BF003C0926 /* Circles of SorceryTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A0EF8D8D149C35BF003C0926 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = A0EF8D90149C35BF003C0926 /* Build configuration list for PBXProject "Circles of Sorcery" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A0EF8D8B149C35BF003C0926;
+			productRefGroup = A0EF8D97149C35BF003C0926 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A0EF8D95149C35BF003C0926 /* Circles of Sorcery */,
+				A0EF8DB0149C35BF003C0926 /* Circles of SorceryTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A0EF8D94149C35BF003C0926 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0EF8DA5149C35BF003C0926 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0EF8DAE149C35BF003C0926 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0EF8DBD149C35BF003C0926 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A0EF8DAF149C35BF003C0926 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A0EF8D92149C35BF003C0926 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0EF8DA7149C35BF003C0926 /* main.m in Sources */,
+				A0EF8DAB149C35BF003C0926 /* SOCAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0EF8DAC149C35BF003C0926 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0EF8DC0149C35BF003C0926 /* Circles_of_SorceryTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A0EF8DB7149C35BF003C0926 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A0EF8D95149C35BF003C0926 /* Circles of Sorcery */;
+			targetProxy = A0EF8DB6149C35BF003C0926 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A0EF8DA3149C35BF003C0926 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A0EF8DA4149C35BF003C0926 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A0EF8DBB149C35BF003C0926 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A0EF8DBC149C35BF003C0926 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A0EF8DC1149C35BF003C0926 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A0EF8DC2149C35BF003C0926 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A0EF8DC4149C35BF003C0926 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Circles of Sorcery/Circles of Sorcery-Prefix.pch";
+				INFOPLIST_FILE = "Circles of Sorcery/Circles of Sorcery-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		A0EF8DC5149C35BF003C0926 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Circles of Sorcery/Circles of Sorcery-Prefix.pch";
+				INFOPLIST_FILE = "Circles of Sorcery/Circles of Sorcery-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		A0EF8DC7149C35BF003C0926 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Circles of Sorcery.app/Circles of Sorcery";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Circles of Sorcery/Circles of Sorcery-Prefix.pch";
+				INFOPLIST_FILE = "Circles of SorceryTests/Circles of SorceryTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		A0EF8DC8149C35BF003C0926 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Circles of Sorcery.app/Circles of Sorcery";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Circles of Sorcery/Circles of Sorcery-Prefix.pch";
+				INFOPLIST_FILE = "Circles of SorceryTests/Circles of SorceryTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A0EF8D90149C35BF003C0926 /* Build configuration list for PBXProject "Circles of Sorcery" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0EF8DC1149C35BF003C0926 /* Debug */,
+				A0EF8DC2149C35BF003C0926 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A0EF8DC3149C35BF003C0926 /* Build configuration list for PBXNativeTarget "Circles of Sorcery" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0EF8DC4149C35BF003C0926 /* Debug */,
+				A0EF8DC5149C35BF003C0926 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A0EF8DC6149C35BF003C0926 /* Build configuration list for PBXNativeTarget "Circles of SorceryTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0EF8DC7149C35BF003C0926 /* Debug */,
+				A0EF8DC8149C35BF003C0926 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A0EF8D8D149C35BF003C0926 /* Project object */;
+}
