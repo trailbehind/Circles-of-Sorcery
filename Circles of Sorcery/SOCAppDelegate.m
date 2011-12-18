@@ -7,6 +7,7 @@
 //
 
 #import "SOCAppDelegate.h"
+#import "SOCGameLayout.h"
 
 @implementation SOCAppDelegate
 
@@ -17,6 +18,10 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+  
+  SOCGameLayout *gl = [[SOCGameLayout alloc]init];
+  [self.window addSubview:gl.view];
+  
     [self.window makeKeyAndVisible];
     return YES;
 }

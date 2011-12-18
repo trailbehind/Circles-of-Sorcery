@@ -1,0 +1,40 @@
+Circle of Nature,Nature,Circle,0,none,none,All of your nature spells require 1 less life force.,none
+Circle of Nature,Nature,Circle,0,none,none,All of your nature spells require 1 less life force.,none
+Circle of Nature,Nature,Circle,0,none,none,All of your nature spells require 1 less life force.,none
+Circle of Nature,Nature,Circle,0,none,none,All of your nature spells require 1 less life force.,none
+Circle of Nature,Nature,Circle,0,none,none,All of your nature spells require 1 less life force.,none
+Circle of Nature,Nature,Circle,0,none,none,All of your nature spells require 1 less life force.,none
+Circle of Nature,Nature,Circle,0,none,none,All of your nature spells require 1 less life force.,none
+Circle of Nature,Nature,Circle,0,none,none,All of your nature spells require 1 less life force.,none
+Circle of Nature,Nature,Circle,0,none,none,All of your nature spells require 1 less life force.,none
+Emerald Python,Nature,Beast,2,0,Animal,Search for spellbook for a Circle of Nature and put it into play.,Familiar
+Elven Apprentice,Nature,Beast,1,1,Elf,All of your nature spells require 1 less life force.,Fast
+Elven Horseman,Nature,Beast,3,3,Elf,none,Fast
+Elven Mystic,Nature,Beast,3,2,Elf,"Elves regenerate 2 life force per turn instead of 1. You regenerate 1 life force for every elf you have in play, instead of 1.",Fast
+Elven Potion Maker,Nature,Beast,3,1,Elf,Search your spellbook for a potion and put it into play.,Fast
+Elven Artificer,Nature,Beast,4,1,Elf,Search your spellbook for a focus item and put it into play.,Fast
+Elven Farmer,Nature,Beast,4,1,Elf,Search your spellbook for a place item and put it into play.,Fast
+Centaur of the Pines,Nature,Beast,4,4,none,none,"Fast, Ranged Attack"
+Trusted Steed,Nature,Beast,2,1,Animal,none,"Fast, Ride"
+Warhorse,Nature,Beast,2,1,Animal,"As long as you are riding Warhorse, Warhorse has power equal to your life force, to a maximum of 5.","Fast, Ride"
+Unicorn of the Shining Light,Nature,Beast,5,2,Animal,Cast spirit spells while riding Unicorn of the Shining Light.,"Fast, Ride"
+Fleas,Nature,Beast,1,1,Animal,Fleas cannot be attacked,Ranged Attack
+Roc with Rocks,Nature,Beast,3,3,Animal,none,Ranged Attack
+Mother Nature,Nature,Beast,6,8,Spirit,"Each turn, you must destroy one of your circles. If you do not have a circle of nature in play, you lose the game.",Unique
+The Erlking,Nature,Beast,6,*,Elf,"The Erlking has power equal to the number of beasts you control. Each turn, you may search your spellbook for a creature with less power than the Erlking and put it into play.","Unique, Fast"
+Bramble Armor,Nature,Enchantment,1,none,none,"Whenever a beast removes your life force, that beast loses 1 life force.",none
+Enchanted Forest,Nature,Enchantment,2,none,none,All of your nature spells cost 1 less to cast. All of your nature beast have 1 more life force. All of your nature beasts have 1 more power.,none
+Animal Ward,Nature,Enchmantment,1,none,none,Your nature beasts lose 1 less life force when attacked.,none
+Snapping Turtle,Nature,Beast,1,2,Animal,"If you do not control a Circle of the Nature, Snapping Turtle removes 2 life force from you.",none
+Black Bear,Nature,Beast,2,2,Animal,none,none
+Fox of Nine-Tails,Nature,Beast,2,*,Animal,Fox of Nine-Tails has power equal to the number of different types of cards you have in play.,none
+Grizzly Bear,Nature,Beast,3,3,Animal,none,none
+Trained Monkey,Nature,Beast,3,2,Animal,Trained Monkey can use a focus.,none
+Mountain Lion,Nature,Beast,4,5,Animal,none,none
+Bull Moose,Nature,Beast,4,3,Animal,You only lose two life force when you summon Bull Moose,none
+Granite Skinned Rhino,Nature,Beast,5,4,Animal,Granite Skinned Rhino loses half as much life force when it fights.,none
+Angry Hippo,Nature,Beast,5,6,Animal,none,none
+Emerald Ring,Item,Focus,0,none,none,Nature spells cost you 1 less life force to cast.,none
+Blasting Rod,Item,Focus,0,none,none,All of your elemental spells cost 1 less life force to cast.,none
+Pipes of the Satyr,Item,Focus,0,none,none,"As a reaction, you may prevent the attack of any creature. You may not play any other reactions until your next turn.",none
+Crystal Cave,Item,Place,0,none,none,You gain an additional life force at the beginning of your turn.,none
