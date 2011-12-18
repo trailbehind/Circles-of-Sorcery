@@ -6,13 +6,19 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+
+@class COSPlusMinusCounter, COSDeckView;
 
 @interface COSPlayerArea : UIView {
+  
+  COSPlusMinusCounter *lifeCounter, *manaCounter;
+  COSDeckView *deck;
   
 }
 
 - (id)initWithFrame:(CGRect)frame deckName:(NSString*)deckName;
+- (void) endTurn;
+
 
 
 @end

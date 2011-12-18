@@ -18,6 +18,9 @@
   UILabel *nameLabel, *costLabel, *textLabel, *typeLabel, *powerLabel, *keywordsLabel;
   UIImageView *artwork;
   
+  int lifeValue, maxLife;
+  
+  
 }
 
 @property(nonatomic,retain) COSHandContainer *handContainer;

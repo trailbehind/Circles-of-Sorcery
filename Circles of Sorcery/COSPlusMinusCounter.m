@@ -9,15 +9,36 @@
 #import "COSPlusMinusCounter.h"
 #import "COSConstants.h"
 
-@implementation PlusMinusCounter
+@implementation COSPlusMinusCounter
 
+- (void) dealloc {
+  [titleLabel release];
+  [counterLabel release];
+  [super dealloc];
+}
+
+
+- (void) setCounterLabelFrame {
+  CGSize maximumLabelSize = CGSizeMake(200,17);
+  CGSize expectedLabelSize = [counterLabel.text sizeWithFont:counterLabel.font 
+                                         constrainedToSize:maximumLabelSize 
+                                             lineBreakMode:counterLabel.lineBreakMode];
+  counterLabel.frame = CGRectMake(self.frame.size.width/2-expectedLabelSize.width/2, 
+                                  titleLabel.frame.origin.y + titleLabel.frame.size.height - 4, 
+                                  expectedLabelSize.width, 
+                                  expectedLabelSize.height);
+}
 
 - (void) incrementCounter {
-  
+  counterValue++;
+  counterLabel.text = [NSString stringWithFormat:@"%d", counterValue];
+  [self setCounterLabelFrame];
 }
 
 - (void) decrementCounter {
-  
+  counterValue--;
+  counterLabel.text = [NSString stringWithFormat:@"%d", counterValue];
+  [self setCounterLabelFrame];
 }
 
 
@@ -32,28 +53,24 @@
         forControlEvents:UIControlEventTouchUpInside];
   [self addSubview:minusButton];
   
-  UILabel *titleLabel = [[[UILabel alloc]init]autorelease];
+  titleLabel = [[UILabel alloc]init];
   titleLabel.backgroundColor = [UIColor clearColor];
   titleLabel.text = title;
   
-  CGSize maximumLabelSize = CGSizeMake(200,20);
+  CGSize maximumLabelSize = CGSizeMake(200,17);
   CGSize expectedLabelSize = [titleLabel.text sizeWithFont:titleLabel.font 
                                          constrainedToSize:maximumLabelSize 
                                              lineBreakMode:titleLabel.lineBreakMode];
   titleLabel.frame = CGRectMake(minusButton.frame.size.width+PADDING/2, 
-                                minusButton.frame.size.height+PADDING/2, 
+                                -5, 
                                 expectedLabelSize.width, 
                                 expectedLabelSize.height);    
   [self addSubview:titleLabel];
   
-  UILabel *counterLabel = [[[UILabel alloc]init]autorelease];
+  counterLabel = [[UILabel alloc]init];
   counterLabel.backgroundColor = [UIColor clearColor];
+  counterLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:16];
   counterLabel.text = [NSString stringWithFormat:@"%d", counterValue];
-  int counterLabelWidth = 30;
-  counterLabel.frame = CGRectMake(titleLabel.frame.origin.x/2+titleLabel.frame.size.width/2-counterLabelWidth/2, 
-                                  titleLabel.frame.size.height+3, 
-                                  counterLabelWidth, 
-                                  20);
   [self addSubview:counterLabel];
   
   UIButton *plusButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -66,12 +83,14 @@
         forControlEvents:UIControlEventTouchUpInside];
   [self addSubview:plusButton];
   
+  self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, buttonSize*2+PADDING+titleLabel.frame.size.width, 40);
+  [self setCounterLabelFrame];
 }
 
-- (id)initWithFrame:(CGRect)frame title:(NSString*)title {
+- (id)initWithFrame:(CGRect)frame title:(NSString*)title startCount:(int)startCount {
   self = [super initWithFrame:frame];
   if (self) {
-    counterValue = 0;
+    counterValue = startCount;
     [self addButtonsAndLabels:title];
   }
   return self;

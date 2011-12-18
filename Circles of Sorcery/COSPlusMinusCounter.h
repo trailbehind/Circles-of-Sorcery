@@ -8,11 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PlusMinusCounter : UIView {
+@interface COSPlusMinusCounter : UIView {
 
   int counterValue;
+  UILabel *counterLabel, *titleLabel;
   
 }
+
+
+- (id)initWithFrame:(CGRect)frame title:(NSString*)title startCount:(int)startCount;
+- (void) incrementCounter;
+- (void) decrementCounter;
 
 
 @end

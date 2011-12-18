@@ -10,6 +10,7 @@
 #import "COSConstants.h"
 #import "COSDiscardPileView.h"
 #import "COSHandContainer.h"
+#import "COSDiscardContainer.h"
 #import <QuartzCore/QuartzCore.h>
 #import "NSString+multiLineAdjust.h"
 
@@ -34,9 +35,25 @@
 }
 
 
+- (void) incrementLife {
+  lifeValue = MIN(maxLife, lifeValue+1);
+  costLabel.text = [NSString stringWithFormat:@"%d", lifeValue];
+}
+
+
+- (void) decrementLife {
+  lifeValue--;
+  costLabel.text = [NSString stringWithFormat:@"%d", lifeValue];
+  if (lifeValue == 0) {
+    [discardPile addCard:self];
+  }
+}
+
+
 - (id)initWithCardInfo:(NSDictionary*)cardInfo {
     self = [super init];
     if (self) {
+      
       self.frame = CGRectMake(PADDING, PADDING, CARD_WIDTH, CARD_HEIGHT);
       self.layer.borderColor = CARD_BORDER_COLOR;
       self.layer.borderWidth = CARD_BORDER_WIDTH;
@@ -64,11 +81,38 @@
       costLabel.textAlignment = UITextAlignmentRight;
       costLabel.text = [cardInfo objectForKey:@"cost"];
       [self addSubview:costLabel];
+      lifeValue = [[cardInfo objectForKey:@"cost"]intValue];
+      maxLife = [[cardInfo objectForKey:@"cost"]intValue];
       
+      int artworkWidth = self.frame.size.width-PADDING*2;
+      if ([[cardInfo objectForKey:@"type"] isEqualToString:@"Beast"]) {
+        artworkWidth -=40;
+        int buttonSize = 30;
+        UIButton *plusButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [plusButton setTitle:@"+" forState:UIControlStateNormal];
+        plusButton.frame = CGRectMake(self.frame.size.width - buttonSize-PADDING, 
+                                      costLabelFrame.size.height+costLabelFrame.origin.y+PADDING/2, 
+                                      buttonSize, buttonSize);
+        [plusButton addTarget:self 
+                       action:@selector(incrementLife) 
+             forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:plusButton];
+
+        UIButton *minusButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [minusButton setTitle:@"-" forState:UIControlStateNormal];
+        minusButton.frame = CGRectMake(self.frame.size.width - buttonSize-PADDING, 
+                                      costLabelFrame.size.height+costLabelFrame.origin.y+PADDING+buttonSize, 
+                                      buttonSize, buttonSize);
+        [minusButton addTarget:self 
+                       action:@selector(decrementLife) 
+             forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:minusButton];
+
+      }
       CGRect artworkFrame = CGRectMake(PADDING, 
                                          PADDING*3, 
-                                         self.frame.size.width-PADDING*2, 
-                                         PADDING*5);
+                                         artworkWidth, 
+                                         PADDING*6.5);
       artwork = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@""]];
       artwork.backgroundColor = [UIColor blackColor];
       artwork.frame = artworkFrame;
@@ -155,6 +199,7 @@
   
   if (![handContainer.cards containsObject:self]) {
     if (!firstTouchTime) {
+    NSLog(@"First touch");
       firstTouchTime = [[NSDate date]retain];
       [NSTimer scheduledTimerWithTimeInterval:1
                                        target:self 
@@ -162,6 +207,12 @@
                                      userInfo:nil
                                       repeats:NO];
     } else {
+      NSLog(@"Second touch");
+      if ([discardPile.cards containsObject:self]) {
+        return;
+      }
+      [firstTouchTime release];
+      firstTouchTime = nil;
       [UIView beginAnimations:nil context:nil];
       [UIView setAnimationDuration:0.25];
       if (CGAffineTransformEqualToTransform(self.transform,CGAffineTransformIdentity)) {
@@ -171,8 +222,6 @@
         self.transform = CGAffineTransformIdentity;
       }
       [UIView commitAnimations];
-      [firstTouchTime release];
-      firstTouchTime = nil;
     }
 
   }
@@ -196,6 +245,24 @@
 
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+  
+  if ([discardPile.cards containsObject:self]) {
+    if (firstTouchTime) {
+      [firstTouchTime release];
+      firstTouchTime = nil;
+      if ([discardPile.cards containsObject:self]) {
+        [discardPile.cards removeObject:self];
+        [discardPile.discardContainer.cards removeObject:self];
+        [handContainer addCard:self];
+        [handContainer layoutCards];
+        NSLog(@"discard pile cards are %d", [discardPile.cards count]);
+        NSLog(@"discard pile container cards are %d", [discardPile.discardContainer.cards count]);
+      }
+      
+    }
+    return;
+  }
+
   handContainer.scrollEnabled = YES;
   if (self.frame.origin.y >= [self superview].frame.size.height-CARD_HEIGHT-20-CARD_HEIGHT) {
     int numberOfPositions = (int)handContainer.contentSize.width 

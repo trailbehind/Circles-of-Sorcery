@@ -59,7 +59,7 @@
 
 - (void) addCard:(COSCard*)card {  
   [cards addObject:card];
-  card.userInteractionEnabled = NO;
+  // card.userInteractionEnabled = NO;
 }
 
 

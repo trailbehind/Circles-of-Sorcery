@@ -13,10 +13,12 @@
 #import <QuartzCore/QuartzCore.h>
 
 @implementation COSDiscardPileView
+@synthesize cards, discardContainer;
 
 - (void) dealloc {
   [cards release];
   [firstTouchTime release];
+  [discardContainer release];
   [super dealloc];
 }
 
@@ -80,12 +82,15 @@
                                       self.frame.origin.y, 
                                       [self superview].frame.size.width, 
                                       CARD_HEIGHT+20);  
-  COSDiscardContainer *discardPile = [[[COSDiscardContainer alloc]initWithFrame:handRegionFrame discardPile:self]autorelease];
+  [[discardContainer superview] addSubview:discardContainer];
+  [discardContainer release];
+  discardContainer = nil;
+  discardContainer = [[COSDiscardContainer alloc]initWithFrame:handRegionFrame discardPile:self];
   for (COSCard *card in cards) {
-    [discardPile addCard:card];
+    [discardContainer addCard:card];
   }
-  [[self superview] addSubview:discardPile];
-  [discardPile layoutCards];
+  [[self superview] addSubview:discardContainer];
+  [discardContainer layoutCards];
 
 }
 

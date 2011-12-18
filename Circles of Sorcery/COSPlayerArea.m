@@ -20,6 +20,20 @@
 @implementation COSPlayerArea
 
 
+- (void) dealloc {
+  [lifeCounter release];
+  [manaCounter release];
+  [deck release];
+  [super dealloc];
+}
+
+
+- (void) endTurn {
+  [manaCounter incrementCounter];
+  [deck drawCard];
+}
+
+
 NSString *readLineAsNSString(FILE *file) {
   char buffer[4096];
   
@@ -97,10 +111,6 @@ NSString *readLineAsNSString(FILE *file) {
 
 
 - (void) addDeck:(COSHandContainer*)handContainer deckName:(NSString*)deckName {
-  
-  
-  
-  
   int deckHeight = CARD_HEIGHT * .75;
   int deckWidth = CARD_WIDTH * .75;
   CGRect discardFrame = CGRectMake(self.frame.size.width- deckWidth - PADDING, 
@@ -116,8 +126,8 @@ NSString *readLineAsNSString(FILE *file) {
   CGRect deckFrame = CGRectMake(self.frame.size.width-deckWidth - PADDING, 
                                 self.frame.size.height-CARD_HEIGHT-20 - deckHeight - PADDING, 
                                 deckWidth, deckHeight);
-  COSDeckView *deck = [[[COSDeckView alloc]initWithFrame:deckFrame 
-                                           handContainer:handContainer]autorelease];
+  deck = [[COSDeckView alloc]initWithFrame:deckFrame 
+                                           handContainer:handContainer];
   deck.autoresizingMask = UIViewAutoresizingFlexibleTopMargin |UIViewAutoresizingFlexibleLeftMargin;
   [self addSubview:deck];
   
@@ -157,6 +167,17 @@ NSString *readLineAsNSString(FILE *file) {
 
 - (void) setupPlayArea:(NSString*)deckName {
   
+  
+  CGRect lifeCounterFrame = CGRectMake(PADDING, 90, 0, 0);
+  lifeCounter = [[COSPlusMinusCounter alloc]initWithFrame:lifeCounterFrame title:@"Life" startCount:10];
+  [self addSubview:lifeCounter];
+
+  CGRect manaCounterFrame = CGRectMake(PADDING, 
+                                       lifeCounterFrame.origin.y+lifeCounterFrame.size.height+PADDING*6, 
+                                       0, 0);
+  manaCounter = [[COSPlusMinusCounter alloc]initWithFrame:manaCounterFrame title:@"Mana" startCount:1];
+  [self addSubview:manaCounter];
+
   CGRect handRegionFrame = CGRectMake(0,
                                       self.frame.size.height-CARD_HEIGHT-20, 
                                       self.frame.size.width, 

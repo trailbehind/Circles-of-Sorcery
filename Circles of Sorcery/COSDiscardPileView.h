@@ -6,13 +6,17 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-@class COSCard;
+@class COSCard, COSDiscardContainer;
 
 @interface COSDiscardPileView : UIView {
   
   NSMutableArray *cards;
   NSDate *firstTouchTime;
+  COSDiscardContainer *discardContainer;
 }
+
+@property(nonatomic,retain) NSMutableArray *cards;
+@property(nonatomic,retain) COSDiscardContainer *discardContainer;
 
 - (void) addCard:(COSCard*)card;
 

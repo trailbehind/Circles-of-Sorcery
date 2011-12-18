@@ -48,6 +48,7 @@
   currentPlayerArea.frame = self.view.bounds;
   otherPlayerArea.transform = CGAffineTransformMakeRotation(M_PI);
   otherPlayerArea.frame = opponentTray.bounds;
+  [otherPlayerArea endTurn];
   [UIView commitAnimations];
   [self.view sendSubviewToBack:endTurnButton];
   [self.view sendSubviewToBack:currentPlayerArea];
