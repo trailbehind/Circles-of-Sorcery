@@ -1,13 +1,13 @@
 //
-//  SOCConstants.m
+//  COSConstants.m
 //  Circles of Sorcery
 //
 //  Created by EFB on 12/17/11.
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "SOCConstants.h"
+#import "COSConstants.h"
 
-@implementation SOCConstants
+@implementation COSConstants
 
 @end

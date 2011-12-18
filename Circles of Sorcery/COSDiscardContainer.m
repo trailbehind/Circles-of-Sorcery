@@ -1,17 +1,17 @@
 //
-//  SOCDiscardContainer.m
+//  COSDiscardContainer.m
 //  Circles of Sorcery
 //
 //  Created by EFB on 12/17/11.
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "SOCDiscardContainer.h"
-#import "SOCDiscardPileView.h"
-#import "SOCConstants.h"
-#import "SOCCard.h"
+#import "COSDiscardContainer.h"
+#import "COSDiscardPileView.h"
+#import "COSConstants.h"
+#import "COSCard.h"
 
-@implementation SOCDiscardContainer
+@implementation COSDiscardContainer
 
 
 - (void) dealloc {
@@ -47,7 +47,7 @@
 }
 
 
-- (id)initWithFrame:(CGRect)frame discardPile:(SOCDiscardPileView*)dp {
+- (id)initWithFrame:(CGRect)frame discardPile:(COSDiscardPileView*)dp {
   self = [super initWithFrame:frame];
   if (self) {
     discardPile = [dp retain];
@@ -57,7 +57,7 @@
 }
 
 
-- (void) addCard:(SOCCard*)card {  
+- (void) addCard:(COSCard*)card {  
   [cards addObject:card];
   card.userInteractionEnabled = NO;
 }

@@ -1,19 +1,19 @@
 //
-//  SOCCard.m
+//  COSCard.m
 //  Circles of Sorcery
 //
 //  Created by EFB on 12/16/11.
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "SOCCard.h"
-#import "SOCConstants.h"
-#import "SOCDiscardPileView.h"
-#import "SOCHandContainer.h"
+#import "COSCard.h"
+#import "COSConstants.h"
+#import "COSDiscardPileView.h"
+#import "COSHandContainer.h"
 #import <QuartzCore/QuartzCore.h>
 #import "NSString+multiLineAdjust.h"
 
-@implementation SOCCard
+@implementation COSCard
 @synthesize handContainer, discardPile;
 
 

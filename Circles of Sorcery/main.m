@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-#import "SOCAppDelegate.h"
+#import "COSAppDelegate.h"
 
 int main(int argc, char *argv[])
 {
   @autoreleasepool {
-      return UIApplicationMain(argc, argv, nil, NSStringFromClass([SOCAppDelegate class]));
+      return UIApplicationMain(argc, argv, nil, NSStringFromClass([COSAppDelegate class]));
   }
 }

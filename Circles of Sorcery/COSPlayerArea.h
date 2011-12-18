@@ -1,5 +1,5 @@
 //
-//  SOCPlayerArea.h
+//  COSPlayerArea.h
 //  Circles of Sorcery
 //
 //  Created by EFB on 12/17/11.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SOCPlayerArea : UIView {
+@interface COSPlayerArea : UIView {
   
 }
 

@@ -1,5 +1,5 @@
 //
-//  SOCConstants.h
+//  COSConstants.h
 //  Circles of Sorcery
 //
 //  Created by EFB on 12/17/11.
@@ -15,6 +15,6 @@
 #define TEXT_FONT [UIFont fontWithName:@"Helvetica" size:14]
 
 
-@interface SOCConstants : NSObject
+@interface COSConstants : NSObject
 
 @end

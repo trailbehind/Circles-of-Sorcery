@@ -1,18 +1,18 @@
 //
-//  SOCDeckView.m
+//  COSDeckView.m
 //  Circles of Sorcery
 //
 //  Created by EFB on 12/16/11.
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "SOCDeckView.h"
-#import "SOCCard.h"
-#import "SOCConstants.h"
-#import "SOCHandContainer.h"
+#import "COSDeckView.h"
+#import "COSCard.h"
+#import "COSConstants.h"
+#import "COSHandContainer.h"
 #import <QuartzCore/QuartzCore.h>
 
-@implementation SOCDeckView
+@implementation COSDeckView
 
 
 - (void) dealloc {
@@ -23,7 +23,7 @@
 }
 
 
-- (id)initWithFrame:(CGRect)frame handContainer:(SOCHandContainer*)hc {
+- (id)initWithFrame:(CGRect)frame handContainer:(COSHandContainer*)hc {
     self = [super initWithFrame:frame];
     if (self) {
       handContainer = [hc retain];
@@ -46,7 +46,7 @@
     return self;
 }
 
-- (void) addCard:(SOCCard*)card {
+- (void) addCard:(COSCard*)card {
   [cards addObject:card];
 }
 
@@ -55,7 +55,7 @@
   if ([cards count] == 0) {
     return;
   }
-  SOCCard *card = [cards lastObject];
+  COSCard *card = [cards lastObject];
   card.handContainer = handContainer;
   [handContainer.cards addObject:card];
   [cards removeLastObject];

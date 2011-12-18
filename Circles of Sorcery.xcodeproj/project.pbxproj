@@ -7,26 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A0DF1462149E84AD001ECE34 /* COSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DF144D149E84AD001ECE34 /* COSAppDelegate.m */; };
+		A0DF1463149E84AD001ECE34 /* COSCard.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DF144F149E84AD001ECE34 /* COSCard.m */; };
+		A0DF1464149E84AD001ECE34 /* COSConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DF1451149E84AD001ECE34 /* COSConstants.m */; };
+		A0DF1465149E84AD001ECE34 /* COSDeckView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DF1453149E84AD001ECE34 /* COSDeckView.m */; };
+		A0DF1466149E84AD001ECE34 /* COSDiscardContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DF1455149E84AD001ECE34 /* COSDiscardContainer.m */; };
+		A0DF1467149E84AD001ECE34 /* COSDiscardPileView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DF1457149E84AD001ECE34 /* COSDiscardPileView.m */; };
+		A0DF1468149E84AD001ECE34 /* COSGameLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DF1459149E84AD001ECE34 /* COSGameLayout.m */; };
+		A0DF1469149E84AD001ECE34 /* COSHandContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DF145B149E84AD001ECE34 /* COSHandContainer.m */; };
+		A0DF146A149E84AD001ECE34 /* COSOpponentTray.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DF145D149E84AD001ECE34 /* COSOpponentTray.m */; };
+		A0DF146B149E84AD001ECE34 /* COSPlayerArea.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DF145F149E84AD001ECE34 /* COSPlayerArea.m */; };
+		A0DF146C149E84AD001ECE34 /* COSPlusMinusCounter.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DF1461149E84AD001ECE34 /* COSPlusMinusCounter.m */; };
 		A0EF8D9B149C35BF003C0926 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF8D9A149C35BF003C0926 /* UIKit.framework */; };
 		A0EF8D9D149C35BF003C0926 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF8D9C149C35BF003C0926 /* Foundation.framework */; };
 		A0EF8D9F149C35BF003C0926 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF8D9E149C35BF003C0926 /* CoreGraphics.framework */; };
 		A0EF8DA5149C35BF003C0926 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A0EF8DA3149C35BF003C0926 /* InfoPlist.strings */; };
 		A0EF8DA7149C35BF003C0926 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EF8DA6149C35BF003C0926 /* main.m */; };
-		A0EF8DAB149C35BF003C0926 /* SOCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EF8DAA149C35BF003C0926 /* SOCAppDelegate.m */; };
 		A0EF8DB3149C35BF003C0926 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF8DB2149C35BF003C0926 /* SenTestingKit.framework */; };
 		A0EF8DB4149C35BF003C0926 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF8D9A149C35BF003C0926 /* UIKit.framework */; };
 		A0EF8DB5149C35BF003C0926 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EF8D9C149C35BF003C0926 /* Foundation.framework */; };
 		A0EF8DBD149C35BF003C0926 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A0EF8DBB149C35BF003C0926 /* InfoPlist.strings */; };
 		A0EF8DC0149C35BF003C0926 /* Circles_of_SorceryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EF8DBF149C35BF003C0926 /* Circles_of_SorceryTests.m */; };
-		A0EF8DCC149C35F0003C0926 /* SOCGameLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EF8DCA149C35F0003C0926 /* SOCGameLayout.m */; };
-		A0EF8DD6149C3DE8003C0926 /* SOCCard.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EF8DD5149C3DE8003C0926 /* SOCCard.m */; };
-		A0EF8DD9149C43C9003C0926 /* SOCHandContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EF8DD8149C43C8003C0926 /* SOCHandContainer.m */; };
-		A0EF8DDC149C57F6003C0926 /* SOCDeckView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EF8DDB149C57F6003C0926 /* SOCDeckView.m */; };
-		A0EF8DDF149D0081003C0926 /* SOCConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EF8DDE149D0080003C0926 /* SOCConstants.m */; };
-		A0EF8DE2149D0792003C0926 /* SOCDiscardPileView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EF8DE1149D0792003C0926 /* SOCDiscardPileView.m */; };
-		A0EF8DE5149D529E003C0926 /* SOCOpponentTray.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EF8DE4149D529E003C0926 /* SOCOpponentTray.m */; };
-		A0EF8DE8149D53E5003C0926 /* SOCPlayerArea.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EF8DE7149D53E4003C0926 /* SOCPlayerArea.m */; };
-		A0EF8DEB149D604E003C0926 /* SOCDiscardContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EF8DEA149D604E003C0926 /* SOCDiscardContainer.m */; };
 		A0EF8DED149D7829003C0926 /* cards.csv in Resources */ = {isa = PBXBuildFile; fileRef = A0EF8DEC149D7829003C0926 /* cards.csv */; };
 		A0EF8DF0149D94CB003C0926 /* NSString+multiLineAdjust.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EF8DEF149D94CB003C0926 /* NSString+multiLineAdjust.m */; };
 		A0EF8DF3149D9B2D003C0926 /* elemental_deck.csv in Resources */ = {isa = PBXBuildFile; fileRef = A0EF8DF1149D9B2D003C0926 /* elemental_deck.csv */; };
@@ -45,6 +46,28 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A0DF144C149E84AD001ECE34 /* COSAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COSAppDelegate.h; sourceTree = "<group>"; };
+		A0DF144D149E84AD001ECE34 /* COSAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COSAppDelegate.m; sourceTree = "<group>"; };
+		A0DF144E149E84AD001ECE34 /* COSCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COSCard.h; sourceTree = "<group>"; };
+		A0DF144F149E84AD001ECE34 /* COSCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COSCard.m; sourceTree = "<group>"; };
+		A0DF1450149E84AD001ECE34 /* COSConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COSConstants.h; sourceTree = "<group>"; };
+		A0DF1451149E84AD001ECE34 /* COSConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COSConstants.m; sourceTree = "<group>"; };
+		A0DF1452149E84AD001ECE34 /* COSDeckView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COSDeckView.h; sourceTree = "<group>"; };
+		A0DF1453149E84AD001ECE34 /* COSDeckView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COSDeckView.m; sourceTree = "<group>"; };
+		A0DF1454149E84AD001ECE34 /* COSDiscardContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COSDiscardContainer.h; sourceTree = "<group>"; };
+		A0DF1455149E84AD001ECE34 /* COSDiscardContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COSDiscardContainer.m; sourceTree = "<group>"; };
+		A0DF1456149E84AD001ECE34 /* COSDiscardPileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COSDiscardPileView.h; sourceTree = "<group>"; };
+		A0DF1457149E84AD001ECE34 /* COSDiscardPileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COSDiscardPileView.m; sourceTree = "<group>"; };
+		A0DF1458149E84AD001ECE34 /* COSGameLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COSGameLayout.h; sourceTree = "<group>"; };
+		A0DF1459149E84AD001ECE34 /* COSGameLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COSGameLayout.m; sourceTree = "<group>"; };
+		A0DF145A149E84AD001ECE34 /* COSHandContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COSHandContainer.h; sourceTree = "<group>"; };
+		A0DF145B149E84AD001ECE34 /* COSHandContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COSHandContainer.m; sourceTree = "<group>"; };
+		A0DF145C149E84AD001ECE34 /* COSOpponentTray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COSOpponentTray.h; sourceTree = "<group>"; };
+		A0DF145D149E84AD001ECE34 /* COSOpponentTray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COSOpponentTray.m; sourceTree = "<group>"; };
+		A0DF145E149E84AD001ECE34 /* COSPlayerArea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COSPlayerArea.h; sourceTree = "<group>"; };
+		A0DF145F149E84AD001ECE34 /* COSPlayerArea.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COSPlayerArea.m; sourceTree = "<group>"; };
+		A0DF1460149E84AD001ECE34 /* COSPlusMinusCounter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COSPlusMinusCounter.h; sourceTree = "<group>"; };
+		A0DF1461149E84AD001ECE34 /* COSPlusMinusCounter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COSPlusMinusCounter.m; sourceTree = "<group>"; };
 		A0EF8D96149C35BF003C0926 /* Circles of Sorcery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Circles of Sorcery.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0EF8D9A149C35BF003C0926 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A0EF8D9C149C35BF003C0926 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -53,32 +76,12 @@
 		A0EF8DA4149C35BF003C0926 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A0EF8DA6149C35BF003C0926 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A0EF8DA8149C35BF003C0926 /* Circles of Sorcery-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Circles of Sorcery-Prefix.pch"; sourceTree = "<group>"; };
-		A0EF8DA9149C35BF003C0926 /* SOCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SOCAppDelegate.h; sourceTree = "<group>"; };
-		A0EF8DAA149C35BF003C0926 /* SOCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SOCAppDelegate.m; sourceTree = "<group>"; };
 		A0EF8DB1149C35BF003C0926 /* Circles of SorceryTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Circles of SorceryTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0EF8DB2149C35BF003C0926 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		A0EF8DBA149C35BF003C0926 /* Circles of SorceryTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Circles of SorceryTests-Info.plist"; sourceTree = "<group>"; };
 		A0EF8DBC149C35BF003C0926 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A0EF8DBE149C35BF003C0926 /* Circles_of_SorceryTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Circles_of_SorceryTests.h; sourceTree = "<group>"; };
 		A0EF8DBF149C35BF003C0926 /* Circles_of_SorceryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Circles_of_SorceryTests.m; sourceTree = "<group>"; };
-		A0EF8DC9149C35F0003C0926 /* SOCGameLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOCGameLayout.h; sourceTree = "<group>"; };
-		A0EF8DCA149C35F0003C0926 /* SOCGameLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOCGameLayout.m; sourceTree = "<group>"; };
-		A0EF8DD4149C3DE8003C0926 /* SOCCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOCCard.h; sourceTree = "<group>"; };
-		A0EF8DD5149C3DE8003C0926 /* SOCCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOCCard.m; sourceTree = "<group>"; };
-		A0EF8DD7149C43C8003C0926 /* SOCHandContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOCHandContainer.h; sourceTree = "<group>"; };
-		A0EF8DD8149C43C8003C0926 /* SOCHandContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOCHandContainer.m; sourceTree = "<group>"; };
-		A0EF8DDA149C57F6003C0926 /* SOCDeckView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOCDeckView.h; sourceTree = "<group>"; };
-		A0EF8DDB149C57F6003C0926 /* SOCDeckView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOCDeckView.m; sourceTree = "<group>"; };
-		A0EF8DDD149D0080003C0926 /* SOCConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOCConstants.h; sourceTree = "<group>"; };
-		A0EF8DDE149D0080003C0926 /* SOCConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOCConstants.m; sourceTree = "<group>"; };
-		A0EF8DE0149D0792003C0926 /* SOCDiscardPileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOCDiscardPileView.h; sourceTree = "<group>"; };
-		A0EF8DE1149D0792003C0926 /* SOCDiscardPileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOCDiscardPileView.m; sourceTree = "<group>"; };
-		A0EF8DE3149D529D003C0926 /* SOCOpponentTray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOCOpponentTray.h; sourceTree = "<group>"; };
-		A0EF8DE4149D529E003C0926 /* SOCOpponentTray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOCOpponentTray.m; sourceTree = "<group>"; };
-		A0EF8DE6149D53E4003C0926 /* SOCPlayerArea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOCPlayerArea.h; sourceTree = "<group>"; };
-		A0EF8DE7149D53E4003C0926 /* SOCPlayerArea.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOCPlayerArea.m; sourceTree = "<group>"; };
-		A0EF8DE9149D604E003C0926 /* SOCDiscardContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOCDiscardContainer.h; sourceTree = "<group>"; };
-		A0EF8DEA149D604E003C0926 /* SOCDiscardContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOCDiscardContainer.m; sourceTree = "<group>"; };
 		A0EF8DEC149D7829003C0926 /* cards.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cards.csv; sourceTree = "<group>"; };
 		A0EF8DEE149D94CB003C0926 /* NSString+multiLineAdjust.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+multiLineAdjust.h"; sourceTree = "<group>"; };
 		A0EF8DEF149D94CB003C0926 /* NSString+multiLineAdjust.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+multiLineAdjust.m"; sourceTree = "<group>"; };
@@ -112,6 +115,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A0DF144A149E8472001ECE34 /* Card Data */ = {
+			isa = PBXGroup;
+			children = (
+				A0EF8DF1149D9B2D003C0926 /* elemental_deck.csv */,
+				A0EF8DF2149D9B2D003C0926 /* nature_deck.csv */,
+				A0EF8DEC149D7829003C0926 /* cards.csv */,
+			);
+			name = "Card Data";
+			sourceTree = "<group>";
+		};
+		A0DF144B149E848D001ECE34 /* Class Categories */ = {
+			isa = PBXGroup;
+			children = (
+				A0EF8DEE149D94CB003C0926 /* NSString+multiLineAdjust.h */,
+				A0EF8DEF149D94CB003C0926 /* NSString+multiLineAdjust.m */,
+				A0EF8DF5149D9C68003C0926 /* NSMutableArray+Shuffle.h */,
+				A0EF8DF6149D9C68003C0926 /* NSMutableArray+Shuffle.m */,
+			);
+			name = "Class Categories";
+			sourceTree = "<group>";
+		};
 		A0EF8D8B149C35BF003C0926 = {
 			isa = PBXGroup;
 			children = (
@@ -145,34 +169,31 @@
 		A0EF8DA0149C35BF003C0926 /* Circles of Sorcery */ = {
 			isa = PBXGroup;
 			children = (
-				A0EF8DF1149D9B2D003C0926 /* elemental_deck.csv */,
-				A0EF8DF2149D9B2D003C0926 /* nature_deck.csv */,
-				A0EF8DEC149D7829003C0926 /* cards.csv */,
-				A0EF8DA9149C35BF003C0926 /* SOCAppDelegate.h */,
-				A0EF8DAA149C35BF003C0926 /* SOCAppDelegate.m */,
+				A0DF144C149E84AD001ECE34 /* COSAppDelegate.h */,
+				A0DF144D149E84AD001ECE34 /* COSAppDelegate.m */,
+				A0DF144E149E84AD001ECE34 /* COSCard.h */,
+				A0DF144F149E84AD001ECE34 /* COSCard.m */,
+				A0DF1450149E84AD001ECE34 /* COSConstants.h */,
+				A0DF1451149E84AD001ECE34 /* COSConstants.m */,
+				A0DF1452149E84AD001ECE34 /* COSDeckView.h */,
+				A0DF1453149E84AD001ECE34 /* COSDeckView.m */,
+				A0DF1454149E84AD001ECE34 /* COSDiscardContainer.h */,
+				A0DF1455149E84AD001ECE34 /* COSDiscardContainer.m */,
+				A0DF1456149E84AD001ECE34 /* COSDiscardPileView.h */,
+				A0DF1457149E84AD001ECE34 /* COSDiscardPileView.m */,
+				A0DF1458149E84AD001ECE34 /* COSGameLayout.h */,
+				A0DF1459149E84AD001ECE34 /* COSGameLayout.m */,
+				A0DF145A149E84AD001ECE34 /* COSHandContainer.h */,
+				A0DF145B149E84AD001ECE34 /* COSHandContainer.m */,
+				A0DF145C149E84AD001ECE34 /* COSOpponentTray.h */,
+				A0DF145D149E84AD001ECE34 /* COSOpponentTray.m */,
+				A0DF145E149E84AD001ECE34 /* COSPlayerArea.h */,
+				A0DF145F149E84AD001ECE34 /* COSPlayerArea.m */,
+				A0DF1460149E84AD001ECE34 /* COSPlusMinusCounter.h */,
+				A0DF1461149E84AD001ECE34 /* COSPlusMinusCounter.m */,
+				A0DF144A149E8472001ECE34 /* Card Data */,
 				A0EF8DA1149C35BF003C0926 /* Supporting Files */,
-				A0EF8DC9149C35F0003C0926 /* SOCGameLayout.h */,
-				A0EF8DCA149C35F0003C0926 /* SOCGameLayout.m */,
-				A0EF8DD4149C3DE8003C0926 /* SOCCard.h */,
-				A0EF8DD5149C3DE8003C0926 /* SOCCard.m */,
-				A0EF8DD7149C43C8003C0926 /* SOCHandContainer.h */,
-				A0EF8DD8149C43C8003C0926 /* SOCHandContainer.m */,
-				A0EF8DDA149C57F6003C0926 /* SOCDeckView.h */,
-				A0EF8DDB149C57F6003C0926 /* SOCDeckView.m */,
-				A0EF8DDD149D0080003C0926 /* SOCConstants.h */,
-				A0EF8DDE149D0080003C0926 /* SOCConstants.m */,
-				A0EF8DE0149D0792003C0926 /* SOCDiscardPileView.h */,
-				A0EF8DE1149D0792003C0926 /* SOCDiscardPileView.m */,
-				A0EF8DE3149D529D003C0926 /* SOCOpponentTray.h */,
-				A0EF8DE4149D529E003C0926 /* SOCOpponentTray.m */,
-				A0EF8DE6149D53E4003C0926 /* SOCPlayerArea.h */,
-				A0EF8DE7149D53E4003C0926 /* SOCPlayerArea.m */,
-				A0EF8DE9149D604E003C0926 /* SOCDiscardContainer.h */,
-				A0EF8DEA149D604E003C0926 /* SOCDiscardContainer.m */,
-				A0EF8DEE149D94CB003C0926 /* NSString+multiLineAdjust.h */,
-				A0EF8DEF149D94CB003C0926 /* NSString+multiLineAdjust.m */,
-				A0EF8DF5149D9C68003C0926 /* NSMutableArray+Shuffle.h */,
-				A0EF8DF6149D9C68003C0926 /* NSMutableArray+Shuffle.m */,
+				A0DF144B149E848D001ECE34 /* Class Categories */,
 			);
 			path = "Circles of Sorcery";
 			sourceTree = "<group>";
@@ -316,18 +337,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0EF8DA7149C35BF003C0926 /* main.m in Sources */,
-				A0EF8DAB149C35BF003C0926 /* SOCAppDelegate.m in Sources */,
-				A0EF8DCC149C35F0003C0926 /* SOCGameLayout.m in Sources */,
-				A0EF8DD6149C3DE8003C0926 /* SOCCard.m in Sources */,
-				A0EF8DD9149C43C9003C0926 /* SOCHandContainer.m in Sources */,
-				A0EF8DDC149C57F6003C0926 /* SOCDeckView.m in Sources */,
-				A0EF8DDF149D0081003C0926 /* SOCConstants.m in Sources */,
-				A0EF8DE2149D0792003C0926 /* SOCDiscardPileView.m in Sources */,
-				A0EF8DE5149D529E003C0926 /* SOCOpponentTray.m in Sources */,
-				A0EF8DE8149D53E5003C0926 /* SOCPlayerArea.m in Sources */,
-				A0EF8DEB149D604E003C0926 /* SOCDiscardContainer.m in Sources */,
 				A0EF8DF0149D94CB003C0926 /* NSString+multiLineAdjust.m in Sources */,
 				A0EF8DF7149D9C68003C0926 /* NSMutableArray+Shuffle.m in Sources */,
+				A0DF1462149E84AD001ECE34 /* COSAppDelegate.m in Sources */,
+				A0DF1463149E84AD001ECE34 /* COSCard.m in Sources */,
+				A0DF1464149E84AD001ECE34 /* COSConstants.m in Sources */,
+				A0DF1465149E84AD001ECE34 /* COSDeckView.m in Sources */,
+				A0DF1466149E84AD001ECE34 /* COSDiscardContainer.m in Sources */,
+				A0DF1467149E84AD001ECE34 /* COSDiscardPileView.m in Sources */,
+				A0DF1468149E84AD001ECE34 /* COSGameLayout.m in Sources */,
+				A0DF1469149E84AD001ECE34 /* COSHandContainer.m in Sources */,
+				A0DF146A149E84AD001ECE34 /* COSOpponentTray.m in Sources */,
+				A0DF146B149E84AD001ECE34 /* COSPlayerArea.m in Sources */,
+				A0DF146C149E84AD001ECE34 /* COSPlusMinusCounter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,6 +443,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Circles of Sorcery/Circles of Sorcery-Prefix.pch";
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
 				INFOPLIST_FILE = "Circles of Sorcery/Circles of Sorcery-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -432,6 +455,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Circles of Sorcery/Circles of Sorcery-Prefix.pch";
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
 				INFOPLIST_FILE = "Circles of Sorcery/Circles of Sorcery-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -491,6 +515,7 @@
 				A0EF8DC5149C35BF003C0926 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A0EF8DC6149C35BF003C0926 /* Build configuration list for PBXNativeTarget "Circles of SorceryTests" */ = {
 			isa = XCConfigurationList;
@@ -499,6 +524,7 @@
 				A0EF8DC8149C35BF003C0926 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

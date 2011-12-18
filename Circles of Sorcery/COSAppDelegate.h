@@ -1,5 +1,5 @@
 //
-//  SOCAppDelegate.h
+//  COSAppDelegate.h
 //  Circles of Sorcery
 //
 //  Created by EFB on 12/16/11.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SOCAppDelegate : UIResponder <UIApplicationDelegate>
+@interface COSAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

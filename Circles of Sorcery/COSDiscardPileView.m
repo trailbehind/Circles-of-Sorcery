@@ -1,18 +1,18 @@
 //
-//  SOCDiscardPileView.m
+//  COSDiscardPileView.m
 //  Circles of Sorcery
 //
 //  Created by EFB on 12/17/11.
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "SOCDiscardPileView.h"
-#import "SOCConstants.h"
-#import "SOCCard.h"
-#import "SOCDiscardContainer.h"
+#import "COSDiscardPileView.h"
+#import "COSConstants.h"
+#import "COSCard.h"
+#import "COSDiscardContainer.h"
 #import <QuartzCore/QuartzCore.h>
 
-@implementation SOCDiscardPileView
+@implementation COSDiscardPileView
 
 - (void) dealloc {
   [cards release];
@@ -51,7 +51,7 @@
 
 
 - (void) shrinkCard {    
-  SOCCard *card = [cards lastObject];
+  COSCard *card = [cards lastObject];
   [UIView beginAnimations:nil context:nil];
   [UIView setAnimationDuration:0.25];
   [UIView setAnimationDelegate:self];
@@ -64,7 +64,7 @@
 }
 
 
-- (void) addCard:(SOCCard*)card {    
+- (void) addCard:(COSCard*)card {    
   [cards addObject:card];
   [UIView beginAnimations:nil context:nil];
   [UIView setAnimationDuration:0.25];
@@ -80,8 +80,8 @@
                                       self.frame.origin.y, 
                                       [self superview].frame.size.width, 
                                       CARD_HEIGHT+20);  
-  SOCDiscardContainer *discardPile = [[[SOCDiscardContainer alloc]initWithFrame:handRegionFrame discardPile:self]autorelease];
-  for (SOCCard *card in cards) {
+  COSDiscardContainer *discardPile = [[[COSDiscardContainer alloc]initWithFrame:handRegionFrame discardPile:self]autorelease];
+  for (COSCard *card in cards) {
     [discardPile addCard:card];
   }
   [[self superview] addSubview:discardPile];

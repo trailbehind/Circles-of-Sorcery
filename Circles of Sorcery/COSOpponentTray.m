@@ -1,16 +1,16 @@
 //
-//  SOCOpponentTray.m
+//  COSOpponentTray.m
 //  Circles of Sorcery
 //
 //  Created by EFB on 12/17/11.
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "SOCOpponentTray.h"
-#import "SOCConstants.h"
+#import "COSOpponentTray.h"
+#import "COSConstants.h"
 #import <QuartzCore/QuartzCore.h>
 
-@implementation SOCOpponentTray
+@implementation COSOpponentTray
 
 
 - (void) toggleHidden {

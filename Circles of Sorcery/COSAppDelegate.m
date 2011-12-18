@@ -1,15 +1,15 @@
 //
-//  SOCAppDelegate.m
+//  COSAppDelegate.m
 //  Circles of Sorcery
 //
 //  Created by EFB on 12/16/11.
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "SOCAppDelegate.h"
-#import "SOCGameLayout.h"
+#import "COSAppDelegate.h"
+#import "COSGameLayout.h"
 
-@implementation SOCAppDelegate
+@implementation COSAppDelegate
 
 @synthesize window = _window;
 
@@ -19,7 +19,7 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
   
-  SOCGameLayout *gl = [[SOCGameLayout alloc]init];
+  COSGameLayout *gl = [[COSGameLayout alloc]init];
   [self.window addSubview:gl.view];
   
     [self.window makeKeyAndVisible];

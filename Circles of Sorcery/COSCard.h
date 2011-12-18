@@ -1,18 +1,18 @@
 //
-//  SOCCard.h
+//  COSCard.h
 //  Circles of Sorcery
 //
 //  Created by EFB on 12/16/11.
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-@class SOCHandContainer, SOCDiscardPileView;
+@class COSHandContainer, COSDiscardPileView;
 
-@interface SOCCard : UIView {
+@interface COSCard : UIView {
   
   CGPoint startPoint;
-  SOCHandContainer *handContainer;
-  SOCDiscardPileView *discardPile;
+  COSHandContainer *handContainer;
+  COSDiscardPileView *discardPile;
   NSDate *firstTouchTime;
 
   UILabel *nameLabel, *costLabel, *textLabel, *typeLabel, *powerLabel, *keywordsLabel;
@@ -20,8 +20,8 @@
   
 }
 
-@property(nonatomic,retain) SOCHandContainer *handContainer;
-@property(nonatomic,retain) SOCDiscardPileView *discardPile;
+@property(nonatomic,retain) COSHandContainer *handContainer;
+@property(nonatomic,retain) COSDiscardPileView *discardPile;
 
 - (id)initWithCardInfo:(NSDictionary*)cardInfo;
 

@@ -1,5 +1,5 @@
 //
-//  SOCOpponentTray.h
+//  COSOpponentTray.h
 //  Circles of Sorcery
 //
 //  Created by EFB on 12/17/11.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SOCOpponentTray : UIView
+@interface COSOpponentTray : UIView
 
 @end

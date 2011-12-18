@@ -1,26 +1,26 @@
 //
-//  SOCPlayerArea.m
+//  COSPlayerArea.m
 //  Circles of Sorcery
 //
 //  Created by EFB on 12/17/11.
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "SOCPlayerArea.h"
-#import "SOCDeckView.h"
-#import "SOCCard.h"
-#import "SOCConstants.h"
-#import "SOCDiscardPileView.h"
-#import "SOCHandContainer.h"
-#import "NSMutableArray+Shuffle.h"
 #include <stdio.h>
+#import "COSPlayerArea.h"
+#import "COSDeckView.h"
+#import "COSCard.h"
+#import "COSConstants.h"
+#import "COSDiscardPileView.h"
+#import "COSHandContainer.h"
+#import "COSPlusMinusCounter.h"
+#import "NSMutableArray+Shuffle.h"
 
 
-@implementation SOCPlayerArea
+@implementation COSPlayerArea
 
 
-NSString *readLineAsNSString(FILE *file)
-{
+NSString *readLineAsNSString(FILE *file) {
   char buffer[4096];
   
   // tune this capacity to your liking -- larger buffer sizes will be faster, but
@@ -96,14 +96,18 @@ NSString *readLineAsNSString(FILE *file)
 }
 
 
-- (void) addDeck:(SOCHandContainer*)handContainer deckName:(NSString*)deckName {
+- (void) addDeck:(COSHandContainer*)handContainer deckName:(NSString*)deckName {
+  
+  
+  
+  
   int deckHeight = CARD_HEIGHT * .75;
   int deckWidth = CARD_WIDTH * .75;
-  CGRect discardFrame = CGRectMake(self.frame.size.width-deckWidth - PADDING, 
-                                   self.frame.size.height-deckHeight-20 - CARD_HEIGHT*2 - PADDING*2, 
+  CGRect discardFrame = CGRectMake(self.frame.size.width- deckWidth - PADDING, 
+                                   self.frame.size.height- deckHeight - CARD_HEIGHT*2 + 10, 
                                    deckWidth, deckHeight);
   
-  SOCDiscardPileView *discard = [[[SOCDiscardPileView alloc]initWithFrame:discardFrame]autorelease];
+  COSDiscardPileView *discard = [[[COSDiscardPileView alloc]initWithFrame:discardFrame]autorelease];
   discard.autoresizingMask = UIViewAutoresizingFlexibleTopMargin |UIViewAutoresizingFlexibleLeftMargin;
   [self addSubview:discard];
   
@@ -112,7 +116,7 @@ NSString *readLineAsNSString(FILE *file)
   CGRect deckFrame = CGRectMake(self.frame.size.width-deckWidth - PADDING, 
                                 self.frame.size.height-CARD_HEIGHT-20 - deckHeight - PADDING, 
                                 deckWidth, deckHeight);
-  SOCDeckView *deck = [[[SOCDeckView alloc]initWithFrame:deckFrame 
+  COSDeckView *deck = [[[COSDeckView alloc]initWithFrame:deckFrame 
                                            handContainer:handContainer]autorelease];
   deck.autoresizingMask = UIViewAutoresizingFlexibleTopMargin |UIViewAutoresizingFlexibleLeftMargin;
   [self addSubview:deck];
@@ -124,7 +128,7 @@ NSString *readLineAsNSString(FILE *file)
   NSMutableArray *cards = [NSMutableArray array];  
   while(!feof(file)) {
     NSString *line = readLineAsNSString(file);
-    NSArray *parts = [SOCPlayerArea readLine:line];
+    NSArray *parts = [COSPlayerArea readLine:line];
     NSMutableDictionary *cardDict = [NSMutableDictionary dictionary];
     [cardDict setValue:[parts objectAtIndex:0] forKey:@"name"];
     [cardDict setValue:[parts objectAtIndex:1] forKey:@"class"];
@@ -142,7 +146,7 @@ NSString *readLineAsNSString(FILE *file)
   [cards shuffle];
   
   for (NSDictionary *cardDict in cards) {
-    SOCCard *card = [[[SOCCard alloc]initWithCardInfo:cardDict]autorelease];
+    COSCard *card = [[[COSCard alloc]initWithCardInfo:cardDict]autorelease];
     card.discardPile = discard;
     [deck addCard:card];
   }
@@ -157,7 +161,7 @@ NSString *readLineAsNSString(FILE *file)
                                       self.frame.size.height-CARD_HEIGHT-20, 
                                       self.frame.size.width, 
                                       CARD_HEIGHT+20);  
-  SOCHandContainer *handContainer = [[[SOCHandContainer alloc]initWithFrame:handRegionFrame]autorelease];
+  COSHandContainer *handContainer = [[[COSHandContainer alloc]initWithFrame:handRegionFrame]autorelease];
   [self addSubview:handContainer];
   
   [self addDeck:handContainer deckName:deckName];

@@ -1,17 +1,17 @@
 //
-//  SOCHandContainer.m
+//  COSHandContainer.m
 //  Circles of Sorcery
 //
 //  Created by EFB on 12/16/11.
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "SOCHandContainer.h"
-#import "SOCCard.h"
-#import "SOCConstants.h"
+#import "COSHandContainer.h"
+#import "COSCard.h"
+#import "COSConstants.h"
 #import <QuartzCore/QuartzCore.h>
 
-@implementation SOCHandContainer
+@implementation COSHandContainer
 @synthesize cards;
 
 
@@ -39,7 +39,7 @@
   int offset = 0;
   [UIView beginAnimations:nil context:nil];
   [UIView setAnimationDuration:0.25];
-  for (SOCCard *card in self.cards) {
+  for (COSCard *card in self.cards) {
     card.frame = CGRectMake(offset+PADDING, PADDING, CARD_WIDTH, CARD_HEIGHT );
     offset += card.frame.size.width+PADDING;
     [self addSubview:card];
@@ -49,7 +49,7 @@
 }
 
 
-- (void) addCard:(SOCCard*)card {  
+- (void) addCard:(COSCard*)card {  
   [cards addObject:card];
 }
 

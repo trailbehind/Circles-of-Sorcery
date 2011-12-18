@@ -1,17 +1,17 @@
 //
-//  SOCGameLayout.m
+//  COSGameLayout.m
 //  Circles of Sorcery
 //
 //  Created by EFB on 12/16/11.
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "SOCGameLayout.h"
-#import "SOCPlayerArea.h"
-#import "SOCOpponentTray.h"
-#import "SOCConstants.h"
+#import "COSGameLayout.h"
+#import "COSPlayerArea.h"
+#import "COSOpponentTray.h"
+#import "COSConstants.h"
 
-@implementation SOCGameLayout
+@implementation COSGameLayout
 
 
 - (void) dealloc {
@@ -31,7 +31,7 @@
 }
 
 - (void) switchPlayers {
-  SOCPlayerArea *otherPlayerArea;
+  COSPlayerArea *otherPlayerArea;
   if ([currentPlayerArea isEqual: playerOneArea]) {
     currentPlayerArea = playerTwoArea;
     otherPlayerArea = playerOneArea;
@@ -63,15 +63,15 @@
   self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth |UIViewAutoresizingFlexibleHeight;
 
   
-  playerOneArea = [[SOCPlayerArea alloc]initWithFrame:self.view.bounds deckName:@"elemental_deck.csv"];
+  playerOneArea = [[COSPlayerArea alloc]initWithFrame:self.view.bounds deckName:@"elemental_deck.csv"];
   [self.view addSubview:playerOneArea];
   currentPlayerArea = playerOneArea;
   
   CGRect trayFrame = CGRectMake(0, -668, self.view.frame.size.width, self.view.frame.size.height);
-  opponentTray = [[SOCOpponentTray alloc]initWithFrame:trayFrame];
+  opponentTray = [[COSOpponentTray alloc]initWithFrame:trayFrame];
   [self.view addSubview:opponentTray];
 
-  playerTwoArea = [[SOCPlayerArea alloc]initWithFrame:opponentTray.bounds deckName:@"nature_deck.csv"];
+  playerTwoArea = [[COSPlayerArea alloc]initWithFrame:opponentTray.bounds deckName:@"nature_deck.csv"];
   playerTwoArea.transform = CGAffineTransformMakeRotation(M_PI);
 
   [opponentTray addSubview:playerTwoArea];
@@ -79,17 +79,14 @@
   
 
   endTurnButton = [[UIButton buttonWithType:UIButtonTypeRoundedRect]retain];
-  endTurnButton.autoresizingMask = UIViewAutoresizingFlexibleRightMargin;
+  endTurnButton.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin;
   [endTurnButton setTitle:@"End Turn" forState:UIControlStateNormal];
   int buttonWidth = 150;
   int buttonHeight = 30;
-  endTurnButton.frame = CGRectMake(PADDING, PADDING+80, buttonWidth, buttonHeight);
+  endTurnButton.frame = CGRectMake(PADDING, opponentTray.frame.size.height-buttonHeight-PADDING, buttonWidth, buttonHeight);
   [endTurnButton addTarget:self action:@selector(switchPlayers) forControlEvents:UIControlEventTouchUpInside];
-  [self.view addSubview:endTurnButton];
-  [self.view sendSubviewToBack:endTurnButton];
+  [opponentTray addSubview:endTurnButton];
   [self.view sendSubviewToBack:playerOneArea];
-
-  
 
 }
 
