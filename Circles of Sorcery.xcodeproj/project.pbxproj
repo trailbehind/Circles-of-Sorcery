@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A008AA6914BD573F0057F436 /* farmer deck.csv in Resources */ = {isa = PBXBuildFile; fileRef = A008AA6814BD573F0057F436 /* farmer deck.csv */; };
 		A0DF1462149E84AD001ECE34 /* COSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DF144D149E84AD001ECE34 /* COSAppDelegate.m */; };
 		A0DF1463149E84AD001ECE34 /* COSCard.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DF144F149E84AD001ECE34 /* COSCard.m */; };
 		A0DF1464149E84AD001ECE34 /* COSConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DF1451149E84AD001ECE34 /* COSConstants.m */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A008AA6814BD573F0057F436 /* farmer deck.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "farmer deck.csv"; sourceTree = "<group>"; };
 		A0DF144C149E84AD001ECE34 /* COSAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COSAppDelegate.h; sourceTree = "<group>"; };
 		A0DF144D149E84AD001ECE34 /* COSAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COSAppDelegate.m; sourceTree = "<group>"; };
 		A0DF144E149E84AD001ECE34 /* COSCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COSCard.h; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 		A0DF144A149E8472001ECE34 /* Card Data */ = {
 			isa = PBXGroup;
 			children = (
+				A008AA6814BD573F0057F436 /* farmer deck.csv */,
 				A0EF8DF1149D9B2D003C0926 /* elemental_deck.csv */,
 				A0EF8DF2149D9B2D003C0926 /* nature_deck.csv */,
 				A0EF8DEC149D7829003C0926 /* cards.csv */,
@@ -302,6 +305,7 @@
 				A0EF8DED149D7829003C0926 /* cards.csv in Resources */,
 				A0EF8DF3149D9B2D003C0926 /* elemental_deck.csv in Resources */,
 				A0EF8DF4149D9B2D003C0926 /* nature_deck.csv in Resources */,
+				A008AA6914BD573F0057F436 /* farmer deck.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

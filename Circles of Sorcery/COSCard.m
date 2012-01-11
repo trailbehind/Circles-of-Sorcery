@@ -192,9 +192,6 @@
 }
 
 
-
-
-
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
   
   if (![handContainer.cards containsObject:self]) {

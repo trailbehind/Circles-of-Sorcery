@@ -64,7 +64,7 @@
   self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth |UIViewAutoresizingFlexibleHeight;
 
   
-  playerOneArea = [[COSPlayerArea alloc]initWithFrame:self.view.bounds deckName:@"elemental_deck.csv"];
+  playerOneArea = [[COSPlayerArea alloc]initWithFrame:self.view.bounds deckName:@"farmer deck.csv"];
   [self.view addSubview:playerOneArea];
   currentPlayerArea = playerOneArea;
   
@@ -72,7 +72,7 @@
   opponentTray = [[COSOpponentTray alloc]initWithFrame:trayFrame];
   [self.view addSubview:opponentTray];
 
-  playerTwoArea = [[COSPlayerArea alloc]initWithFrame:opponentTray.bounds deckName:@"nature_deck.csv"];
+  playerTwoArea = [[COSPlayerArea alloc]initWithFrame:opponentTray.bounds deckName:@"farmer deck.csv"];
   playerTwoArea.transform = CGAffineTransformMakeRotation(M_PI);
 
   [opponentTray addSubview:playerTwoArea];

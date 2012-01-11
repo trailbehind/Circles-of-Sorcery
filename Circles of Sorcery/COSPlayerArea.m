@@ -169,13 +169,13 @@ NSString *readLineAsNSString(FILE *file) {
   
   
   CGRect lifeCounterFrame = CGRectMake(PADDING, 90, 0, 0);
-  lifeCounter = [[COSPlusMinusCounter alloc]initWithFrame:lifeCounterFrame title:@"Life" startCount:10];
+  lifeCounter = [[COSPlusMinusCounter alloc]initWithFrame:lifeCounterFrame title:@"Gold" startCount:0];
   [self addSubview:lifeCounter];
 
   CGRect manaCounterFrame = CGRectMake(PADDING, 
                                        lifeCounterFrame.origin.y+lifeCounterFrame.size.height+PADDING*6, 
                                        0, 0);
-  manaCounter = [[COSPlusMinusCounter alloc]initWithFrame:manaCounterFrame title:@"Mana" startCount:1];
+  manaCounter = [[COSPlusMinusCounter alloc]initWithFrame:manaCounterFrame title:@"Animals" startCount:0];
   [self addSubview:manaCounter];
 
   CGRect handRegionFrame = CGRectMake(0,
