@@ -29,7 +29,7 @@
 
 
 - (void) endTurn {
-  [manaCounter incrementCounter];
+  // [manaCounter incrementCounter];
   [deck drawCard];
 }
 
@@ -158,6 +158,8 @@ NSString *readLineAsNSString(FILE *file) {
   for (NSDictionary *cardDict in cards) {
     COSCard *card = [[[COSCard alloc]initWithCardInfo:cardDict]autorelease];
     card.discardPile = discard;
+    card.deck = deck;
+    card.handContainer = handContainer;
     [deck addCard:card];
   }
   

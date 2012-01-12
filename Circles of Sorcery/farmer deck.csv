@@ -11,29 +11,30 @@ Farmer,Worker,none,0,0,none,Farmer gives you 1 gold at the beginning of your tur
 Farm,Land,Farm,1,1,none,Farm gives you 2 gold at the beginning of your turn if you have a farmer,none
 Farm,Land,Farm,1,1,none,Farm gives you 2 gold at the beginning of your turn if you have a farmer,none
 Farm,Land,Farm,1,1,none,Farm gives you 2 gold at the beginning of your turn if you have a farmer,none
-Industrial Farm,Land,Farm,2,1,none,Industrial Farm gives you 1 gold at the beginning of your turn for each Farm you have in play.,none
-Industrial Farm,Land,Farm,2,1,none,Industrial Farm gives you 1 gold at the beginning of your turn for each Farm you have in play.,none
-Industrial Farm,Land,Farm,2,1,none,Industrial Farm gives you 1 gold at the beginning of your turn for each Farm you have in play.,none
-Famine,Effect,none,0,0,none,"Your opponents farms don't produce any gold next turn.",none
-Famine,Effect,none,0,0,none,"Your opponents farms don't produce any gold next turn.",none
-Famine,Effect,none,0,0,none,"Your opponents farms don't produce any gold next turn.",none
-Tractor,Equipment,none,1,1,none,Farms give you an extra gold each turn.,none
+Farmhouse,Building,none,3,0,none,"At the beginning of your turn you may search your deck for a farmer and put it into play.",none
+Farmhouse,Building,none,3,0,none,"At the beginning of your turn you may search your deck for a farmer and put it into play.",none
+Farmhouse,Building,none,3,0,none,"At the beginning of your turn you may search your deck for a farmer and put it into play.",none
+Tractor,Equipment,none,1,1,none,"Once a turn, Tractor gives you 1 gold if you have a farmer, and 2 gold if you also have a farm.",none
 Abundant Harvest,Effect,none,0,0,none,All of your farms and farmers produce double this turn.,none
+Summer School,Effect,none,2,0,none,"For each gold your farms would produce, instead draw a card.",none
+Summer School,Effect,none,2,0,none,"For each gold your farms would produce, instead draw a card.",none
 Summer School,Effect,none,2,0,none,"For each gold your farms would produce, instead draw a card.",none
 Windmill,Building,none,2,1,none,"For the gold one of your farms produces, instead draw a card for each gold.",none
 Almanac,Equipment,none,0,2,none,You may sacrifice Almanac to have all your farms give you two extra food each this turn.,none
 Corner the Market,Effect,none,0,0,none,You may exchange 1 money for 1 reward point as many times as you want this turn.,none
-Cow,Animal,none,3,2,none,"At the beginning of your turn, you get a token for every two cows you have in play. Treat these tokens as cows.",none
-Cow,Animal,none,3,2,none,"At the beginning of your turn, you get a token for every two cows you have in play. Treat these tokens as cows.",none
-Cow,Animal,none,3,2,none,"At the beginning of your turn, you get a token for every two cows you have in play. Treat these tokens as cows.",none
+Chicken Coup,Building,none,3,1,none,"At the beginning of your turn, you search your deck for a Chicken.",none
 Chicken,Animal,none,1,1,none,"At the beginning of your turn, you get a token for every two chickens you have in play. Treat these tokens as Chickens.",none
 Chicken,Animal,none,1,1,none,"At the beginning of your turn, you get a token for every two chickens you have in play. Treat these tokens as Chickens.",none
 Chicken,Animal,none,1,1,none,"At the beginning of your turn, you get a token for every two chickens you have in play. Treat these tokens as Chickens.",none
-Traveling Salesmen,Effect,none,3,0,none,You may search you deck or discard pile for an equipment that costs 2 or less and put it in your hand.,none
 Pub,Building,none,4,2,none,Workers produce twice as much each turn.,none
+Price of Knowledge,Effect,none,*,0,none,"For the rest of the turn, you may pay 2 gold to draw a card.",none
+Price of Knowledge,Effect,none,*,0,none,"For the rest of the turn, you may pay 2 gold to draw a card.",none
+Price of Knowledge,Effect,none,*,0,none,"For the rest of the turn, you may pay 2 gold to draw a card.",none
+Know Which Way the Wind Blows,Effect,none,0,0,none,"Draw 2 cards, discard 1.",none
 Know Which Way the Wind Blows,Effect,none,0,0,none,"Draw 2 cards, discard 1.",none
 Know Which Way the Wind Blows,Effect,none,0,0,none,"Draw 2 cards, discard 1.",none
 Good Advice,Effect,none,1,0,none,Draw 2 cards.,none
-Farmhouse,Building,none,3,0,none,"At the beginning of your turn you may search your deck for a farmer and put it into play.",none
-Toolshed,Building,none,3,1,none,"Once per turn you may search your deck for an equipment card and put it on top of your deck.",none
+Good Advice,Effect,none,1,0,none,Draw 2 cards.,none
+Good Advice,Effect,none,1,0,none,Draw 2 cards.,none
+Rose Garden,Building,none,5,5,none,none,none
 Rose Garden,Building,none,5,5,none,none,none

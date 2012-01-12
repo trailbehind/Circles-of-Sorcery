@@ -6,12 +6,13 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-@class COSHandContainer, COSDiscardPileView;
+@class COSHandContainer, COSDiscardPileView, COSDeckView;
 
 @interface COSCard : UIView {
   
   CGPoint startPoint;
   COSHandContainer *handContainer;
+  COSDeckView *deck;
   COSDiscardPileView *discardPile;
   NSDate *firstTouchTime;
 
@@ -25,6 +26,7 @@
 
 @property(nonatomic,retain) COSHandContainer *handContainer;
 @property(nonatomic,retain) COSDiscardPileView *discardPile;
+@property(nonatomic,retain) COSDeckView *deck;
 
 - (id)initWithCardInfo:(NSDictionary*)cardInfo;
 

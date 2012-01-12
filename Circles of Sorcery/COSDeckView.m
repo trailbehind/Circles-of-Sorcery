@@ -22,26 +22,16 @@
   [super dealloc];
 }
 
+- (NSString*) titleText {
+  return @"Deck";
+}
+
+
 
 - (id)initWithFrame:(CGRect)frame handContainer:(COSHandContainer*)hc {
     self = [super initWithFrame:frame];
     if (self) {
       handContainer = [hc retain];
-      cards = [[NSMutableArray array]retain];
-      
-      self.backgroundColor = [UIColor blackColor];
-      self.layer.borderColor = CARD_BORDER_COLOR;
-      self.layer.borderWidth = CARD_BORDER_WIDTH;
-      
-      CGRect centeredFrame = CGRectMake(0, self.frame.size.height/2-PADDING, 
-                                        self.frame.size.width, PADDING*2);
-      UILabel *deckLabel = [[[UILabel alloc]initWithFrame:centeredFrame]autorelease];
-      deckLabel.backgroundColor = [UIColor clearColor];
-      deckLabel.textColor = [UIColor whiteColor];
-      deckLabel.textAlignment = UITextAlignmentCenter;
-      deckLabel.text = @"Deck";
-      [self addSubview:deckLabel];
-
     }
     return self;
 }
@@ -78,6 +68,11 @@
 
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+  UITouch *touch = [[event allTouches] anyObject];
+  CGPoint point = [touch locationInView:self];
+  startX = point.x;
+  dragging = YES;
+  
   if (!firstTouchTime) {
     firstTouchTime = [[NSDate date]retain];
     [NSTimer scheduledTimerWithTimeInterval:1
@@ -95,6 +90,13 @@
 
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+  UITouch *touch = [[event allTouches] anyObject];
+  CGPoint point = [touch locationInView:self];  
+  if (point.x - startX) {
+    [self showDiscardPile];
+  }
+  dragging = NO;
+  startX = 0;
 }
 
 

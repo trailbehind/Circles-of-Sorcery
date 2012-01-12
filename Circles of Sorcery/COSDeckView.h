@@ -6,13 +6,15 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
+#import "COSDiscardPileView.h"
+
 @class COSHandContainer, COSCard;
 
-@interface COSDeckView : UIView {
+@interface COSDeckView : COSDiscardPileView {
   
-  NSMutableArray *cards;
   COSHandContainer *handContainer;
-  NSDate *firstTouchTime;
+  int startX;
+  BOOL dragging;
   
 }
 

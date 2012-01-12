@@ -23,6 +23,11 @@
 }
 
 
+- (NSString*) titleText {
+  return @"Discard";
+}
+
+
 - (id)initWithFrame:(CGRect)frame {
   self = [super initWithFrame:frame];
   if (self) {
@@ -38,7 +43,7 @@
     deckLabel.backgroundColor = [UIColor clearColor];
     deckLabel.textColor = [UIColor whiteColor];
     deckLabel.textAlignment = UITextAlignmentCenter;
-    deckLabel.text = @"Discard";
+    deckLabel.text = [self titleText];
     [self addSubview:deckLabel];
     
   }
@@ -82,12 +87,12 @@
                                       self.frame.origin.y, 
                                       [self superview].frame.size.width, 
                                       CARD_HEIGHT+20);  
-  [[discardContainer superview] addSubview:discardContainer];
+  [discardContainer removeFromSuperview];
   [discardContainer release];
-  discardContainer = nil;
   discardContainer = [[COSDiscardContainer alloc]initWithFrame:handRegionFrame discardPile:self];
   for (COSCard *card in cards) {
     [discardContainer addCard:card];
+    // card.discardPile = nil;
   }
   [[self superview] addSubview:discardContainer];
   [discardContainer layoutCards];

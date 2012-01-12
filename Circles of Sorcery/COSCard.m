@@ -13,9 +13,10 @@
 #import "COSDiscardContainer.h"
 #import <QuartzCore/QuartzCore.h>
 #import "NSString+multiLineAdjust.h"
+#import "COSDeckView.h"
 
 @implementation COSCard
-@synthesize handContainer, discardPile;
+@synthesize handContainer, discardPile, deck;
 
 
 
@@ -243,7 +244,8 @@
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
   
-  if ([discardPile.cards containsObject:self]) {
+  if ([discardPile.cards containsObject:self]
+      || [deck.cards containsObject:self]) {
     if (firstTouchTime) {
       [firstTouchTime release];
       firstTouchTime = nil;
@@ -255,6 +257,16 @@
         NSLog(@"discard pile cards are %d", [discardPile.cards count]);
         NSLog(@"discard pile container cards are %d", [discardPile.discardContainer.cards count]);
       }
+      NSLog(@"The discardContainer is %@", deck.discardContainer);
+      NSLog(@"The handcontainer is %@", handContainer  );
+      NSLog(@"I am %@", self);
+      if ([deck.cards containsObject:self]) {
+        [deck.cards removeObject:self];
+        [deck.discardContainer.cards removeObject:self];
+        [handContainer addCard:self];
+        [handContainer layoutCards];
+      }
+
       
     }
     return;
