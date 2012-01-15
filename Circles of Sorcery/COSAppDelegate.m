@@ -8,22 +8,35 @@
 
 #import "COSAppDelegate.h"
 #import "COSGameLayout.h"
+#import "COSGame.h"
+#import "COSPlayer.h"
 
 @implementation COSAppDelegate
 
 @synthesize window = _window;
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
+- (void) dealloc {
+  [game release];
+  [super dealloc];
+}
+
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+  self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+  // Override point for customization after application launch.
+  self.window.backgroundColor = [UIColor whiteColor];
+
+  game = [[COSGame alloc]initWithCardRegistryFile:@"card_data.json"];
+
+  COSPlayer *playerOne = [[[COSPlayer alloc]initWithDeck:@"farmer deck.txt" game:game]autorelease];
+  COSPlayer *playerTwo = [[[COSPlayer alloc]initWithDeck:@"farmer deck.txt" game:game]autorelease];
+  NSMutableArray *players = [NSMutableArray arrayWithObjects:playerOne, playerTwo, nil];  
+  [game createDisplayForPlayers:players];
+  [game beginGame];  
+  [self.window addSubview:game.view];
   
-  COSGameLayout *gl = [[COSGameLayout alloc]init];
-  [self.window addSubview:gl.view];
-  
-    [self.window makeKeyAndVisible];
-    return YES;
+  [self.window makeKeyAndVisible];
+  return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

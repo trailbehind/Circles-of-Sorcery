@@ -18,5 +18,7 @@
 
 - (void) layoutCards;
 - (void) addCard:(COSCard*)card;
+- (NSArray*) chooseCardsToDicard:(int)numberOfCards;
+
 
 @end

@@ -6,28 +6,34 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-@class COSHandContainer, COSDiscardPileView, COSDeckView;
+@class COSCardView, COSPlayer, COSGame;
 
-@interface COSCard : UIView {
-  
-  CGPoint startPoint;
-  COSHandContainer *handContainer;
-  COSDeckView *deck;
-  COSDiscardPileView *discardPile;
-  NSDate *firstTouchTime;
+typedef enum {
+  END_ACTIONS,
+  CONTINUE_ACTIONS,
+} CardResult;
 
-  UILabel *nameLabel, *costLabel, *textLabel, *typeLabel, *powerLabel, *keywordsLabel;
-  UIImageView *artwork;
+@interface COSCard : NSObject {
   
-  int lifeValue, maxLife;
+  COSPlayer *player;
+  COSCardView *cardView;
+  NSString *name, *type;
+  int cost, reward;
+  NSMutableArray *actions;
   
+  NSString *resourceToProduce;
   
 }
 
-@property(nonatomic,retain) COSHandContainer *handContainer;
-@property(nonatomic,retain) COSDiscardPileView *discardPile;
-@property(nonatomic,retain) COSDeckView *deck;
+@property(nonatomic,retain) NSString *name, *type;
+@property(nonatomic,assign) int cost, reward;
+@property(nonatomic,retain) NSMutableArray *actions;
+@property(nonatomic,retain) COSPlayer *player;
+@property(nonatomic,retain) NSString *resourceToProduce;
+@property(nonatomic,retain) COSCardView *cardView;
 
-- (id)initWithCardInfo:(NSDictionary*)cardInfo;
+- (id)initWithName:(NSString*)n player:(COSPlayer*)p game:(COSGame*)g;
+- (NSString*) displayText;
+
 
 @end

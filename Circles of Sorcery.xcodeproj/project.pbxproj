@@ -7,7 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A008AA6914BD573F0057F436 /* farmer deck.csv in Resources */ = {isa = PBXBuildFile; fileRef = A008AA6814BD573F0057F436 /* farmer deck.csv */; };
+		A008AA6914BD573F0057F436 /* farmer deck.txt in Resources */ = {isa = PBXBuildFile; fileRef = A008AA6814BD573F0057F436 /* farmer deck.txt */; };
+		A09A037E14C222C100DF0DD4 /* card_data.json in Resources */ = {isa = PBXBuildFile; fileRef = A09A037D14C222C100DF0DD4 /* card_data.json */; };
+		A09A038214C22E3100DF0DD4 /* COSCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = A09A038114C22E3100DF0DD4 /* COSCardView.m */; };
+		A09A038514C2428C00DF0DD4 /* COSPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A09A038414C2428C00DF0DD4 /* COSPlayer.m */; };
+		A09A038814C2511A00DF0DD4 /* COSGame.m in Sources */ = {isa = PBXBuildFile; fileRef = A09A038714C2511A00DF0DD4 /* COSGame.m */; };
+		A09A038B14C25BCA00DF0DD4 /* COSDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = A09A038A14C25BCA00DF0DD4 /* COSDeck.m */; };
+		A09A03E014C2692400DF0DD4 /* COSCardRegistry.m in Sources */ = {isa = PBXBuildFile; fileRef = A09A03DF14C2692300DF0DD4 /* COSCardRegistry.m */; };
+		A09A041114C26A0D00DF0DD4 /* CDataScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = A09A040014C26A0D00DF0DD4 /* CDataScanner.m */; };
+		A09A041214C26A0D00DF0DD4 /* CDataScanner_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A09A040314C26A0D00DF0DD4 /* CDataScanner_Extensions.m */; };
+		A09A041314C26A0D00DF0DD4 /* NSCharacterSet_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A09A040514C26A0D00DF0DD4 /* NSCharacterSet_Extensions.m */; };
+		A09A041414C26A0D00DF0DD4 /* NSDictionary_JSONExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A09A040714C26A0D00DF0DD4 /* NSDictionary_JSONExtensions.m */; };
+		A09A041514C26A0D00DF0DD4 /* NSScanner_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A09A040914C26A0D00DF0DD4 /* NSScanner_Extensions.m */; };
+		A09A041614C26A0D00DF0DD4 /* CJSONDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = A09A040C14C26A0D00DF0DD4 /* CJSONDeserializer.m */; };
+		A09A041714C26A0D00DF0DD4 /* CJSONScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = A09A040E14C26A0D00DF0DD4 /* CJSONScanner.m */; };
+		A09A041814C26A0D00DF0DD4 /* CJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = A09A041014C26A0D00DF0DD4 /* CJSONSerializer.m */; };
+		A09A041A14C278C300DF0DD4 /* ability_translation.json in Resources */ = {isa = PBXBuildFile; fileRef = A09A041914C278C200DF0DD4 /* ability_translation.json */; };
 		A0DF1462149E84AD001ECE34 /* COSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DF144D149E84AD001ECE34 /* COSAppDelegate.m */; };
 		A0DF1463149E84AD001ECE34 /* COSCard.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DF144F149E84AD001ECE34 /* COSCard.m */; };
 		A0DF1464149E84AD001ECE34 /* COSConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DF1451149E84AD001ECE34 /* COSConstants.m */; };
@@ -47,7 +62,35 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A008AA6814BD573F0057F436 /* farmer deck.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "farmer deck.csv"; sourceTree = "<group>"; };
+		A008AA6814BD573F0057F436 /* farmer deck.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "farmer deck.txt"; sourceTree = "<group>"; };
+		A09A037D14C222C100DF0DD4 /* card_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = card_data.json; sourceTree = "<group>"; };
+		A09A038014C22E3100DF0DD4 /* COSCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COSCardView.h; sourceTree = "<group>"; };
+		A09A038114C22E3100DF0DD4 /* COSCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COSCardView.m; sourceTree = "<group>"; };
+		A09A038314C2428C00DF0DD4 /* COSPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COSPlayer.h; sourceTree = "<group>"; };
+		A09A038414C2428C00DF0DD4 /* COSPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COSPlayer.m; sourceTree = "<group>"; };
+		A09A038614C2511A00DF0DD4 /* COSGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COSGame.h; sourceTree = "<group>"; };
+		A09A038714C2511A00DF0DD4 /* COSGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COSGame.m; sourceTree = "<group>"; };
+		A09A038914C25BCA00DF0DD4 /* COSDeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COSDeck.h; sourceTree = "<group>"; };
+		A09A038A14C25BCA00DF0DD4 /* COSDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COSDeck.m; sourceTree = "<group>"; };
+		A09A03DE14C2692300DF0DD4 /* COSCardRegistry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COSCardRegistry.h; sourceTree = "<group>"; };
+		A09A03DF14C2692300DF0DD4 /* COSCardRegistry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COSCardRegistry.m; sourceTree = "<group>"; };
+		A09A03FF14C26A0D00DF0DD4 /* CDataScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDataScanner.h; sourceTree = "<group>"; };
+		A09A040014C26A0D00DF0DD4 /* CDataScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDataScanner.m; sourceTree = "<group>"; };
+		A09A040214C26A0D00DF0DD4 /* CDataScanner_Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDataScanner_Extensions.h; sourceTree = "<group>"; };
+		A09A040314C26A0D00DF0DD4 /* CDataScanner_Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDataScanner_Extensions.m; sourceTree = "<group>"; };
+		A09A040414C26A0D00DF0DD4 /* NSCharacterSet_Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSCharacterSet_Extensions.h; sourceTree = "<group>"; };
+		A09A040514C26A0D00DF0DD4 /* NSCharacterSet_Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSCharacterSet_Extensions.m; sourceTree = "<group>"; };
+		A09A040614C26A0D00DF0DD4 /* NSDictionary_JSONExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDictionary_JSONExtensions.h; sourceTree = "<group>"; };
+		A09A040714C26A0D00DF0DD4 /* NSDictionary_JSONExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDictionary_JSONExtensions.m; sourceTree = "<group>"; };
+		A09A040814C26A0D00DF0DD4 /* NSScanner_Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSScanner_Extensions.h; sourceTree = "<group>"; };
+		A09A040914C26A0D00DF0DD4 /* NSScanner_Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSScanner_Extensions.m; sourceTree = "<group>"; };
+		A09A040B14C26A0D00DF0DD4 /* CJSONDeserializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONDeserializer.h; sourceTree = "<group>"; };
+		A09A040C14C26A0D00DF0DD4 /* CJSONDeserializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONDeserializer.m; sourceTree = "<group>"; };
+		A09A040D14C26A0D00DF0DD4 /* CJSONScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONScanner.h; sourceTree = "<group>"; };
+		A09A040E14C26A0D00DF0DD4 /* CJSONScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONScanner.m; sourceTree = "<group>"; };
+		A09A040F14C26A0D00DF0DD4 /* CJSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONSerializer.h; sourceTree = "<group>"; };
+		A09A041014C26A0D00DF0DD4 /* CJSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONSerializer.m; sourceTree = "<group>"; };
+		A09A041914C278C200DF0DD4 /* ability_translation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = ability_translation.json; path = ../ability_translation.json; sourceTree = "<group>"; };
 		A0DF144C149E84AD001ECE34 /* COSAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COSAppDelegate.h; sourceTree = "<group>"; };
 		A0DF144D149E84AD001ECE34 /* COSAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COSAppDelegate.m; sourceTree = "<group>"; };
 		A0DF144E149E84AD001ECE34 /* COSCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COSCard.h; sourceTree = "<group>"; };
@@ -117,13 +160,62 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A09A03FD14C26A0D00DF0DD4 /* TouchJSON */ = {
+			isa = PBXGroup;
+			children = (
+				A09A03FE14C26A0D00DF0DD4 /* Source */,
+			);
+			path = TouchJSON;
+			sourceTree = "<group>";
+		};
+		A09A03FE14C26A0D00DF0DD4 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				A09A03FF14C26A0D00DF0DD4 /* CDataScanner.h */,
+				A09A040014C26A0D00DF0DD4 /* CDataScanner.m */,
+				A09A040114C26A0D00DF0DD4 /* Extensions */,
+				A09A040A14C26A0D00DF0DD4 /* JSON */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		A09A040114C26A0D00DF0DD4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A09A040214C26A0D00DF0DD4 /* CDataScanner_Extensions.h */,
+				A09A040314C26A0D00DF0DD4 /* CDataScanner_Extensions.m */,
+				A09A040414C26A0D00DF0DD4 /* NSCharacterSet_Extensions.h */,
+				A09A040514C26A0D00DF0DD4 /* NSCharacterSet_Extensions.m */,
+				A09A040614C26A0D00DF0DD4 /* NSDictionary_JSONExtensions.h */,
+				A09A040714C26A0D00DF0DD4 /* NSDictionary_JSONExtensions.m */,
+				A09A040814C26A0D00DF0DD4 /* NSScanner_Extensions.h */,
+				A09A040914C26A0D00DF0DD4 /* NSScanner_Extensions.m */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A09A040A14C26A0D00DF0DD4 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				A09A040B14C26A0D00DF0DD4 /* CJSONDeserializer.h */,
+				A09A040C14C26A0D00DF0DD4 /* CJSONDeserializer.m */,
+				A09A040D14C26A0D00DF0DD4 /* CJSONScanner.h */,
+				A09A040E14C26A0D00DF0DD4 /* CJSONScanner.m */,
+				A09A040F14C26A0D00DF0DD4 /* CJSONSerializer.h */,
+				A09A041014C26A0D00DF0DD4 /* CJSONSerializer.m */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
 		A0DF144A149E8472001ECE34 /* Card Data */ = {
 			isa = PBXGroup;
 			children = (
-				A008AA6814BD573F0057F436 /* farmer deck.csv */,
+				A09A041914C278C200DF0DD4 /* ability_translation.json */,
+				A008AA6814BD573F0057F436 /* farmer deck.txt */,
 				A0EF8DF1149D9B2D003C0926 /* elemental_deck.csv */,
 				A0EF8DF2149D9B2D003C0926 /* nature_deck.csv */,
 				A0EF8DEC149D7829003C0926 /* cards.csv */,
+				A09A037D14C222C100DF0DD4 /* card_data.json */,
 			);
 			name = "Card Data";
 			sourceTree = "<group>";
@@ -161,6 +253,7 @@
 		A0EF8D99149C35BF003C0926 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A09A03FD14C26A0D00DF0DD4 /* TouchJSON */,
 				A0EF8D9A149C35BF003C0926 /* UIKit.framework */,
 				A0EF8D9C149C35BF003C0926 /* Foundation.framework */,
 				A0EF8D9E149C35BF003C0926 /* CoreGraphics.framework */,
@@ -197,6 +290,16 @@
 				A0DF144A149E8472001ECE34 /* Card Data */,
 				A0EF8DA1149C35BF003C0926 /* Supporting Files */,
 				A0DF144B149E848D001ECE34 /* Class Categories */,
+				A09A038014C22E3100DF0DD4 /* COSCardView.h */,
+				A09A038114C22E3100DF0DD4 /* COSCardView.m */,
+				A09A038314C2428C00DF0DD4 /* COSPlayer.h */,
+				A09A038414C2428C00DF0DD4 /* COSPlayer.m */,
+				A09A038614C2511A00DF0DD4 /* COSGame.h */,
+				A09A038714C2511A00DF0DD4 /* COSGame.m */,
+				A09A038914C25BCA00DF0DD4 /* COSDeck.h */,
+				A09A038A14C25BCA00DF0DD4 /* COSDeck.m */,
+				A09A03DE14C2692300DF0DD4 /* COSCardRegistry.h */,
+				A09A03DF14C2692300DF0DD4 /* COSCardRegistry.m */,
 			);
 			path = "Circles of Sorcery";
 			sourceTree = "<group>";
@@ -305,7 +408,9 @@
 				A0EF8DED149D7829003C0926 /* cards.csv in Resources */,
 				A0EF8DF3149D9B2D003C0926 /* elemental_deck.csv in Resources */,
 				A0EF8DF4149D9B2D003C0926 /* nature_deck.csv in Resources */,
-				A008AA6914BD573F0057F436 /* farmer deck.csv in Resources */,
+				A008AA6914BD573F0057F436 /* farmer deck.txt in Resources */,
+				A09A037E14C222C100DF0DD4 /* card_data.json in Resources */,
+				A09A041A14C278C300DF0DD4 /* ability_translation.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,6 +459,19 @@
 				A0DF146A149E84AD001ECE34 /* COSOpponentTray.m in Sources */,
 				A0DF146B149E84AD001ECE34 /* COSPlayerArea.m in Sources */,
 				A0DF146C149E84AD001ECE34 /* COSPlusMinusCounter.m in Sources */,
+				A09A038214C22E3100DF0DD4 /* COSCardView.m in Sources */,
+				A09A038514C2428C00DF0DD4 /* COSPlayer.m in Sources */,
+				A09A038814C2511A00DF0DD4 /* COSGame.m in Sources */,
+				A09A038B14C25BCA00DF0DD4 /* COSDeck.m in Sources */,
+				A09A03E014C2692400DF0DD4 /* COSCardRegistry.m in Sources */,
+				A09A041114C26A0D00DF0DD4 /* CDataScanner.m in Sources */,
+				A09A041214C26A0D00DF0DD4 /* CDataScanner_Extensions.m in Sources */,
+				A09A041314C26A0D00DF0DD4 /* NSCharacterSet_Extensions.m in Sources */,
+				A09A041414C26A0D00DF0DD4 /* NSDictionary_JSONExtensions.m in Sources */,
+				A09A041514C26A0D00DF0DD4 /* NSScanner_Extensions.m in Sources */,
+				A09A041614C26A0D00DF0DD4 /* CJSONDeserializer.m in Sources */,
+				A09A041714C26A0D00DF0DD4 /* CJSONScanner.m in Sources */,
+				A09A041814C26A0D00DF0DD4 /* CJSONSerializer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,6 +567,7 @@
 				GCC_PREFIX_HEADER = "Circles of Sorcery/Circles of Sorcery-Prefix.pch";
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
 				INFOPLIST_FILE = "Circles of Sorcery/Circles of Sorcery-Info.plist";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -461,6 +580,7 @@
 				GCC_PREFIX_HEADER = "Circles of Sorcery/Circles of Sorcery-Prefix.pch";
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
 				INFOPLIST_FILE = "Circles of Sorcery/Circles of Sorcery-Info.plist";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

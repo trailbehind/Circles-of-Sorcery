@@ -9,6 +9,7 @@
 #import "COSDiscardPileView.h"
 #import "COSConstants.h"
 #import "COSCard.h"
+#import "COSCardView.h"
 #import "COSDiscardContainer.h"
 #import <QuartzCore/QuartzCore.h>
 
@@ -63,10 +64,10 @@
   [UIView setAnimationDuration:0.25];
   [UIView setAnimationDelegate:self];
   [UIView setAnimationDidStopSelector:@selector(removeCard)];
-  CGRect frame = card.frame;
+  CGRect frame = card.cardView.frame;
   frame.origin = self.center;
   frame.size = CGSizeMake(0,0);
-  card.frame = frame;
+  card.cardView.frame = frame;
   [UIView commitAnimations];
 }
 
@@ -77,7 +78,7 @@
   [UIView setAnimationDuration:0.25];
   [UIView setAnimationDelegate:self];
   [UIView setAnimationDidStopSelector:@selector(shrinkCard)];
-  card.frame = self.frame;
+  card.cardView.frame = self.frame;
   [UIView commitAnimations];
 }
 

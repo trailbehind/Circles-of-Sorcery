@@ -6,9 +6,12 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@class COSGame;
 
-@interface COSAppDelegate : UIResponder <UIApplicationDelegate>
+@interface COSAppDelegate : UIResponder <UIApplicationDelegate> {
+  
+  COSGame *game;
+}
 
 @property (strong, nonatomic) UIWindow *window;
 

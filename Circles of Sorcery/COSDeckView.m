@@ -10,13 +10,15 @@
 #import "COSCard.h"
 #import "COSConstants.h"
 #import "COSHandContainer.h"
+#import "COSPlayer.h"
+#import "COSDeck.h"
 #import <QuartzCore/QuartzCore.h>
 
 @implementation COSDeckView
-
+@synthesize deck;
 
 - (void) dealloc {
-  [cards release];
+  [deck retain];
   [handContainer release];
   [firstTouchTime release];
   [super dealloc];
@@ -41,21 +43,22 @@
 }
 
 
-- (void) drawCard {
-  if ([cards count] == 0) {
-    return;
-  }
-  COSCard *card = [cards lastObject];
-  card.handContainer = handContainer;
+- (NSArray*) searchForCardsNamed:(NSArray*)cardNames {
+  [self.deck drawCard];
+  return [NSArray array];
+}
+
+
+- (void) drawCard:(COSCard*)card {
+  card.player.handContainer = handContainer;
   [handContainer.cards addObject:card];
-  [cards removeLastObject];
   [handContainer layoutCards];
 }
 
 
 - (void) drawHand {
   for (int x=0;x<5;x++) {
-    [self drawCard];
+    [self.deck drawCard];
   }
 }
 
@@ -81,7 +84,7 @@
                                    userInfo:nil
                                     repeats:NO];
   } else {
-    [self drawCard];
+    [self.deck drawCard];
     [firstTouchTime release];
     firstTouchTime = nil;
   }
@@ -93,7 +96,7 @@
   UITouch *touch = [[event allTouches] anyObject];
   CGPoint point = [touch locationInView:self];  
   if (point.x - startX) {
-    [self showDiscardPile];
+    // [self showDiscardPile];
   }
   dragging = NO;
   startX = 0;

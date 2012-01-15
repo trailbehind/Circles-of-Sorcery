@@ -10,6 +10,7 @@
 #import "COSCard.h"
 #import "COSConstants.h"
 #import <QuartzCore/QuartzCore.h>
+#import "COSCardView.h"
 
 @implementation COSHandContainer
 @synthesize cards;
@@ -40,9 +41,9 @@
   [UIView beginAnimations:nil context:nil];
   [UIView setAnimationDuration:0.25];
   for (COSCard *card in self.cards) {
-    card.frame = CGRectMake(offset+PADDING, PADDING, CARD_WIDTH, CARD_HEIGHT );
-    offset += card.frame.size.width+PADDING;
-    [self addSubview:card];
+    card.cardView.frame = CGRectMake(offset+PADDING, PADDING, CARD_WIDTH, CARD_HEIGHT );
+    offset += card.cardView.frame.size.width+PADDING;
+    [self addSubview:card.cardView];
   }
   [UIView commitAnimations];
   self.contentSize = CGSizeMake(offset, self.frame.size.height);
@@ -52,5 +53,13 @@
 - (void) addCard:(COSCard*)card {  
   [cards addObject:card];
 }
+
+
+- (NSArray*) chooseCardsToDicard:(int)numberOfCards {
+  NSMutableArray *cardsToDiscard = [NSMutableArray arrayWithObject:[cards lastObject]];
+  [cards removeObject:[cards lastObject]];
+  return cardsToDiscard;
+}
+
 
 @end

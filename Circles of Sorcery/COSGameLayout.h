@@ -8,11 +8,12 @@
 
 @class  COSPlayerArea, COSOpponentTray;
 
-@interface COSGameLayout : UIViewController {
+@interface COSGameLayout : UIView {
   COSPlayerArea *playerOneArea, *playerTwoArea, *currentPlayerArea;
   COSOpponentTray *opponentTray;
   UIButton *endTurnButton;
 }
 
+- (id) initWithPlayers:(NSArray*)players;
 
 @end

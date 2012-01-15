@@ -7,17 +7,18 @@
 //
 
 
-@class COSPlusMinusCounter, COSDeckView;
+@class COSPlusMinusCounter, COSDeckView, COSPlayer;
 
 @interface COSPlayerArea : UIView {
   
   COSPlusMinusCounter *lifeCounter, *manaCounter;
-  COSDeckView *deck;
+  COSDeckView *deckView;
   
 }
 
-- (id)initWithFrame:(CGRect)frame deckName:(NSString*)deckName;
+- (id)initWithFrame:(CGRect)frame forPlayer:(COSPlayer*)player;
 - (void) endTurn;
+
 
 
 

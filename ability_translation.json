@@ -1,0 +1,17 @@
+{
+  "END_TURN": "At the end of your turn, ",
+  "BEGIN_TURN": "At the beginning of your turn, ",
+  "AUTO_ACTIVATED": "",
+  "ACTIVATED": "Once on your turn, ",
+  "DRAW_CARD": "Draw %s cards. ",
+  "DISCARD_CARD": "Discard %s cards.",
+  "GOLD": "gain %s gold",
+  "TEST_FOR_CARD": "if you have a %s in play,",
+  "SACRIFICE": "Put this card in your discard pile.",
+  "SEARCH_DECK": "search your deck for %s and %s",
+  "REPLACE_GOLD_PRODUCTION": "Instead of %s gold, your %s produce %s %s",
+  "CHANGE_GOLD": "Exchange %s gold, for %s %s",
+  "COUNT CARD": "for each %s you have in play",
+  "COPY": "put %s copies into play",
+  "CANCEL": ""
+}

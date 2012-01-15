@@ -8,292 +8,281 @@
 
 #import "COSCard.h"
 #import "COSConstants.h"
-#import "COSDiscardPileView.h"
+#import "COSCardView.h"
+#import "COSPlayer.h"
 #import "COSHandContainer.h"
-#import "COSDiscardContainer.h"
-#import <QuartzCore/QuartzCore.h>
-#import "NSString+multiLineAdjust.h"
 #import "COSDeckView.h"
+#import "COSGame.h"
+#import "COSCardRegistry.h"
+
+#define DEFAULT_RESOURCE_TO_PRODUCE @"GOLD"
 
 @implementation COSCard
-@synthesize handContainer, discardPile, deck;
-
-
+@synthesize name, type, cost, reward, actions, player, resourceToProduce, cardView;
 
 
 - (void) dealloc {
-  [handContainer release];
-  [discardPile release];
-
-  [nameLabel release];
-  [costLabel release];
-  [artwork release];
-  [textLabel release];
-  [keywordsLabel release];
-  [typeLabel release];
-  [powerLabel release];
+  [name release];
+  [type release];
+  [actions release];
+  [resourceToProduce release];
+  [player release];
+  [cardView release];
   [super dealloc];
 }
 
 
-- (void) incrementLife {
-  lifeValue = MIN(maxLife, lifeValue+1);
-  costLabel.text = [NSString stringWithFormat:@"%d", lifeValue];
-}
-
-
-- (void) decrementLife {
-  lifeValue--;
-  costLabel.text = [NSString stringWithFormat:@"%d", lifeValue];
-  if (lifeValue == 0) {
-    [discardPile addCard:self];
-  }
-}
-
-
-- (id)initWithCardInfo:(NSDictionary*)cardInfo {
+- (id)initWithName:(NSString*)n player:(COSPlayer*)p game:(COSGame*)g {
     self = [super init];
     if (self) {
-      
-      self.frame = CGRectMake(PADDING, PADDING, CARD_WIDTH, CARD_HEIGHT);
-      self.layer.borderColor = CARD_BORDER_COLOR;
-      self.layer.borderWidth = CARD_BORDER_WIDTH;
-      self.backgroundColor = [UIColor whiteColor];
-      
-      int costLabelWidth = 15;
-      CGRect nameLabelFrame = CGRectMake(PADDING, 
-                                         PADDING, 
-                                         self.frame.size.width-PADDING*2.5-costLabelWidth, 
-                                         17);
-      nameLabel = [[UILabel alloc]initWithFrame:nameLabelFrame];
-      nameLabel.backgroundColor = [UIColor clearColor];
-      nameLabel.text = [cardInfo objectForKey:@"name"];
-      nameLabel.font = TITLE_FONT;
-      nameLabel.adjustsFontSizeToFitWidth = YES;
-      [self addSubview:nameLabel];
-
-      CGRect costLabelFrame = CGRectMake(self.frame.size.width-PADDING-costLabelWidth, 
-                                         PADDING, 
-                                         costLabelWidth, 
-                                         17);
-      costLabel = [[UILabel alloc]initWithFrame:costLabelFrame];
-      costLabel.font = TITLE_FONT;
-      costLabel.backgroundColor = [UIColor clearColor];
-      costLabel.textAlignment = UITextAlignmentRight;
-      costLabel.text = [cardInfo objectForKey:@"cost"];
-      [self addSubview:costLabel];
-      lifeValue = [[cardInfo objectForKey:@"cost"]intValue];
-      maxLife = [[cardInfo objectForKey:@"cost"]intValue];
-      
-      int artworkWidth = self.frame.size.width-PADDING*2;
-      if ([[cardInfo objectForKey:@"type"] isEqualToString:@"Beast"]) {
-        artworkWidth -=40;
-        int buttonSize = 30;
-        UIButton *plusButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [plusButton setTitle:@"+" forState:UIControlStateNormal];
-        plusButton.frame = CGRectMake(self.frame.size.width - buttonSize-PADDING, 
-                                      costLabelFrame.size.height+costLabelFrame.origin.y+PADDING/2, 
-                                      buttonSize, buttonSize);
-        [plusButton addTarget:self 
-                       action:@selector(incrementLife) 
-             forControlEvents:UIControlEventTouchUpInside];
-        [self addSubview:plusButton];
-
-        UIButton *minusButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [minusButton setTitle:@"-" forState:UIControlStateNormal];
-        minusButton.frame = CGRectMake(self.frame.size.width - buttonSize-PADDING, 
-                                      costLabelFrame.size.height+costLabelFrame.origin.y+PADDING+buttonSize, 
-                                      buttonSize, buttonSize);
-        [minusButton addTarget:self 
-                       action:@selector(decrementLife) 
-             forControlEvents:UIControlEventTouchUpInside];
-        [self addSubview:minusButton];
-
-      }
-      CGRect artworkFrame = CGRectMake(PADDING, 
-                                         PADDING*3, 
-                                         artworkWidth, 
-                                         PADDING*6.5);
-      artwork = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@""]];
-      artwork.backgroundColor = [UIColor blackColor];
-      artwork.frame = artworkFrame;
-      artwork.layer.cornerRadius = 5;
-      artwork.layer.borderWidth = 1;
-      [self addSubview:artwork];
-
-      int offset = artwork.frame.size.height+artwork.frame.origin.y+PADDING;
-      int textLabelHeight = self.frame.size.height - offset - PADDING*4;
-      
-      CGRect keywordsLabelFrame = CGRectMake(PADDING, 
-                                         offset, 
-                                         self.frame.size.width-PADDING*2, 
-                                         PADDING*2);
-      keywordsLabel = [[UILabel alloc]initWithFrame:keywordsLabelFrame];
-      keywordsLabel.backgroundColor = [UIColor clearColor];
-      keywordsLabel.textAlignment = UITextAlignmentRight;
-      keywordsLabel.text = [cardInfo objectForKey:@"keywords"];
-      [self addSubview:keywordsLabel];
-      
-      if ([cardInfo objectForKey:@"keywords"]) {
-        offset += PADDING*3;
-        textLabelHeight -= PADDING*3;
-      }
-      CGRect textLabelFrame = CGRectMake(PADDING, 
-                                         offset, 
-                                         self.frame.size.width-PADDING*2, 
-                                         textLabelHeight);
-      textLabel = [[UILabel alloc]initWithFrame:textLabelFrame];
-      textLabel.text = [cardInfo objectForKey:@"text"];
-      
-      CGFloat fontSize = [textLabel.text fontSizeWithFont:[UIFont fontWithName:@"Helvetica" size:14] constrainedToSize:textLabel.frame.size];
-      textLabel.font = [UIFont fontWithName:@"Helvetica" size:fontSize];
-      textLabel.backgroundColor = [UIColor clearColor];
-      textLabel.numberOfLines = 0;
-      [self addSubview:textLabel];
-      
-      CGRect typeLabelFrame = CGRectMake(PADDING, 
-                                         self.frame.size.height - PADDING*3, 
-                                         self.frame.size.width-PADDING*3-costLabelWidth, 
-                                         PADDING*2);
-      typeLabel = [[UILabel alloc]initWithFrame:typeLabelFrame];
-      typeLabel.adjustsFontSizeToFitWidth = YES;
-      typeLabel.backgroundColor = [UIColor clearColor];
-      typeLabel.adjustsFontSizeToFitWidth = YES;
-      typeLabel.text = [NSString stringWithFormat:@"%@ - %@", 
-                         [cardInfo objectForKey:@"class"],
-                        [cardInfo objectForKey:@"type"]];
-      
-      if (![[cardInfo objectForKey:@"beast_type"]isEqualToString:@"none"]) {
-        typeLabel.text = [NSString stringWithFormat:@"%@, %@", 
-                          typeLabel.text,
-                          [cardInfo objectForKey:@"beast_type"]];
-      }
-      
-      [self addSubview:typeLabel];
-
-      CGRect powerLabelFrame = CGRectMake(self.frame.size.width-PADDING-costLabelWidth, 
-                                         self.frame.size.height - PADDING*3, 
-                                         costLabelWidth, 
-                                         PADDING*2);
-      powerLabel = [[UILabel alloc]initWithFrame:powerLabelFrame];
-      powerLabel.backgroundColor = [UIColor clearColor];
-      powerLabel.textAlignment = UITextAlignmentRight;
-      powerLabel.text = [cardInfo objectForKey:@"power"];
-      [self addSubview:powerLabel];
-
-      //self.exclusiveTouch = YES;
+      player = [p retain];
+      self.name = n;
+      self.resourceToProduce = DEFAULT_RESOURCE_TO_PRODUCE;
+      NSLog(@"The name is %@", [NSString stringWithFormat:@"%@.",name]);
+      NSDictionary *cardInfo = [g.cardRegistry.cardIndex objectForKey:name];
+      self.type = [cardInfo objectForKey:@"type"];
+      self.actions = [cardInfo objectForKey:@"actions"];
+      self.cost = [[cardInfo objectForKey:@"cost"]intValue];
+      self.reward = [[cardInfo objectForKey:@"reward"]intValue];
+      cardView = [[COSCardView alloc]initWithCard:self];
     }
     return self;
 }
 
 
-- (void)clearTouchTime:(NSTimer *)timer {
-  [firstTouchTime release];
-  firstTouchTime = nil;  
+// add to the player's gold pile
+- (CardResult) giveGold:(int)amount {
+  player.gold += amount;
+  return CONTINUE_ACTIONS;
 }
 
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-  
-  if (![handContainer.cards containsObject:self]) {
-    if (!firstTouchTime) {
-    NSLog(@"First touch");
-      firstTouchTime = [[NSDate date]retain];
-      [NSTimer scheduledTimerWithTimeInterval:1
-                                       target:self 
-                                     selector:@selector(clearTouchTime:) 
-                                     userInfo:nil
-                                      repeats:NO];
-    } else {
-      NSLog(@"Second touch");
-      if ([discardPile.cards containsObject:self]) {
-        return;
-      }
-      [firstTouchTime release];
-      firstTouchTime = nil;
-      [UIView beginAnimations:nil context:nil];
-      [UIView setAnimationDuration:0.25];
-      if (CGAffineTransformEqualToTransform(self.transform,CGAffineTransformIdentity)) {
-        CGAffineTransform transform = CGAffineTransformMakeRotation(M_PI/2);
-        self.transform = transform;
-      } else {
-        self.transform = CGAffineTransformIdentity;
-      }
-      [UIView commitAnimations];
-    }
-
-  }
-  
-  handContainer.scrollEnabled = NO;
-  UITouch *touch = [[event allTouches] anyObject];
-	CGPoint point = [touch locationInView:self];
-  startPoint = point;
-  if ([[self superview] isEqual:handContainer]) {
-    [[[self superview]superview]addSubview:self]; 
-    
-    CGPoint location = [touch locationInView:self.superview]; 
-    CGRect newFrame = self.frame;
-    newFrame.origin = location;  
-  	self.frame = newFrame;	
-
-  }
-  [handContainer.cards removeObject:self];
-  [handContainer layoutCards];
+// add to the player's hand
+- (CardResult) drawCards:(int)numberOfCards {
+  [player drawCards:numberOfCards];
+  return CONTINUE_ACTIONS;
 }
 
 
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-  
-  if ([discardPile.cards containsObject:self]
-      || [deck.cards containsObject:self]) {
-    if (firstTouchTime) {
-      [firstTouchTime release];
-      firstTouchTime = nil;
-      if ([discardPile.cards containsObject:self]) {
-        [discardPile.cards removeObject:self];
-        [discardPile.discardContainer.cards removeObject:self];
-        [handContainer addCard:self];
-        [handContainer layoutCards];
-        NSLog(@"discard pile cards are %d", [discardPile.cards count]);
-        NSLog(@"discard pile container cards are %d", [discardPile.discardContainer.cards count]);
-      }
-      NSLog(@"The discardContainer is %@", deck.discardContainer);
-      NSLog(@"The handcontainer is %@", handContainer  );
-      NSLog(@"I am %@", self);
-      if ([deck.cards containsObject:self]) {
-        [deck.cards removeObject:self];
-        [deck.discardContainer.cards removeObject:self];
-        [handContainer addCard:self];
-        [handContainer layoutCards];
-      }
+- (void) sendToDiscard {
+  [self.player.discardPile addCard:self];
+}
 
-      
+
+// let a player choose what to discard from the player's hand
+- (CardResult) discardCards:(int)numberOfCards {
+  NSArray *cards = [player.handContainer chooseCardsToDicard:numberOfCards];
+  for (COSCard *card in cards) {
+    [card sendToDiscard];
+  }
+  return CONTINUE_ACTIONS;
+}
+
+
+// check if a card is in play
+- (CardResult) testForCard:(NSString*)cardName {
+  for (COSCard *card in player.cardsInPlay) {
+    if ([card.name isEqualToString:cardName]) {
+      return CONTINUE_ACTIONS;
     }
+  }
+  return END_ACTIONS;
+}
+
+
+// register for resource production event
+// when it happens, override resource production
+- (CardResult) searchDeckForCardsNamed:(NSArray*)cardNames 
+                               putInto:(NSString*)putInto {
+  NSArray *cards = [player.deck searchForCardsNamed:cardNames];
+  if ([putInto isEqualToString:@"INTO_HAND"]) {
+    [cards count];
+  } else if ([putInto isEqualToString:@"INTO_PLAY"]) {
+  }
+  return CONTINUE_ACTIONS;
+}
+
+
+// register for resource production event
+// when it happens, override resource production
+- (CardResult) replaceGoldFromResourcesNamed:(NSString*)resourceSource
+                             goldToReplace:(int)goldQuantity
+                         forResourcesNamed:(NSString*)resourcesToGain
+                             resourcesToGain:(int)resourcesToGainQuantity {
+  for (COSCard *card in player.cardsInPlay) {
+    card.resourceToProduce = @"Card";
+  }
+  return CONTINUE_ACTIONS;
+}
+
+
+// exchange gold for the resource to gain
+- (CardResult) changeGold:(int)amount
+        forResourcesNamed:(NSString*)resourcesToGain
+         resourcesToGain:(int)resourcesToGainQuantity {  
+  int goldToPay = [player selectGoldAmountWithIncrement:amount];
+  [player gainResourceNamed:resourcesToGain amount:goldToPay/amount*resourcesToGainQuantity];
+  return CONTINUE_ACTIONS;
+}
+
+
+// put this in discard
+- (CardResult) sacrifice {
+  [[self.player cardsInPlay]removeObject:self];
+  [self sendToDiscard];
+  return CONTINUE_ACTIONS;
+}
+
+
+// loop through cards in play and count them
+- (int) countCardsInPlayNamed:(NSString*)cardName {
+  int count = 0;
+  for (COSCard *card in player.cardsInPlay) {
+    if ([card.name isEqualToString:cardName]) {
+      count++;
+    }
+  }
+  return count;  
+}
+
+
+// copy the named card the specificed number of times
+// and put those cards in play
+- (CardResult) copyCardNamed:(NSString*)cardName
+                     times:(int)times {
+  return CONTINUE_ACTIONS;
+}
+
+
+// this is to let chickens work in this scheme
+// is this bad code?
+- (CardResult) cancelOtherActionsThisTurnFrom:(NSString*)cardName {
+  for (COSCard *card in player.cardsInPlay) {
+  }
+  // register cards not to act anymore this turn
+  return CONTINUE_ACTIONS;
+}
+
+
+- (CardResult) doActionForName:(NSString*)actionName 
+                    parameters:(NSArray*)parameters lastResult:(int)lastResult {
+  if ([actionName isEqualToString:@"SACRIFICE"]) {
+    return [self sacrifice];
+  }
+  if ([actionName isEqualToString:@"DRAW_CARD"]) {
+    return [self drawCards:[[parameters objectAtIndex:0]intValue]];
+  }
+  if ([actionName isEqualToString:@"DISCARD_CARD"]) {
+    return [self discardCards:[[parameters objectAtIndex:0]intValue]];
+  }
+  if ([actionName isEqualToString:@"GOLD"]) {
+    return [self giveGold:[[parameters objectAtIndex:0]intValue]];
+  }
+  if ([actionName isEqualToString:@"TEST_FOR_CARD"]) {
+    return [self testForCard:[parameters objectAtIndex:0]];
+  }
+  if ([actionName isEqualToString:@"SEARCH_DECK"]) {
+    return [self searchDeckForCardsNamed:[parameters objectAtIndex:0]
+                                 putInto:[parameters objectAtIndex:1]];
+  }
+  if ([actionName isEqualToString:@"REPLACE_GOLD_PRODUCTION"]) {
+    return [self replaceGoldFromResourcesNamed:[parameters objectAtIndex:0]
+                                 goldToReplace:[[parameters objectAtIndex:1]intValue]
+                                 forResourcesNamed:[parameters objectAtIndex:2]
+                                 resourcesToGain:[[parameters objectAtIndex:3]intValue]
+            ];
+  }
+  if ([actionName isEqualToString:@"CHANGE_GOLD"]) {
+    return [self changeGold:[[parameters objectAtIndex:0]intValue]
+          forResourcesNamed:[parameters objectAtIndex:1]
+            resourcesToGain:[[parameters objectAtIndex:2]intValue]
+           ];
+  }
+  if ([actionName isEqualToString:@"COUNT_CARD"]) {
+    return [self countCardsInPlayNamed:[parameters objectAtIndex:0]];
+  }
+  if ([actionName isEqualToString:@"COPY"]) {
+    return [self copyCardNamed:self.name 
+                         times:lastResult * [[parameters objectAtIndex:0]floatValue]];
+  }
+  if ([actionName isEqualToString:@"CANCEL"]) {
+    return [self cancelOtherActionsThisTurnFrom:[parameters objectAtIndex:0]];
+  }
+  return CONTINUE_ACTIONS;
+}
+
+
+- (NSString*)makeTextForAction:(NSString*)actionName 
+                    parameters:(NSArray*)parameters 
+               numberOfActions:(int)numberOfActions
+              numberInSequence:(int)numberInSequence {
+  
+  NSString *phrase = [[[player.game cardRegistry]actionTranslations]objectForKey:actionName];
+  if (numberInSequence == numberOfActions-1) {
+    phrase = [phrase stringByAppendingString:@"."];
+  }
+  return phrase;
+}
+
+
+- (NSString*) displayText {
+  NSString *displayText = @"";
+  int count = 0;
+  for (NSDictionary *action in self.actions) {
+    NSString *actionName = [[action allKeys]objectAtIndex:0];
+    NSArray *actionParameters = [action objectForKey:actionName];
+    NSString *token = [self makeTextForAction:actionName 
+                                   parameters:actionParameters
+                              numberOfActions:[self.actions count]
+                             numberInSequence:count];
+    if (token) {
+      for (NSObject *obj in actionParameters) {
+        NSRange range = [token rangeOfString:@"%s"];
+        if (range.location == NSNotFound) {
+          continue;
+        }
+        if ([obj isKindOfClass:[NSNumber class]]) {
+          obj = [NSString stringWithFormat:@"%d", [obj intValue]];
+        } else if ([obj isKindOfClass:[NSArray class]]) {
+          continue;
+        }
+        token = [token stringByReplacingCharactersInRange:range withString:obj];
+      }
+      displayText = [displayText stringByAppendingString:token];
+    }
+    count++;
+  }
+  
+  return displayText;
+  
+}
+
+
+- (void) activateForEvent:(NSString*)eventName {
+  
+  BOOL foundEvent = NO;
+  for (NSDictionary *action in actions) {
+    if( [[[action allKeys]objectAtIndex:0]isEqualToString:eventName]) {
+      foundEvent = YES;
+      break;
+    }
+  }
+  if (!foundEvent) {
     return;
   }
-
-  handContainer.scrollEnabled = YES;
-  if (self.frame.origin.y >= [self superview].frame.size.height-CARD_HEIGHT-20-CARD_HEIGHT) {
-    int numberOfPositions = (int)handContainer.contentSize.width 
-                          / ((int)self.frame.size.width+10);
-    int position = MIN(numberOfPositions, self.center.x / handContainer.contentSize.width * numberOfPositions);
-    position = MAX(0, position);
-    [handContainer.cards insertObject:self atIndex:position];
+  
+  int result;
+  for (NSDictionary *action in self.actions) {
+    NSString *actionName = [[action allKeys]objectAtIndex:0];
+    NSArray *actionParameters = [action objectForKey:actionName];
+    result = [self doActionForName:actionName 
+                        parameters:actionParameters 
+                        lastResult:result];
+    if (result == END_ACTIONS) {
+      break;
+    }
   }
-  [handContainer layoutCards];
   
-  if (CGRectIntersectsRect(self.frame, discardPile.frame)) {
-    [discardPile addCard:self];
-  }
-}
-
-
-- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
-  
-  UITouch *touch = [touches anyObject];   
-  CGPoint location = [touch locationInView:self.superview]; 
-  
-  self.center = location;
 }
 
 @end

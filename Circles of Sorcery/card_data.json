@@ -1,0 +1,238 @@
+ [
+  {
+  "name": "Farmer",
+  "type": "Permanent",
+  "cost": 0,
+  "reward": 0,
+  "actions": [
+                {
+                "END_TURN": []
+                },
+                {
+                "GOLD": [ 1 ]
+                }
+               ]
+  },
+  {
+  "name": "Farm",
+  "type": "Permanent",
+  "cost": 1,
+  "reward": 1,
+  "actions": [
+                {
+                "END_TURN": []
+                },
+                {
+                "TEST_FOR_CARD": [ "Farmer" ]
+                },
+                {
+                "GOLD": [ 2 ]
+                }
+               ]
+  },
+  {
+  "name": "Farmhouse",
+  "type": "Permanent",
+  "cost": 3,
+  "reward": 1,
+  "actions": [
+                {
+                "END_TURN": []
+                },
+                {
+                "SEARCH_DECK": [ ["Farmer"], "INTO_PLAY" ]
+                }
+               ]
+  },
+  {
+  "name": "Tractor",
+  "type": "Permanent",
+  "cost": 1,
+  "reward": 1,
+  "actions": [
+                {
+                "ACTIVATED": ["Once a turn"]
+                },
+                {
+                "TEST_FOR_CARD": [ "farmer" ]
+                },
+                {
+                "GOLD": [ 1 ]
+                },
+                {
+                "TEST_FOR_CARD": [ "farmer", "farm" ]
+                },
+                {
+                "GOLD": [ 1 ]
+                }
+              ]
+  },
+  {
+  "name": "Abundant Harvest",
+  "type": "Effect",
+  "cost": 1,
+  "reward": 0,
+  "actions": [
+                {
+                "REPLACE_GOLD_PRODUCTION": [ "Farm", 1, "GOLD", 2 ]
+                },
+                {
+                "REPLACE_GOLD_PRODUCTION": [
+                                 "Farmer", 1, 2
+                                 ]
+                }
+               ]
+  },
+  {
+  "name": "Summer School",
+  "type": "Effect",
+  "cost": 2,
+  "reward": 0,
+  "actions": [
+                {
+                "REPLACE_GOLD_PRODUCTION": [ "Farm", 1, "CARD", 1 ]
+                }
+               ]
+  },
+  {
+  "name": "Windmill",
+  "type": "Permanent",
+  "cost": 2,
+  "reward": 1,
+  "actions": [
+                {
+                "ACTIVATED": [ "Once a turn" ]
+                },
+                {
+                "REPLACE_GOLD_PRODUCTION": [ "Farm", 1, "CARD", 1 ]
+                }
+               ]
+  },
+  {
+  "name": "Almanac",
+  "type": "Permanent",
+  "cost": 0,
+  "reward": 2,
+  "actions": [
+                {
+                "SACRIFICE": []
+                },
+                {
+                "REPLACE_GOLD_PRODUCTION": [ "Farm", "all", "GOLD", 3 ]
+                }
+               ]
+  },
+  {
+  "name": "Summer School",
+  "type": "Effect",
+  "cost": 2,
+  "reward": 0,
+  "actions": [
+                {
+                "REPLACE_GOLD_PRODUCTION": [ "Farm", 1, "CARD", 1 ]
+                }
+               ]
+  },
+  {
+  "name": "Corner the Market",
+  "type": "Effect",
+  "cost": 0,
+  "reward": 0,
+  "actions": [
+                {
+                "CHANGE_GOLD": [ 1, "REWARD_POINT", 1 ]
+                }
+              ]
+  },
+  {
+  "name": "Chicken",
+  "type": "Permanent",
+  "cost": 0,
+  "reward": 0,
+  "actions": [
+                {
+                "END_TURN": []
+                },
+                {
+                "COUNT_CARD": [ "Chicken" ]
+                },
+                {
+                "COPY": [ 0.5 ]
+                },
+                {
+                "CANCEL": [ "Chicken" ]
+                }
+                ]
+  },
+  {
+  "name": "Chicken Coup",
+  "type": "Permanent",
+  "cost": 3,
+  "reward": 1,
+  "actions": [
+                {
+                "END_TURN": []
+                },
+                {
+                "SEARCH_DECK": [ "Chicken", "INTO_PLAY" ]
+                }
+              ]
+  },
+  {
+  "name": "Pub",
+  "type": "Permanent",
+  "cost": 3,
+  "reward": 1,
+  "actions": [
+                {
+                "AUTO_ACTIVATED": []
+                },
+                {
+                "REPLACE_GOLD_PRODUCTION": [ "Farmer", 2 ]
+                }
+                ]
+  },
+  {
+  "name": "Price of Knowledge",
+  "type": "Effect",
+  "cost": 0,
+  "reward": 0,
+  "actions": [
+                {
+                "CHANGE_GOLD": [ 2, "DRAW_CARD", 1 ]
+                }
+                ]
+  },
+  {
+  "name": "Know Which Way the Wind Blows",
+  "type": "Effect",
+  "cost": 0,
+  "reward": 0,
+  "actions": [
+                {
+                "DRAW_CARD": [ 2 ]
+                },
+                {
+                "DISCARD_CARD": [ 1 ]
+                }
+                ]
+  },
+  {
+  "name": "Good Advice",
+  "type": "Effect",
+  "cost": 1,
+  "reward": 0,
+  "actions": [
+                {
+                "DRAW_CARD": [ 2 ]
+                }
+                ]
+  },
+  {
+  "name": "Rose Garden",
+  "type": "Permanent",
+  "cost": 5,
+  "reward": 5,
+  "actions": [ ]
+  }
+]

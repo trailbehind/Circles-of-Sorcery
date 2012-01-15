@@ -8,20 +8,23 @@
 
 #import "COSDiscardPileView.h"
 
-@class COSHandContainer, COSCard;
+
+@class COSHandContainer, COSCard, COSDeck;
 
 @interface COSDeckView : COSDiscardPileView {
   
+  COSDeck *deck;
   COSHandContainer *handContainer;
   int startX;
   BOOL dragging;
   
 }
 
+@property(nonatomic, retain) COSDeck *deck;
+
 - (id)initWithFrame:(CGRect)frame handContainer:(COSHandContainer*)hc;
-- (void) addCard:(COSCard*)card;
-- (void) drawCard;
-- (void) drawHand;
+- (NSArray*) searchForCardsNamed:(NSArray*)cardNames;
+- (void) drawCard:(COSCard*)card;
 
 
 @end
