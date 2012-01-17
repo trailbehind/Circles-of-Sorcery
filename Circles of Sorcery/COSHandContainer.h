@@ -11,6 +11,7 @@
 @interface COSHandContainer : UIScrollView {
   
   NSMutableArray *cards;
+  CGPoint startPoint;
   
 }
 
@@ -19,6 +20,6 @@
 - (void) layoutCards;
 - (void) addCard:(COSCard*)card;
 - (NSArray*) chooseCardsToDicard:(int)numberOfCards;
-
+- (void) playCard:(COSCard*)card;
 
 @end

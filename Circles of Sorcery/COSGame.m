@@ -47,6 +47,7 @@
   gameLayout = [[COSGameLayout alloc]initWithPlayers:p];
 }
 
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {  
 	return YES;
 }  

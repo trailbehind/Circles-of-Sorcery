@@ -9,7 +9,7 @@
                 "END_TURN": []
                 },
                 {
-                "GOLD": [ 1 ]
+                "GET_GOLD": [ 1 ]
                 }
                ]
   },
@@ -26,7 +26,7 @@
                 "TEST_FOR_CARD": [ "Farmer" ]
                 },
                 {
-                "GOLD": [ 2 ]
+                "GET_GOLD": [ 2 ]
                 }
                ]
   },
@@ -51,19 +51,19 @@
   "reward": 1,
   "actions": [
                 {
-                "ACTIVATED": ["Once a turn"]
+                "END_TURN": []
                 },
                 {
-                "TEST_FOR_CARD": [ "farmer" ]
+                "TEST_FOR_CARD": [ "Farmer" ]
                 },
                 {
-                "GOLD": [ 1 ]
+                "GET_GOLD": [ 1 ]
                 },
                 {
-                "TEST_FOR_CARD": [ "farmer", "farm" ]
+                "TEST_FOR_CARD": [ "Farm" ]
                 },
                 {
-                "GOLD": [ 1 ]
+                "GET_GOLD": [ 1 ]
                 }
               ]
   },
@@ -74,13 +74,11 @@
   "reward": 0,
   "actions": [
                 {
-                "REPLACE_GOLD_PRODUCTION": [ "Farm", 1, "GOLD", 2 ]
+              "REPLACE_GOLD_PRODUCTION": [ "REPLACE_ABILITY", "gold", "Farms", "GET_GOLD", 2 ]
                 },
-                {
-                "REPLACE_GOLD_PRODUCTION": [
-                                 "Farmer", 1, 2
-                                 ]
-                }
+              {
+              "REPLACE_GOLD_PRODUCTION": [ "REPLACE_ABILITY", "gold", "Farmers", "GET_GOLD", 2 ]
+              }
                ]
   },
   {
@@ -90,7 +88,7 @@
   "reward": 0,
   "actions": [
                 {
-                "REPLACE_GOLD_PRODUCTION": [ "Farm", 1, "CARD", 1 ]
+              "REPLACE_GOLD_PRODUCTION": [ "REPLACE_ABILITY", "gold", "Farms", "DRAW_CARD", 1 ]
                 }
                ]
   },
@@ -101,10 +99,10 @@
   "reward": 1,
   "actions": [
                 {
-                "ACTIVATED": [ "Once a turn" ]
+                "ACTIVATED_ABILITY": [ ]
                 },
                 {
-                "REPLACE_GOLD_PRODUCTION": [ "Farm", 1, "CARD", 1 ]
+              "REPLACE_GOLD_PRODUCTION": [ "REPLACE_ABILITY", "gold", "Farm", "DRAW_CARD", 1 ]
                 }
                ]
   },
@@ -115,11 +113,11 @@
   "reward": 2,
   "actions": [
                 {
-                "SACRIFICE": []
+                "SACRIFICE_THIS": []
                 },
                 {
-                "REPLACE_GOLD_PRODUCTION": [ "Farm", "all", "GOLD", 3 ]
-                }
+              "REPLACE_GOLD_PRODUCTION": [ "REPLACE_ABILITY", "gold", "Farms", "GET_GOLD", 3 ]
+              }
                ]
   },
   {
@@ -129,7 +127,7 @@
   "reward": 0,
   "actions": [
                 {
-                "REPLACE_GOLD_PRODUCTION": [ "Farm", 1, "CARD", 1 ]
+                "REPLACE_GOLD_PRODUCTION": [ "REPLACE_ABILITY", "gold", "Farms", "DRAW_CARD", 1 ]
                 }
                ]
   },
@@ -154,13 +152,13 @@
                 "END_TURN": []
                 },
                 {
-                "COUNT_CARD": [ "Chicken" ]
+                "COUNT_CARD": [2, "Chicken"]
                 },
                 {
-                "COPY": [ 0.5 ]
+                "COPY_CARD": [1, "Chicken" ]
                 },
                 {
-                "CANCEL": [ "Chicken" ]
+                "CANCEL_ACTIONS": [ "Chicken" ]
                 }
                 ]
   },
@@ -174,7 +172,7 @@
                 "END_TURN": []
                 },
                 {
-                "SEARCH_DECK": [ "Chicken", "INTO_PLAY" ]
+                "SEARCH_DECK": [ ["Chicken"], "INTO_PLAY" ]
                 }
               ]
   },
@@ -188,7 +186,7 @@
                 "AUTO_ACTIVATED": []
                 },
                 {
-                "REPLACE_GOLD_PRODUCTION": [ "Farmer", 2 ]
+                "REPLACE_GOLD_PRODUCTION": [ "REPLACE_ABILITY", "gold", "Farmer", "GET_GOLD", 2 ]
                 }
                 ]
   },
@@ -233,6 +231,6 @@
   "type": "Permanent",
   "cost": 5,
   "reward": 5,
-  "actions": [ ]
+  "actions": []
   }
 ]

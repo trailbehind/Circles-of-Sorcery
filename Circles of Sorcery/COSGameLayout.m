@@ -50,37 +50,35 @@
 }
 
 
+
 - (id) initWithPlayers:(NSArray*)players {
-  self = [super init];
+  self = [super initWithFrame:[[UIScreen mainScreen] bounds]];
   playerOneArea = [[COSPlayerArea alloc]initWithFrame:self.bounds forPlayer:[players objectAtIndex:0]];
-  playerTwoArea = [[COSPlayerArea alloc]initWithFrame:opponentTray.bounds forPlayer:[players objectAtIndex:1]];
+  //playerTwoArea = [[COSPlayerArea alloc]initWithFrame:opponentTray.bounds forPlayer:[players objectAtIndex:1]];
   self.autoresizingMask = UIViewAutoresizingFlexibleWidth |UIViewAutoresizingFlexibleHeight;
   
   
   [self addSubview:playerOneArea];
   currentPlayerArea = playerOneArea;
   
-  CGRect trayFrame = CGRectMake(0, -668, self.frame.size.width, self.frame.size.height);
-  opponentTray = [[COSOpponentTray alloc]initWithFrame:trayFrame];
-  [self addSubview:opponentTray];
+  //CGRect trayFrame = CGRectMake(0, -668, self.frame.size.width, self.frame.size.height);
+  //opponentTray = [[COSOpponentTray alloc]initWithFrame:trayFrame];
+  //[self addSubview:opponentTray];
   
-  playerTwoArea.transform = CGAffineTransformMakeRotation(M_PI);
+  //playerTwoArea.transform = CGAffineTransformMakeRotation(M_PI);
   
-  [opponentTray addSubview:playerTwoArea];
-  [opponentTray sendSubviewToBack:playerTwoArea];
+  //[opponentTray addSubview:playerTwoArea];
+  //[opponentTray sendSubviewToBack:playerTwoArea];
   
   
   endTurnButton = [[UIButton buttonWithType:UIButtonTypeRoundedRect]retain];
-  endTurnButton.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin;
+  endTurnButton.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleBottomMargin;
   [endTurnButton setTitle:@"End Turn" forState:UIControlStateNormal];
   int buttonWidth = 150;
   int buttonHeight = 30;
-  endTurnButton.frame = CGRectMake(PADDING, opponentTray.frame.size.height-buttonHeight-PADDING, buttonWidth, buttonHeight);
-  [endTurnButton addTarget:self action:@selector(switchPlayers) forControlEvents:UIControlEventTouchUpInside];
-  [opponentTray addSubview:endTurnButton];
-  [self sendSubviewToBack:playerOneArea];
-
-  
+  endTurnButton.frame = CGRectMake(PADDING, PADDING, buttonWidth, buttonHeight);
+  [endTurnButton addTarget:playerOneArea.player action:@selector(doEndOfTurnEffects) forControlEvents:UIControlEventTouchUpInside];
+  [playerOneArea addSubview:endTurnButton];
   return self;
 
 

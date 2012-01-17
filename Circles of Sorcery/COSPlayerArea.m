@@ -18,19 +18,13 @@
 #import "COSDeck.h"
 
 @implementation COSPlayerArea
-
+@synthesize player, goldCounter;
 
 - (void) dealloc {
-  [lifeCounter release];
-  [manaCounter release];
+  [goldCounter release];
   [deckView release];
+  [player release];
   [super dealloc];
-}
-
-
-- (void) endTurn {
-  // [manaCounter incrementCounter];
-  // [deck drawCard];
 }
 
 
@@ -41,9 +35,9 @@
                                    self.frame.size.height- deckHeight - CARD_HEIGHT*2 + 10, 
                                    deckWidth, deckHeight);
   
-  COSDiscardPileView *discard = [[[COSDiscardPileView alloc]initWithFrame:discardFrame]autorelease];
-  discard.autoresizingMask = UIViewAutoresizingFlexibleTopMargin |UIViewAutoresizingFlexibleLeftMargin;
-  [self addSubview:discard];
+  player.discardPile.frame = discardFrame;
+  player.discardPile.autoresizingMask = UIViewAutoresizingFlexibleTopMargin |UIViewAutoresizingFlexibleLeftMargin;
+  [self addSubview:player.discardPile];
   
   
   
@@ -60,34 +54,35 @@
 }
 
 
-- (void) setupPlayArea:(COSPlayer*)player {
+- (void) setupPlayArea {
   
   
-  CGRect lifeCounterFrame = CGRectMake(PADDING, 90, 0, 0);
-  lifeCounter = [[COSPlusMinusCounter alloc]initWithFrame:lifeCounterFrame title:@"Gold" startCount:0];
-  [self addSubview:lifeCounter];
+  CGRect goldCounterFrame = CGRectMake(PADDING, 90, 0, 0);
+  goldCounter = [[COSPlusMinusCounter alloc]initWithFrame:goldCounterFrame title:@"Gold" startCount:0];
+  [self addSubview:goldCounter];
 
   CGRect handRegionFrame = CGRectMake(0,
                                       self.frame.size.height-CARD_HEIGHT-20, 
                                       self.frame.size.width, 
                                       CARD_HEIGHT+20);  
-  COSHandContainer *handContainer = [[[COSHandContainer alloc]initWithFrame:handRegionFrame]autorelease];
-  player.handContainer = handContainer;
-  [self addSubview:handContainer];
+  player.handContainer.frame = handRegionFrame;
+  [self addSubview:player.handContainer];
   
-  [self addDeckView:handContainer player:player];
+  [self addDeckView:player.handContainer player:player];
 
   
   
 }
 
 
-- (id)initWithFrame:(CGRect)frame forPlayer:(COSPlayer*)player {
+- (id)initWithFrame:(CGRect)frame forPlayer:(COSPlayer*)p {
     self = [super initWithFrame:frame];
     if (self) {
       self.autoresizingMask = UIViewAutoresizingFlexibleWidth |UIViewAutoresizingFlexibleHeight;
       self.backgroundColor = [UIColor colorWithRed:.3 green:.5 blue:.7 alpha:.5];
-      [self setupPlayArea:player];
+      player = [p retain];
+      player.playerArea = self;
+      [self setupPlayArea];
     }
     return self;
 }

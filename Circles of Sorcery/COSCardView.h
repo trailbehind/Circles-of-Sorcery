@@ -23,10 +23,11 @@
 @property(nonatomic,retain) COSHandContainer *handContainer;
 @property(nonatomic,retain) COSDiscardPileView *discardPile;
 @property(nonatomic,retain) COSDeckView *deck;
-
+@property(nonatomic,retain) NSDate *firstTouchTime;
 
 
 - (id)initWithCard:(COSCard*)c;
-
+- (void) unhighlight;
+- (void) highlightForEffect;
 
 @end

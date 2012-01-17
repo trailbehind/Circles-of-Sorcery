@@ -14,6 +14,9 @@
 #import "COSDeckView.h"
 #import "COSGame.h"
 #import "COSCardRegistry.h"
+#import "COSDeck.h"
+#import "COSPlayerArea.h"
+#import "COSPlusMinusCounter.h"
 
 #define DEFAULT_RESOURCE_TO_PRODUCE @"GOLD"
 
@@ -38,13 +41,14 @@
       player = [p retain];
       self.name = n;
       self.resourceToProduce = DEFAULT_RESOURCE_TO_PRODUCE;
-      NSLog(@"The name is %@", [NSString stringWithFormat:@"%@.",name]);
       NSDictionary *cardInfo = [g.cardRegistry.cardIndex objectForKey:name];
       self.type = [cardInfo objectForKey:@"type"];
       self.actions = [cardInfo objectForKey:@"actions"];
       self.cost = [[cardInfo objectForKey:@"cost"]intValue];
       self.reward = [[cardInfo objectForKey:@"reward"]intValue];
       cardView = [[COSCardView alloc]initWithCard:self];
+      cardView.handContainer = player.handContainer;
+      cardView.discardPile = player.discardPile;
     }
     return self;
 }
@@ -52,8 +56,17 @@
 
 // add to the player's gold pile
 - (CardResult) giveGold:(int)amount {
+  if ([self.resourceToProduce isEqualToString:@"Card"]) {
+    self.resourceToProduce = @"Gold";
+    [self drawCards:amount];
+    return CONTINUE_ACTIONS;
+  }
   player.gold += amount;
+  for (int x=0;x<amount;x++) {
+    [player.playerArea.goldCounter incrementCounter];
+  }
   return CONTINUE_ACTIONS;
+    
 }
 
 
@@ -65,6 +78,7 @@
 
 
 - (void) sendToDiscard {
+  [self.cardView.handContainer.cards removeObject:self];
   [self.player.discardPile addCard:self];
 }
 
@@ -75,6 +89,7 @@
   for (COSCard *card in cards) {
     [card sendToDiscard];
   }
+  [self.cardView.handContainer layoutCards];
   return CONTINUE_ACTIONS;
 }
 
@@ -83,10 +98,10 @@
 - (CardResult) testForCard:(NSString*)cardName {
   for (COSCard *card in player.cardsInPlay) {
     if ([card.name isEqualToString:cardName]) {
-      return CONTINUE_ACTIONS;
+      return YES_AND_CONTINUE;
     }
   }
-  return END_ACTIONS;
+  return NO_AND_CONTINUE;
 }
 
 
@@ -94,10 +109,25 @@
 // when it happens, override resource production
 - (CardResult) searchDeckForCardsNamed:(NSArray*)cardNames 
                                putInto:(NSString*)putInto {
-  NSArray *cards = [player.deck searchForCardsNamed:cardNames];
-  if ([putInto isEqualToString:@"INTO_HAND"]) {
-    [cards count];
-  } else if ([putInto isEqualToString:@"INTO_PLAY"]) {
+  //NSArray *cards = [player.deck searchForCardsNamed:cardNames];
+  NSString *cardName = [cardNames objectAtIndex:0];
+  COSCard *cardToTransfer = nil;
+  for (COSCard *c in player.deck.cards) {
+    if ([c.name isEqualToString:cardName]) {
+      cardToTransfer = c;
+      break;
+    }
+    
+  }
+  if (!cardToTransfer) {
+    return CONTINUE_ACTIONS;
+  }
+  [player.deck.cards removeObject:cardToTransfer];
+  
+  // could lok at INTO_HAND 
+  [player.handContainer addCard:cardToTransfer];
+  if ([putInto isEqualToString:@"INTO_PLAY"]) {
+    [player.handContainer playCard:cardToTransfer];
   }
   return CONTINUE_ACTIONS;
 }
@@ -110,7 +140,9 @@
                          forResourcesNamed:(NSString*)resourcesToGain
                              resourcesToGain:(int)resourcesToGainQuantity {
   for (COSCard *card in player.cardsInPlay) {
-    card.resourceToProduce = @"Card";
+    if ([card.name isEqualToString:resourceSource]) {      
+      card.resourceToProduce = @"Card";
+    }
   }
   return CONTINUE_ACTIONS;
 }
@@ -166,7 +198,7 @@
 
 - (CardResult) doActionForName:(NSString*)actionName 
                     parameters:(NSArray*)parameters lastResult:(int)lastResult {
-  if ([actionName isEqualToString:@"SACRIFICE"]) {
+ if ([actionName isEqualToString:@"SACRIFICE_THIS"]) {
     return [self sacrifice];
   }
   if ([actionName isEqualToString:@"DRAW_CARD"]) {
@@ -175,7 +207,7 @@
   if ([actionName isEqualToString:@"DISCARD_CARD"]) {
     return [self discardCards:[[parameters objectAtIndex:0]intValue]];
   }
-  if ([actionName isEqualToString:@"GOLD"]) {
+  if ([actionName isEqualToString:@"GET_GOLD"]) {
     return [self giveGold:[[parameters objectAtIndex:0]intValue]];
   }
   if ([actionName isEqualToString:@"TEST_FOR_CARD"]) {
@@ -186,10 +218,10 @@
                                  putInto:[parameters objectAtIndex:1]];
   }
   if ([actionName isEqualToString:@"REPLACE_GOLD_PRODUCTION"]) {
-    return [self replaceGoldFromResourcesNamed:[parameters objectAtIndex:0]
-                                 goldToReplace:[[parameters objectAtIndex:1]intValue]
-                                 forResourcesNamed:[parameters objectAtIndex:2]
-                                 resourcesToGain:[[parameters objectAtIndex:3]intValue]
+    return [self replaceGoldFromResourcesNamed:[parameters objectAtIndex:2]
+                                 goldToReplace:1
+                                 forResourcesNamed:[parameters objectAtIndex:3]
+                                 resourcesToGain:[[parameters objectAtIndex:4]intValue]
             ];
   }
   if ([actionName isEqualToString:@"CHANGE_GOLD"]) {
@@ -201,11 +233,11 @@
   if ([actionName isEqualToString:@"COUNT_CARD"]) {
     return [self countCardsInPlayNamed:[parameters objectAtIndex:0]];
   }
-  if ([actionName isEqualToString:@"COPY"]) {
+  if ([actionName isEqualToString:@"COPY_CARD"]) {
     return [self copyCardNamed:self.name 
                          times:lastResult * [[parameters objectAtIndex:0]floatValue]];
   }
-  if ([actionName isEqualToString:@"CANCEL"]) {
+  if ([actionName isEqualToString:@"CANCEL_ACTIONS"]) {
     return [self cancelOtherActionsThisTurnFrom:[parameters objectAtIndex:0]];
   }
   return CONTINUE_ACTIONS;
@@ -218,10 +250,38 @@
               numberInSequence:(int)numberInSequence {
   
   NSString *phrase = [[[player.game cardRegistry]actionTranslations]objectForKey:actionName];
-  if (numberInSequence == numberOfActions-1) {
-    phrase = [phrase stringByAppendingString:@"."];
-  }
   return phrase;
+}
+
+
+- (NSString*) buildSubstring:(NSArray*)actionParameters index:(int)index {
+  NSMutableArray *numbers = [NSMutableArray array];
+  for (int x=index+1;x<[actionParameters count];x++) {
+    NSObject *param = [actionParameters objectAtIndex:x];
+    if (![param isKindOfClass:[NSNumber class]]
+        && [param rangeOfString:@"_"].location != NSNotFound) {
+      break;
+    }
+    [numbers addObject:param];
+  }
+  NSString *token = [player.game.cardRegistry.actionTranslations 
+                     objectForKey:[actionParameters objectAtIndex:index]];
+  
+  if (!token) {
+    return @"1111"; 
+  }  
+  
+  for (NSNumber *number in numbers) {
+    NSRange range = [token rangeOfString:@"%s"];
+    if (range.location == NSNotFound) {
+      continue;
+    }
+    NSString *numString = [NSString stringWithFormat:@"%@", number]; 
+    if (numString) {
+      token = [token stringByReplacingCharactersInRange:range withString:numString];
+    }
+  }
+  return token;
 }
 
 
@@ -236,17 +296,31 @@
                               numberOfActions:[self.actions count]
                              numberInSequence:count];
     if (token) {
+      int count = -1;
+      BOOL doingCompound = NO;
       for (NSObject *obj in actionParameters) {
+        count++;
         NSRange range = [token rangeOfString:@"%s"];
         if (range.location == NSNotFound) {
           continue;
         }
-        if ([obj isKindOfClass:[NSNumber class]]) {
-          obj = [NSString stringWithFormat:@"%d", [obj intValue]];
+        if ([obj isKindOfClass:[NSNumber class]] && count == 0) {
+          obj = [NSString stringWithFormat:@"%@", obj];
         } else if ([obj isKindOfClass:[NSArray class]]) {
+          if ([obj count] > 0) {
+            obj = [obj objectAtIndex:0];
+          }
+        } else if ([obj isKindOfClass:[NSString class]]
+                   && [obj rangeOfString:@"_"].location != NSNotFound) {
+          obj = [self buildSubstring:actionParameters index:count];           
+          doingCompound = YES;
+        } else if ([obj isKindOfClass:[NSString class]] && !doingCompound) {
+          obj = [NSString stringWithFormat:@"%@", obj];
+        } else {
           continue;
         }
         token = [token stringByReplacingCharactersInRange:range withString:obj];
+          
       }
       displayText = [displayText stringByAppendingString:token];
     }
@@ -275,6 +349,10 @@
   for (NSDictionary *action in self.actions) {
     NSString *actionName = [[action allKeys]objectAtIndex:0];
     NSArray *actionParameters = [action objectForKey:actionName];
+    if (result == NO_AND_CONTINUE) {
+      result = CONTINUE_ACTIONS;
+      continue;
+    }
     result = [self doActionForName:actionName 
                         parameters:actionParameters 
                         lastResult:result];
@@ -282,7 +360,52 @@
       break;
     }
   }
-  
 }
+
+
+- (BOOL) isActivatableForParameter:(NSString*)parameter {
+  if ([self.actions count] == 0) {
+    return NO;
+  }
+  if ([[[[self.actions objectAtIndex:0]allKeys]objectAtIndex:0]isEqualToString:parameter]) {
+    return YES;
+  }  
+  return NO;
+}
+
+
+- (void) highlightIfActivatable {
+  if ([self isActivatableForParameter:@"ACTIVATED_ABILITY"]) {
+    [self.cardView highlightForEffect];
+  }
+}
+
+
+- (void) activateIfAuto {
+  if ([self isActivatableForParameter:@"AUTO_ACTIVATED"]) {
+    [self.cardView highlightForEffect];
+  }
+}
+
+
+- (void) activateEffect {
+  if ([actions count] == 0) {
+    return;
+  }
+  [self activateForEvent:[[[self.actions objectAtIndex:0]allKeys]objectAtIndex:0]];
+  [self.cardView unhighlight];
+}
+
+
+- (void) playFromHand {
+  if([self.type isEqualToString:@"Permanent"]) {
+    [self highlightIfActivatable];
+    [self.player.cardsInPlay addObject:self];
+  } else if([self.type isEqualToString:@"Effect"]) {
+    [self.cardView.discardPile discardThenPlay:self];
+    [self activateEffect];
+  }
+}
+
 
 @end

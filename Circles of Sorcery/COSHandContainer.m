@@ -11,6 +11,7 @@
 #import "COSConstants.h"
 #import <QuartzCore/QuartzCore.h>
 #import "COSCardView.h"
+#import "COSPlayer.h"
 
 @implementation COSHandContainer
 @synthesize cards;
@@ -55,11 +56,51 @@
 }
 
 
+
 - (NSArray*) chooseCardsToDicard:(int)numberOfCards {
   NSMutableArray *cardsToDiscard = [NSMutableArray arrayWithObject:[cards lastObject]];
   [cards removeObject:[cards lastObject]];
+  //[self layoutCards];
   return cardsToDiscard;
 }
+
+
+- (void) playCard:(COSCard*)card {
+  [self.cards removeObject:card];
+  [[self superview] addSubview:card.cardView];   
+  [card playFromHand];
+}
+
+
+- (void)cardTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event card:(COSCard*)card {
+  self.scrollEnabled = NO;
+  UITouch *touch = [[event allTouches] anyObject];
+	CGPoint point = [touch locationInView:self];
+  startPoint = point;
+  [self playCard:card];
+}
+
+
+/*  // is this if necessary
+  if ([[card.cardView superview] isEqual:self]) {
+    [[self superview] addSubview:card.cardView]; 
+    CGPoint location = [touch locationInView:self]; 
+    CGRect newFrame = card.cardView.frame;
+    newFrame.origin = location;  
+  	card.cardView.frame = newFrame;	    
+
+    [self.cards removeObject:card];
+    [self layoutCards];
+
+    if([card.type isEqualToString:@"Effect"]) {
+      [card activateForEvent:[[[card.actions objectAtIndex:0]allKeys]objectAtIndex:0]];
+      [card.cardView.discardPile addCard:card];
+    }
+  
+  }
+} */
+
+
 
 
 @end

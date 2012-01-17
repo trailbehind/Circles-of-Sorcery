@@ -11,6 +11,7 @@
 #import "COSCard.h"
 #import "COSCardView.h"
 #import "COSDiscardContainer.h"
+#import "COSPlayer.h"
 #import <QuartzCore/QuartzCore.h>
 
 @implementation COSDiscardPileView
@@ -53,7 +54,8 @@
 
 
 - (void) removeCard {
-  [[cards lastObject] removeFromSuperview];
+  COSCard *card = [cards lastObject];
+  [[card cardView] removeFromSuperview];
 }
 
 
@@ -64,6 +66,10 @@
   [UIView setAnimationDuration:0.25];
   [UIView setAnimationDelegate:self];
   [UIView setAnimationDidStopSelector:@selector(removeCard)];
+  //for (UIView *v in card.cardView.subviews) {
+  //  v.alpha = 0;
+  //}
+  NSLog(@"The card is %@", card);
   CGRect frame = card.cardView.frame;
   frame.origin = self.center;
   frame.size = CGSizeMake(0,0);
@@ -72,16 +78,22 @@
 }
 
 
-- (void) addCard:(COSCard*)card {    
+- (void) addCard:(COSCard*)card {   
+  [card.player.cardsInPlay removeObject:self];
   [cards addObject:card];
   [UIView beginAnimations:nil context:nil];
   [UIView setAnimationDuration:0.25];
   [UIView setAnimationDelegate:self];
   [UIView setAnimationDidStopSelector:@selector(shrinkCard)];
-  card.cardView.frame = self.frame;
+  NSLog(@"The card is %@", card);
+  //card.cardView.frame = self.frame;
   [UIView commitAnimations];
 }
 
+
+- (void)discardThenPlay:(COSCard*)card {
+  [self addCard:card];
+}
 
 - (void) showDiscardPile {
   CGRect handRegionFrame = CGRectMake(0,

@@ -11,6 +11,8 @@
 typedef enum {
   END_ACTIONS,
   CONTINUE_ACTIONS,
+  NO_AND_CONTINUE,
+  YES_AND_CONTINUE,
 } CardResult;
 
 @interface COSCard : NSObject {
@@ -34,6 +36,8 @@ typedef enum {
 
 - (id)initWithName:(NSString*)n player:(COSPlayer*)p game:(COSGame*)g;
 - (NSString*) displayText;
+- (void) playFromHand;
+
 
 
 @end

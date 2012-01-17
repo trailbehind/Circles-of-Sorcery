@@ -18,7 +18,7 @@
 #import "NSString+multiLineAdjust.h"
 
 @implementation COSCardView
-@synthesize handContainer, discardPile, deck;
+@synthesize handContainer, discardPile, deck, firstTouchTime;
 
 - (void) dealloc {
   [card release];
@@ -32,6 +32,8 @@
   [textLabel release];
   [typeLabel release];
   [rewardLabel release];
+  
+  [firstTouchTime release];
   
   [super dealloc];
 }
@@ -55,6 +57,18 @@
   [self addSubview:label];
   return label;
 }
+
+
+
+- (void) highlightForEffect {
+  self.layer.borderColor = [[UIColor yellowColor]CGColor];
+}
+
+
+- (void) unhighlight {
+  self.layer.borderColor = [[UIColor redColor]CGColor];
+}
+
 
 
 - (id)initWithCard:(COSCard*)c {
@@ -139,76 +153,65 @@
 
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+  if ([handContainer.cards containsObject:card]) {
+    [handContainer cardTouchesBegan:touches withEvent:event card:card];
+    return;
+  }
   
-  if (![handContainer.cards containsObject:self]) {
+  if (![handContainer.cards containsObject:card]) {
     if (!firstTouchTime) {
-      NSLog(@"First touch");
-      firstTouchTime = [[NSDate date]retain];
+      // first tap
+      self.firstTouchTime = [NSDate date];
       [NSTimer scheduledTimerWithTimeInterval:1
                                        target:self 
                                      selector:@selector(clearTouchTime:) 
                                      userInfo:nil
                                       repeats:NO];
+      UITouch *touch = [touches anyObject];   
+      CGPoint location = [touch locationInView:artwork]; 
+      
+      if([card.type isEqualToString:@"Effect"]) {
+        NSLog(@"Playing an effect");
+        [card activateForEvent:[[[card.actions objectAtIndex:0]allKeys]objectAtIndex:0]];
+        NSLog(@"Played an effect");
+      }
+
     } else {
-      NSLog(@"Second touch");
-      if ([discardPile.cards containsObject:self]) {
+      // double tap
+      if ([discardPile.cards containsObject:card]) {
         return;
       }
       [firstTouchTime release];
-      firstTouchTime = nil;
-      [UIView beginAnimations:nil context:nil];
-      [UIView setAnimationDuration:0.25];
-      if (CGAffineTransformEqualToTransform(self.transform,CGAffineTransformIdentity)) {
-        CGAffineTransform transform = CGAffineTransformMakeRotation(M_PI/2);
-        self.transform = transform;
-      } else {
-        self.transform = CGAffineTransformIdentity;
+      firstTouchTime = nil; 
+      
+      if ([card isActivatable]) {
+        [card activateEffect];
       }
-      [UIView commitAnimations];
+      
     }
     
   }
-  
-  handContainer.scrollEnabled = NO;
-  UITouch *touch = [[event allTouches] anyObject];
-	CGPoint point = [touch locationInView:self];
-  startPoint = point;
-  if ([[self superview] isEqual:handContainer]) {
-    [[[self superview]superview]addSubview:self]; 
-    
-    CGPoint location = [touch locationInView:self.superview]; 
-    CGRect newFrame = self.frame;
-    newFrame.origin = location;  
-  	self.frame = newFrame;	
-    
-  }
-  [handContainer.cards removeObject:self];
-  [handContainer layoutCards];
 }
 
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
   
-  if ([discardPile.cards containsObject:self]
-      || [deck.cards containsObject:self]) {
+  if ([discardPile.cards containsObject:card]
+      || [deck.cards containsObject:card]) {
     if (firstTouchTime) {
       [firstTouchTime release];
       firstTouchTime = nil;
-      if ([discardPile.cards containsObject:self]) {
-        [discardPile.cards removeObject:self];
-        [discardPile.discardContainer.cards removeObject:self];
-        [handContainer addCard:self];
+      if ([discardPile.cards containsObject:card]) {
+        [discardPile.cards removeObject:card];
+        [discardPile.discardContainer.cards removeObject:card];
+        [handContainer addCard:card];
         [handContainer layoutCards];
-        NSLog(@"discard pile cards are %d", [discardPile.cards count]);
-        NSLog(@"discard pile container cards are %d", [discardPile.discardContainer.cards count]);
       }
-      NSLog(@"The discardContainer is %@", deck.discardContainer);
-      NSLog(@"The handcontainer is %@", handContainer  );
-      NSLog(@"I am %@", self);
-      if ([deck.cards containsObject:self]) {
-        [deck.cards removeObject:self];
-        [deck.discardContainer.cards removeObject:self];
-        [handContainer addCard:self];
+  
+      if ([deck.cards containsObject:card]) {
+        [deck.cards removeObject:card];
+        [deck.discardContainer.cards removeObject:card];
+        [handContainer addCard:card];
         [handContainer layoutCards];
       }
       
@@ -223,12 +226,13 @@
     / ((int)self.frame.size.width+10);
     int position = MIN(numberOfPositions, self.center.x / handContainer.contentSize.width * numberOfPositions);
     position = MAX(0, position);
-    [handContainer.cards insertObject:self atIndex:position];
+    position = MIN([handContainer.cards count], position);
+    [handContainer.cards insertObject:card atIndex:position];
   }
   [handContainer layoutCards];
   
   if (CGRectIntersectsRect(self.frame, discardPile.frame)) {
-    [discardPile addCard:self];
+    [discardPile addCard:card];
   }
 }
 

@@ -11,12 +11,18 @@
 
 @interface COSPlayerArea : UIView {
   
-  COSPlusMinusCounter *lifeCounter, *manaCounter;
+  COSPlusMinusCounter *goldCounter;
   COSDeckView *deckView;
+  COSPlayer *player;
   
 }
 
-- (id)initWithFrame:(CGRect)frame forPlayer:(COSPlayer*)player;
+
+@property(nonatomic,retain) COSPlayer *player;
+@property(nonatomic,retain) COSPlusMinusCounter *goldCounter;
+
+
+- (id)initWithFrame:(CGRect)frame forPlayer:(COSPlayer*)p;
 - (void) endTurn;
 
 

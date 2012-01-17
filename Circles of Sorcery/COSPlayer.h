@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-@class  COSDeck, COSHandContainer, COSDiscardPileView, COSGame;
+@class  COSDeck, COSHandContainer, COSDiscardPileView, COSGame, COSPlayerArea;
 
 @interface COSPlayer : NSObject {
   int gold, rewardPoints;
@@ -16,6 +16,7 @@
   COSDiscardPileView *discardPile;
   NSMutableArray *cardsInPlay;
   COSGame *game;
+  COSPlayerArea *playerArea;
 }
 
 @property(nonatomic, assign) int gold, rewardPoints;
@@ -24,6 +25,7 @@
 @property(nonatomic, retain) COSDeck *deck;
 @property(nonatomic, retain) COSDiscardPileView *discardPile;
 @property(nonatomic, retain) COSGame *game;
+@property(nonatomic, retain) COSPlayerArea *playerArea;
 
 - (void) drawCards:(int)numberOfCards;
 - (int) selectGoldAmountWithIncrement:(int)increment;

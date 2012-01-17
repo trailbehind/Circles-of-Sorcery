@@ -136,4 +136,7 @@ NSString *readLineAsNSString(FILE *file) {
 }
 
 
+- (void) searchForCardsNamed:(NSArray*)cardNames {
+}
+
 @end
