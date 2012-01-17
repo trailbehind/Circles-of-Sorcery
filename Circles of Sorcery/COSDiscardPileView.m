@@ -13,6 +13,8 @@
 #import "COSDiscardContainer.h"
 #import "COSPlayer.h"
 #import <QuartzCore/QuartzCore.h>
+#import "COSPlayerArea.h"
+#import "COSPlusMinusCounter.h"
 
 @implementation COSDiscardPileView
 @synthesize cards, discardContainer;
@@ -79,7 +81,11 @@
 
 
 - (void) addCard:(COSCard*)card {   
-  [card.player.cardsInPlay removeObject:self];
+  [card.player.cardsInPlay removeObject:card];
+  card.player.rewardPoints -= card.reward;
+  for (int x=0;x<card.reward;x++) {
+    [card.player.playerArea.rewardCounter decrementCounter];
+  }
   [cards addObject:card];
   [UIView beginAnimations:nil context:nil];
   [UIView setAnimationDuration:0.25];

@@ -17,15 +17,17 @@
 #import "COSDeck.h"
 #import "COSPlayerArea.h"
 #import "COSPlusMinusCounter.h"
+#import "COSEffect.h"
 
-#define DEFAULT_RESOURCE_TO_PRODUCE @"GOLD"
+#define DEFAULT_RESOURCE_TO_PRODUCE @"GET_GOLD"
 
 @implementation COSCard
-@synthesize name, type, cost, reward, actions, player, resourceToProduce, cardView;
+@synthesize name, type, cost, reward, actions, player, resourceToProduce, cardView, resourceModifier, subtype;
 
 
 - (void) dealloc {
   [name release];
+  [subtype release];
   [type release];
   [actions release];
   [resourceToProduce release];
@@ -43,28 +45,29 @@
       self.resourceToProduce = DEFAULT_RESOURCE_TO_PRODUCE;
       NSDictionary *cardInfo = [g.cardRegistry.cardIndex objectForKey:name];
       self.type = [cardInfo objectForKey:@"type"];
+      self.subtype = [cardInfo objectForKey:@"subtype"];
       self.actions = [cardInfo objectForKey:@"actions"];
       self.cost = [[cardInfo objectForKey:@"cost"]intValue];
       self.reward = [[cardInfo objectForKey:@"reward"]intValue];
       cardView = [[COSCardView alloc]initWithCard:self];
       cardView.handContainer = player.handContainer;
       cardView.discardPile = player.discardPile;
+      resourceModifier = 1;
     }
     return self;
 }
 
 
 // add to the player's gold pile
-- (CardResult) giveGold:(int)amount {
-  if ([self.resourceToProduce isEqualToString:@"Card"]) {
-    self.resourceToProduce = @"Gold";
+- (CardResult) giveGold:(int)amount {  
+  amount *= self.resourceModifier;
+  
+  if ([self.resourceToProduce isEqualToString:@"DRAW_CARD"]) {
+    self.resourceToProduce = @"GET_GOLD";
     [self drawCards:amount];
     return CONTINUE_ACTIONS;
   }
-  player.gold += amount;
-  for (int x=0;x<amount;x++) {
-    [player.playerArea.goldCounter incrementCounter];
-  }
+  [player gainGold:amount];
   return CONTINUE_ACTIONS;
     
 }
@@ -139,11 +142,13 @@
                              goldToReplace:(int)goldQuantity
                          forResourcesNamed:(NSString*)resourcesToGain
                              resourcesToGain:(int)resourcesToGainQuantity {
-  for (COSCard *card in player.cardsInPlay) {
-    if ([card.name isEqualToString:resourceSource]) {      
-      card.resourceToProduce = @"Card";
-    }
-  }
+
+  COSEffect *effect = [[[COSEffect alloc]initForResourcesToGive:resourceSource
+                                                      payAmount:goldQuantity
+                                                  resourceToGet:resourcesToGain
+                                              forResourceAmount:resourcesToGainQuantity]autorelease];
+  [player.activeEffects addObject:effect];
+  
   return CONTINUE_ACTIONS;
 }
 
@@ -152,8 +157,11 @@
 - (CardResult) changeGold:(int)amount
         forResourcesNamed:(NSString*)resourcesToGain
          resourcesToGain:(int)resourcesToGainQuantity {  
-  int goldToPay = [player selectGoldAmountWithIncrement:amount];
-  [player gainResourceNamed:resourcesToGain amount:goldToPay/amount*resourcesToGainQuantity];
+  //int goldToPay = [player selectGoldAmountWithIncrement:amount];
+  //[player gainResourceNamed:resourcesToGain amount:goldToPay/amount*resourcesToGainQuantity];
+  [player addCounterForResourcesToGain:resourcesToGain 
+                         payGoldAmount:amount
+                                forResourceAmount:resourcesToGainQuantity];
   return CONTINUE_ACTIONS;
 }
 
@@ -381,13 +389,6 @@
 }
 
 
-- (void) activateIfAuto {
-  if ([self isActivatableForParameter:@"AUTO_ACTIVATED"]) {
-    [self.cardView highlightForEffect];
-  }
-}
-
-
 - (void) activateEffect {
   if ([actions count] == 0) {
     return;
@@ -401,11 +402,27 @@
   if([self.type isEqualToString:@"Permanent"]) {
     [self highlightIfActivatable];
     [self.player.cardsInPlay addObject:self];
+    player.rewardPoints += self.reward;
+    for (int x=0;x<self.reward;x++) {
+      [player.playerArea.rewardCounter incrementCounter];
+    }
+    [player.playerArea addCard:self];
+    
+    
   } else if([self.type isEqualToString:@"Effect"]) {
     [self.cardView.discardPile discardThenPlay:self];
     [self activateEffect];
   }
 }
+
+
+- (void) activateIfActivatable {
+  if ([self isActivatableForParameter:@"ACTIVATED_ABILITY"]) {
+    [self activateEffect];
+  }
+}
+
+
 
 
 @end

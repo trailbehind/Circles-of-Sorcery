@@ -6,13 +6,14 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-@class COSGameLayout, COSCardRegistry;
+@class COSGameLayout, COSCardRegistry, COSDeckBuilderTableView;
 
 @interface COSGame : UIViewController {
   
   COSGameLayout *gameLayout;
   COSCardRegistry *cardRegistry;
   NSMutableArray *players;  
+  COSDeckBuilderTableView *deckBuilder;
 }
 
 @property(nonatomic,retain) COSCardRegistry *cardRegistry;
@@ -20,7 +21,7 @@
 
 - (id) initWithCardRegistryFile:(NSString*)filename;
 - (void) createDisplayForPlayers:(NSArray*)p;
-- (void) beginGame;
-
+- (void) showDeckBuilder;
+- (NSString*) lastDefaultDeck;
 
 @end

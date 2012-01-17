@@ -50,6 +50,19 @@
 }
 
 
+- (void) newGame {
+  
+  COSPlayer *p = playerOneArea.player;
+  for (UIView *v in [[[[UIApplication sharedApplication]delegate]window]subviews]) {
+    [v removeFromSuperview];    
+  }
+  [[[UIApplication sharedApplication]delegate]launchGame];
+  //[playerOneArea.widgets removeALlObjects];
+  //[playerOneArea setWidgetFrames];
+  //p.gold = 0;
+  
+}
+
 
 - (id) initWithPlayers:(NSArray*)players {
   self = [super initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -71,11 +84,18 @@
   //[opponentTray sendSubviewToBack:playerTwoArea];
   
   
+  UIButton *newGameButton = [[UIButton buttonWithType:UIButtonTypeRoundedRect]retain];
+  newGameButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin;
+  [newGameButton setTitle:@"New Game" forState:UIControlStateNormal];
+  int buttonWidth = 150;
+  int buttonHeight = 30;
+  newGameButton.frame = CGRectMake(playerOneArea.frame.size.width-buttonWidth-PADDING, PADDING, buttonWidth, buttonHeight);
+  [newGameButton addTarget:self action:@selector(newGame) forControlEvents:UIControlEventTouchUpInside];
+  [playerOneArea addSubview:newGameButton];
+
   endTurnButton = [[UIButton buttonWithType:UIButtonTypeRoundedRect]retain];
   endTurnButton.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleBottomMargin;
   [endTurnButton setTitle:@"End Turn" forState:UIControlStateNormal];
-  int buttonWidth = 150;
-  int buttonHeight = 30;
   endTurnButton.frame = CGRectMake(PADDING, PADDING, buttonWidth, buttonHeight);
   [endTurnButton addTarget:playerOneArea.player action:@selector(doEndOfTurnEffects) forControlEvents:UIControlEventTouchUpInside];
   [playerOneArea addSubview:endTurnButton];

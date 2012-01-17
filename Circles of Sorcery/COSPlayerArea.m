@@ -16,28 +16,32 @@
 #import "COSPlusMinusCounter.h"
 #import "COSPlayer.h"
 #import "COSDeck.h"
+#import "COSCardView.h"
 
 @implementation COSPlayerArea
-@synthesize player, goldCounter;
+@synthesize player, goldCounter, rewardCounter, cards, deckView;
 
 - (void) dealloc {
+  [rewardCounter release];
   [goldCounter release];
   [deckView release];
   [player release];
+  [cards release];
+  [widgets release];
   [super dealloc];
 }
 
 
-- (void) addDeckView:(COSHandContainer*)handContainer player:(COSPlayer*)player {
+- (void) addDeckView:(COSHandContainer*)handContainer player:(COSPlayer*)p {
   int deckHeight = CARD_HEIGHT * .75;
   int deckWidth = CARD_WIDTH * .75;
   CGRect discardFrame = CGRectMake(self.frame.size.width- deckWidth - PADDING, 
                                    self.frame.size.height- deckHeight - CARD_HEIGHT*2 + 10, 
                                    deckWidth, deckHeight);
   
-  player.discardPile.frame = discardFrame;
-  player.discardPile.autoresizingMask = UIViewAutoresizingFlexibleTopMargin |UIViewAutoresizingFlexibleLeftMargin;
-  [self addSubview:player.discardPile];
+  p.discardPile.frame = discardFrame;
+  p.discardPile.autoresizingMask = UIViewAutoresizingFlexibleTopMargin |UIViewAutoresizingFlexibleLeftMargin;
+  [self addSubview:p.discardPile];
   
   
   
@@ -54,12 +58,50 @@
 }
 
 
+- (void) clearWidgets {
+  
+}
+
+
+- (void) setWidgetFrames {
+  int offset = 140;
+  for (UIView *widget in widgets) {
+    CGRect fr = widget.frame;
+    fr.origin.x = PADDING + offset;
+    fr.origin.y = PADDING;
+    offset += PADDING + fr.size.width;
+    widget.frame = fr;
+  }
+}
+
+
+- (void) removeWidget:(UIView*)widget {
+  [widgets removeObject:widget];
+  [widget removeFromSuperview];
+  [self setWidgetFrames];
+}
+
+
+- (void) addWidget:(UIView*)widget {
+  if (!widgets) {
+    widgets = [[NSMutableArray array]retain];
+  }
+  [widgets addObject:widget];
+  [self addSubview:widget];
+  [self setWidgetFrames];
+}
+
+
 - (void) setupPlayArea {
   
+  CGRect rewardCounterFrame = CGRectMake(0, 0, 100, 50);
+  rewardCounter = [[COSPlusMinusCounter alloc]initWithFrame:rewardCounterFrame title:@"Reward" startCount:0 showPlus:NO showMinus:NO];
+  [self addWidget:rewardCounter];
+
   
-  CGRect goldCounterFrame = CGRectMake(PADDING, 90, 0, 0);
-  goldCounter = [[COSPlusMinusCounter alloc]initWithFrame:goldCounterFrame title:@"Gold" startCount:0];
-  [self addSubview:goldCounter];
+  CGRect goldCounterFrame = CGRectMake(0, 0, 100, 50);
+  goldCounter = [[COSPlusMinusCounter alloc]initWithFrame:goldCounterFrame title:@"Gold" startCount:0 showPlus:NO showMinus:NO];
+  [self addWidget:goldCounter];
 
   CGRect handRegionFrame = CGRectMake(0,
                                       self.frame.size.height-CARD_HEIGHT-20, 
@@ -83,8 +125,53 @@
       player = [p retain];
       player.playerArea = self;
       [self setupPlayArea];
+      cards = [[NSMutableArray array]retain];
     }
     return self;
+}
+
+
+
+- (void) alignCards {
+  int farmCount = 0;
+  int workerCount = 0;
+  int buildingCount = 0;
+  int equipmentCount = 0;
+  for (COSCard *card in self.cards) {
+    CGRect frame = card.cardView.frame;
+    if ([card.subtype isEqualToString:@"Farm"]) {
+      frame.origin.x = PADDING + farmCount* frame.size.width/2;
+      frame.origin.y = 50;      
+      farmCount++;      
+    } else if ([card.subtype isEqualToString:@"Worker"]) {
+      frame.origin.x = PADDING + workerCount * frame.size.width/2;
+      frame.origin.y = frame.size.height + PADDING + 50;      
+      workerCount++;      
+    } else if ([card.subtype isEqualToString:@"Building"]) {
+      frame.origin.x = 400 + PADDING + buildingCount * frame.size.width/2;
+      frame.origin.y = 50;      
+      buildingCount++;      
+    } else if ([card.subtype isEqualToString:@"Equipment"] || [card.subtype isEqualToString:@"Animal"]) {
+      frame.origin.x = 400 + PADDING + equipmentCount * frame.size.width/2;
+      frame.origin.y = frame.size.height + PADDING + 50;      
+      equipmentCount++;      
+    }
+    card.cardView.frame = frame;
+  }
+}
+
+
+- (void) removeCard:(COSCard*)card {
+  [self.cards removeObject:card];
+  [card.cardView removeFromSuperview];
+  [self alignCards];
+}
+
+
+- (void) addCard:(COSCard*)card {
+  [self.cards addObject:card];
+  [self addSubview:card.cardView];
+  [self alignCards];
 }
 
 /*

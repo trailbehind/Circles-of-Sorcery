@@ -7,30 +7,66 @@ Farmer
 Farmer
 Farmer
 Farmer
+Farmer
+Farm
+Farm
+Farm
+Farm
+Farm
+Farm
+Farm
+Farm
+Farm
+Farm
+Farm
 Farm
 Farmhouse
 Tractor
 Good Advice
 Abundant Harvest
+Abundant Harvest
+Abundant Harvest
+Abundant Harvest
+Abundant Harvest
+Abundant Harvest
+Summer School
+Summer School
+Summer School
+Summer School
+Summer School
+Summer School
 Summer School
 Windmill
 Almanac
+Almanac
+Almanac
+Almanac
+Almanac
+Almanac
+Corner the Market
+Corner the Market
+Corner the Market
+Corner the Market
+Corner the Market
+Corner the Market
+Corner the Market
+Corner the Market
+Corner the Market
 Corner the Market
 Chicken Coup
 Chicken
 Pub
-Pub
-Pub
-Pub
-Pub
-Pub
-Pub
-Pub
-Pub
-Pub
-Pub
 Chicken Coup
 Farmhouse
+Price of Knowledge
+Price of Knowledge
+Price of Knowledge
+Price of Knowledge
+Price of Knowledge
+Price of Knowledge
+Price of Knowledge
+Price of Knowledge
+Price of Knowledge
 Price of Knowledge
 Know Which Way the Wind Blows
 Rose Garden

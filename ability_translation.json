@@ -1,5 +1,6 @@
 {
   "END_TURN": "At the end of your turn, ",
+  "BEGIN_END_TURN": "At the end of your turn, ",
   "BEGIN_TURN": "At the beginning of your turn, ",
   "AUTO_ACTIVATED": "",
   "ACTIVATED": "Once on your turn, ",
@@ -8,7 +9,7 @@
   "REWARD_POINT": "gain %s reward points. ",
   "GET_GOLD": "gain %s gold. ",
   "TEST_FOR_CARD": "if you have a %s in play, ",
-  "SACRIFICE": "Put this card in your discard pile. ",
+  "SACRIFICE_THIS": "Discard this. ",
   "SEARCH_DECK": "search your deck for %s and %s",
   "REPLACE_ABILITY": "For each %s your %s would produce, instead",
   "REPLACE_GOLD_PRODUCTION": "%s %s",

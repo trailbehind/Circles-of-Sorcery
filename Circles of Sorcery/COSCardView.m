@@ -16,6 +16,8 @@
 #import "COSDeckView.h"
 #import <QuartzCore/QuartzCore.h>
 #import "NSString+multiLineAdjust.h"
+#import "COSPlayer.h"
+#import "COSPlayerArea.h"
 
 @implementation COSCardView
 @synthesize handContainer, discardPile, deck, firstTouchTime;
@@ -127,7 +129,7 @@
                                        self.frame.size.height - PADDING*3, 
                                        self.frame.size.width-PADDING*3-costLabelWidth, 
                                        PADDING*2);
-    typeLabel = [self addRetainedLabelWithText:card.type
+    typeLabel = [self addRetainedLabelWithText:card.subtype
                                           font:TITLE_FONT
                                          frame:typeLabelFrame];
 
@@ -184,9 +186,7 @@
       [firstTouchTime release];
       firstTouchTime = nil; 
       
-      if ([card isActivatable]) {
-        [card activateEffect];
-      }
+      [card activateIfActivatable];
       
     }
     
@@ -233,6 +233,8 @@
   
   if (CGRectIntersectsRect(self.frame, discardPile.frame)) {
     [discardPile addCard:card];
+    [card.player.playerArea removeCard:card];
+
   }
 }
 

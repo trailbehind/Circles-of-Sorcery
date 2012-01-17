@@ -10,6 +10,7 @@
 #import "COSConstants.h"
 
 @implementation COSPlusMinusCounter
+@synthesize counterValue;
 
 - (void) dealloc {
   [titleLabel release];
@@ -42,7 +43,7 @@
 }
 
 
-- (void) addButtonsAndLabels:(NSString*)title {
+- (void) addButtonsAndLabels:(NSString*)title showPlus:(BOOL)showPlus showMinus:(BOOL)showMinus{
   int buttonSize = 30;
   
   UIButton *minusButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -51,8 +52,9 @@
   [minusButton addTarget:self 
                   action:@selector(decrementCounter) 
         forControlEvents:UIControlEventTouchUpInside];
-  [self addSubview:minusButton];
-  
+  if (showMinus) {
+    [self addSubview:minusButton];
+  }
   titleLabel = [[UILabel alloc]init];
   titleLabel.backgroundColor = [UIColor clearColor];
   titleLabel.text = title;
@@ -81,17 +83,18 @@
   [plusButton addTarget:self 
                   action:@selector(incrementCounter) 
         forControlEvents:UIControlEventTouchUpInside];
-  [self addSubview:plusButton];
-  
+  if (showPlus) {
+    [self addSubview:plusButton];
+  } 
   self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, buttonSize*2+PADDING+titleLabel.frame.size.width, 40);
   [self setCounterLabelFrame];
 }
 
-- (id)initWithFrame:(CGRect)frame title:(NSString*)title startCount:(int)startCount {
+- (id)initWithFrame:(CGRect)frame title:(NSString*)title startCount:(int)startCount  showPlus:(BOOL)showPlus showMinus:(BOOL)showMinus {
   self = [super initWithFrame:frame];
   if (self) {
     counterValue = startCount;
-    [self addButtonsAndLabels:title];
+    [self addButtonsAndLabels:title showPlus:showPlus showMinus:showMinus];
   }
   return self;
 }

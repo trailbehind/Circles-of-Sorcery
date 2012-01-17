@@ -21,21 +21,22 @@
 }
 
 
+- (void) launchGame {
+  [game release];
+  game = [[COSGame alloc]initWithCardRegistryFile:@"card_data.json"];
+  [self.window addSubview:game.view];  
+  [self.window makeKeyAndVisible];
+  [game showDeckBuilder];
+}
+
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
   // Override point for customization after application launch.
   self.window.backgroundColor = [UIColor whiteColor];
 
-  game = [[COSGame alloc]initWithCardRegistryFile:@"card_data.json"];
-
-  COSPlayer *playerOne = [[[COSPlayer alloc]initWithDeck:@"farmer deck.txt" game:game]autorelease];
-  COSPlayer *playerTwo = [[[COSPlayer alloc]initWithDeck:@"farmer deck.txt" game:game]autorelease];
-  NSMutableArray *players = [NSMutableArray arrayWithObjects:playerOne, playerTwo, nil];  
-  [game createDisplayForPlayers:players];
-  [game beginGame];  
-  [self.window addSubview:game.view];
+  [self launchGame];
   
-  [self.window makeKeyAndVisible];
   return YES;
 }
 

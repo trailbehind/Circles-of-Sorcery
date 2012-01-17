@@ -23,6 +23,9 @@
 		A09A041714C26A0D00DF0DD4 /* CJSONScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = A09A040E14C26A0D00DF0DD4 /* CJSONScanner.m */; };
 		A09A041814C26A0D00DF0DD4 /* CJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = A09A041014C26A0D00DF0DD4 /* CJSONSerializer.m */; };
 		A09A041A14C278C300DF0DD4 /* ability_translation.json in Resources */ = {isa = PBXBuildFile; fileRef = A09A041914C278C200DF0DD4 /* ability_translation.json */; };
+		A09A041D14C5061E00DF0DD4 /* COSEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = A09A041C14C5061E00DF0DD4 /* COSEffect.m */; };
+		A09A042014C5165000DF0DD4 /* COSConvertWidget.m in Sources */ = {isa = PBXBuildFile; fileRef = A09A041F14C5164E00DF0DD4 /* COSConvertWidget.m */; };
+		A09A042314C5398600DF0DD4 /* COSDeckBuilderTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = A09A042214C5398500DF0DD4 /* COSDeckBuilderTableView.m */; };
 		A0DF1462149E84AD001ECE34 /* COSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DF144D149E84AD001ECE34 /* COSAppDelegate.m */; };
 		A0DF1463149E84AD001ECE34 /* COSCard.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DF144F149E84AD001ECE34 /* COSCard.m */; };
 		A0DF1464149E84AD001ECE34 /* COSConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DF1451149E84AD001ECE34 /* COSConstants.m */; };
@@ -91,6 +94,12 @@
 		A09A040F14C26A0D00DF0DD4 /* CJSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONSerializer.h; sourceTree = "<group>"; };
 		A09A041014C26A0D00DF0DD4 /* CJSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONSerializer.m; sourceTree = "<group>"; };
 		A09A041914C278C200DF0DD4 /* ability_translation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = ability_translation.json; path = ../ability_translation.json; sourceTree = "<group>"; };
+		A09A041B14C5061D00DF0DD4 /* COSEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COSEffect.h; sourceTree = "<group>"; };
+		A09A041C14C5061E00DF0DD4 /* COSEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COSEffect.m; sourceTree = "<group>"; };
+		A09A041E14C5164E00DF0DD4 /* COSConvertWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COSConvertWidget.h; sourceTree = "<group>"; };
+		A09A041F14C5164E00DF0DD4 /* COSConvertWidget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COSConvertWidget.m; sourceTree = "<group>"; };
+		A09A042114C5398400DF0DD4 /* COSDeckBuilderTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COSDeckBuilderTableView.h; sourceTree = "<group>"; };
+		A09A042214C5398500DF0DD4 /* COSDeckBuilderTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COSDeckBuilderTableView.m; sourceTree = "<group>"; };
 		A0DF144C149E84AD001ECE34 /* COSAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COSAppDelegate.h; sourceTree = "<group>"; };
 		A0DF144D149E84AD001ECE34 /* COSAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COSAppDelegate.m; sourceTree = "<group>"; };
 		A0DF144E149E84AD001ECE34 /* COSCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COSCard.h; sourceTree = "<group>"; };
@@ -300,6 +309,12 @@
 				A09A038A14C25BCA00DF0DD4 /* COSDeck.m */,
 				A09A03DE14C2692300DF0DD4 /* COSCardRegistry.h */,
 				A09A03DF14C2692300DF0DD4 /* COSCardRegistry.m */,
+				A09A041B14C5061D00DF0DD4 /* COSEffect.h */,
+				A09A041C14C5061E00DF0DD4 /* COSEffect.m */,
+				A09A041E14C5164E00DF0DD4 /* COSConvertWidget.h */,
+				A09A041F14C5164E00DF0DD4 /* COSConvertWidget.m */,
+				A09A042114C5398400DF0DD4 /* COSDeckBuilderTableView.h */,
+				A09A042214C5398500DF0DD4 /* COSDeckBuilderTableView.m */,
 			);
 			path = "Circles of Sorcery";
 			sourceTree = "<group>";
@@ -472,6 +487,9 @@
 				A09A041614C26A0D00DF0DD4 /* CJSONDeserializer.m in Sources */,
 				A09A041714C26A0D00DF0DD4 /* CJSONScanner.m in Sources */,
 				A09A041814C26A0D00DF0DD4 /* CJSONSerializer.m in Sources */,
+				A09A041D14C5061E00DF0DD4 /* COSEffect.m in Sources */,
+				A09A042014C5165000DF0DD4 /* COSConvertWidget.m in Sources */,
+				A09A042314C5398600DF0DD4 /* COSDeckBuilderTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
