@@ -18,6 +18,7 @@
 
 @property(nonatomic,retain) COSCardRegistry *cardRegistry;
 @property(nonatomic,retain) NSMutableArray *players;  
+@property(nonatomic,retain) COSGameLayout *gameLayout;
 
 - (id) initWithCardRegistryFile:(NSString*)filename;
 - (void) createDisplayForPlayers:(NSArray*)p;

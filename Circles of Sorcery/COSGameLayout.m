@@ -68,11 +68,15 @@
   self = [super initWithFrame:[[UIScreen mainScreen] bounds]];
   playerOneArea = [[COSPlayerArea alloc]initWithFrame:self.bounds forPlayer:[players objectAtIndex:0]];
   //playerTwoArea = [[COSPlayerArea alloc]initWithFrame:opponentTray.bounds forPlayer:[players objectAtIndex:1]];
-  self.autoresizingMask = UIViewAutoresizingFlexibleWidth |UIViewAutoresizingFlexibleHeight;
+  self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
   
   
   [self addSubview:playerOneArea];
   currentPlayerArea = playerOneArea;
+  
+  CGRect fr = playerOneArea.frame;
+  fr.origin.y -= 20;
+  playerOneArea.frame = fr;
   
   //CGRect trayFrame = CGRectMake(0, -668, self.frame.size.width, self.frame.size.height);
   //opponentTray = [[COSOpponentTray alloc]initWithFrame:trayFrame];

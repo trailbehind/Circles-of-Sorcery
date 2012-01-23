@@ -27,7 +27,7 @@
                        player:(COSPlayer*)p {
   NSDictionary *resourceMap = [NSDictionary dictionaryWithObjectsAndKeys:
                                @"Gold", @"GET_GOLD", 
-                               @"Reward", @"Reward_Point", 
+                               @"Reward", @"REWARD_POINT", 
                                @"Card", @"DRAW_CARD", nil];
   self = [super initWithFrame:CGRectMake(0, 0, 100, 50) title:[NSString stringWithFormat:@"%d %@ for %d %@", payAmount,  [resourceMap objectForKey:resourceToGive], getAmount,[resourceMap objectForKey:resourceToGet]] startCount:0 showPlus:YES showMinus:NO];
   if (self) {

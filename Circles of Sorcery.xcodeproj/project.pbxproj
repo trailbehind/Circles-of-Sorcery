@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A003C93F14CCDFD10058BEF1 /* Sound.m in Sources */ = {isa = PBXBuildFile; fileRef = A003C93D14CCDFD00058BEF1 /* Sound.m */; };
+		A003C94314CCE0580058BEF1 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A003C94214CCE0580058BEF1 /* AVFoundation.framework */; };
+		A003C94514CCE0820058BEF1 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A003C94414CCE0820058BEF1 /* AudioToolbox.framework */; };
+		A003C94B14CCE0C50058BEF1 /* chime3.wav in Resources */ = {isa = PBXBuildFile; fileRef = A003C94614CCE0C50058BEF1 /* chime3.wav */; };
+		A003C94C14CCE0C50058BEF1 /* noSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = A003C94714CCE0C50058BEF1 /* noSound.wav */; };
+		A003C94D14CCE0C50058BEF1 /* request.wav in Resources */ = {isa = PBXBuildFile; fileRef = A003C94814CCE0C50058BEF1 /* request.wav */; };
+		A003C94E14CCE0C50058BEF1 /* silent.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A003C94914CCE0C50058BEF1 /* silent.mp3 */; };
+		A003C94F14CCE0C50058BEF1 /* success.wav in Resources */ = {isa = PBXBuildFile; fileRef = A003C94A14CCE0C50058BEF1 /* success.wav */; };
 		A008AA6914BD573F0057F436 /* farmer deck.txt in Resources */ = {isa = PBXBuildFile; fileRef = A008AA6814BD573F0057F436 /* farmer deck.txt */; };
 		A09A037E14C222C100DF0DD4 /* card_data.json in Resources */ = {isa = PBXBuildFile; fileRef = A09A037D14C222C100DF0DD4 /* card_data.json */; };
 		A09A038214C22E3100DF0DD4 /* COSCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = A09A038114C22E3100DF0DD4 /* COSCardView.m */; };
@@ -65,6 +73,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A003C93D14CCDFD00058BEF1 /* Sound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sound.m; sourceTree = "<group>"; };
+		A003C94114CCE01C0058BEF1 /* Sound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sound.h; sourceTree = "<group>"; };
+		A003C94214CCE0580058BEF1 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		A003C94414CCE0820058BEF1 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		A003C94614CCE0C50058BEF1 /* chime3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = chime3.wav; sourceTree = "<group>"; };
+		A003C94714CCE0C50058BEF1 /* noSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = noSound.wav; sourceTree = "<group>"; };
+		A003C94814CCE0C50058BEF1 /* request.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = request.wav; sourceTree = "<group>"; };
+		A003C94914CCE0C50058BEF1 /* silent.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = silent.mp3; sourceTree = "<group>"; };
+		A003C94A14CCE0C50058BEF1 /* success.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = success.wav; sourceTree = "<group>"; };
 		A008AA6814BD573F0057F436 /* farmer deck.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "farmer deck.txt"; sourceTree = "<group>"; };
 		A09A037D14C222C100DF0DD4 /* card_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = card_data.json; sourceTree = "<group>"; };
 		A09A038014C22E3100DF0DD4 /* COSCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COSCardView.h; sourceTree = "<group>"; };
@@ -150,6 +167,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A003C94514CCE0820058BEF1 /* AudioToolbox.framework in Frameworks */,
+				A003C94314CCE0580058BEF1 /* AVFoundation.framework in Frameworks */,
 				A0EF8D9B149C35BF003C0926 /* UIKit.framework in Frameworks */,
 				A0EF8D9D149C35BF003C0926 /* Foundation.framework in Frameworks */,
 				A0EF8D9F149C35BF003C0926 /* CoreGraphics.framework in Frameworks */,
@@ -243,6 +262,8 @@
 		A0EF8D8B149C35BF003C0926 = {
 			isa = PBXGroup;
 			children = (
+				A003C94414CCE0820058BEF1 /* AudioToolbox.framework */,
+				A003C94214CCE0580058BEF1 /* AVFoundation.framework */,
 				A0EF8DA0149C35BF003C0926 /* Circles of Sorcery */,
 				A0EF8DB8149C35BF003C0926 /* Circles of SorceryTests */,
 				A0EF8D99149C35BF003C0926 /* Frameworks */,
@@ -274,6 +295,8 @@
 		A0EF8DA0149C35BF003C0926 /* Circles of Sorcery */ = {
 			isa = PBXGroup;
 			children = (
+				A003C94114CCE01C0058BEF1 /* Sound.h */,
+				A003C93D14CCDFD00058BEF1 /* Sound.m */,
 				A0DF144C149E84AD001ECE34 /* COSAppDelegate.h */,
 				A0DF144D149E84AD001ECE34 /* COSAppDelegate.m */,
 				A0DF144E149E84AD001ECE34 /* COSCard.h */,
@@ -322,6 +345,11 @@
 		A0EF8DA1149C35BF003C0926 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A003C94614CCE0C50058BEF1 /* chime3.wav */,
+				A003C94714CCE0C50058BEF1 /* noSound.wav */,
+				A003C94814CCE0C50058BEF1 /* request.wav */,
+				A003C94914CCE0C50058BEF1 /* silent.mp3 */,
+				A003C94A14CCE0C50058BEF1 /* success.wav */,
 				A0EF8DA2149C35BF003C0926 /* Circles of Sorcery-Info.plist */,
 				A0EF8DA3149C35BF003C0926 /* InfoPlist.strings */,
 				A0EF8DA6149C35BF003C0926 /* main.m */,
@@ -426,6 +454,11 @@
 				A008AA6914BD573F0057F436 /* farmer deck.txt in Resources */,
 				A09A037E14C222C100DF0DD4 /* card_data.json in Resources */,
 				A09A041A14C278C300DF0DD4 /* ability_translation.json in Resources */,
+				A003C94B14CCE0C50058BEF1 /* chime3.wav in Resources */,
+				A003C94C14CCE0C50058BEF1 /* noSound.wav in Resources */,
+				A003C94D14CCE0C50058BEF1 /* request.wav in Resources */,
+				A003C94E14CCE0C50058BEF1 /* silent.mp3 in Resources */,
+				A003C94F14CCE0C50058BEF1 /* success.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,6 +523,7 @@
 				A09A041D14C5061E00DF0DD4 /* COSEffect.m in Sources */,
 				A09A042014C5165000DF0DD4 /* COSConvertWidget.m in Sources */,
 				A09A042314C5398600DF0DD4 /* COSDeckBuilderTableView.m in Sources */,
+				A003C93F14CCDFD10058BEF1 /* Sound.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,6 +13,7 @@
 #import "COSPlayer.h"
 #import "COSDeck.h"
 #import <QuartzCore/QuartzCore.h>
+#import "Sound.h"
 
 @implementation COSDeckView
 @synthesize deck;
@@ -50,6 +51,7 @@
 
 
 - (void) drawCard:(COSCard*)card {
+  // [Sound playRequestSound];
   card.player.handContainer = handContainer;
   [handContainer.cards addObject:card];
   [handContainer layoutCards];
@@ -70,7 +72,8 @@
 
 
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+ - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+   return;
   UITouch *touch = [[event allTouches] anyObject];
   CGPoint point = [touch locationInView:self];
   startX = point.x;
@@ -93,6 +96,7 @@
 
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+  return;
   UITouch *touch = [[event allTouches] anyObject];
   CGPoint point = [touch locationInView:self];  
   if (point.x - startX) {

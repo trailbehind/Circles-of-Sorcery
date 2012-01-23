@@ -220,16 +220,7 @@
     return;
   }
   
-  handContainer.scrollEnabled = YES;
-  if (self.frame.origin.y >= [self superview].frame.size.height-CARD_HEIGHT-20-CARD_HEIGHT) {
-    int numberOfPositions = (int)handContainer.contentSize.width 
-    / ((int)self.frame.size.width+10);
-    int position = MIN(numberOfPositions, self.center.x / handContainer.contentSize.width * numberOfPositions);
-    position = MAX(0, position);
-    position = MIN([handContainer.cards count], position);
-    [handContainer.cards insertObject:card atIndex:position];
-  }
-  [handContainer layoutCards];
+  [handContainer cardTouchesEnded:touches withEvent:event card:card];  
   
   if (CGRectIntersectsRect(self.frame, discardPile.frame)) {
     [discardPile addCard:card];

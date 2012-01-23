@@ -13,7 +13,7 @@
 #import "COSDeckBuilderTableView.h"
 
 @implementation COSGame 
-@synthesize cardRegistry, players;
+@synthesize cardRegistry, players, gameLayout;
 
 - (void) dealloc {
   [cardRegistry release];
@@ -26,6 +26,8 @@
 
 - (void) loadView {
   [super loadView];
+  self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+  gameLayout.frame = self.view.bounds;
 }
 
 

@@ -15,6 +15,7 @@
 #import "COSEffect.h"
 #import "COSConvertWidget.h"
 #import "COSPlayerArea.h"
+#import "COSGame.h"
 
 
 @implementation COSPlayer
@@ -169,11 +170,29 @@
   return YES;
 }
 
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+	switch (buttonIndex) {
+		case 0: {
+			break;
+		}
+		case 1: 
+      [self.game showDeckBuilder];
+			break;
+		default:
+			break;
+	}	
+}
+
+
 
 - (void) gainReward:(int)amount {
   self.rewardPoints += amount;
   for (int x=0;x<abs(amount);x++) {
     [playerArea.rewardCounter incrementCounter];
+    if (rewardPoints == 10) {
+      UIAlertView *av = [[[UIAlertView alloc]initWithTitle:@"YOU WIN!" message:@"You got 10 reward points, so you win. Congrats!" delegate:self cancelButtonTitle:@"Keep Playing" otherButtonTitles:@"New Game", nil]autorelease];
+      [av show];
+    }
   }
 }
 

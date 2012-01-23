@@ -402,10 +402,7 @@
   if([self.type isEqualToString:@"Permanent"]) {
     [self highlightIfActivatable];
     [self.player.cardsInPlay addObject:self];
-    player.rewardPoints += self.reward;
-    for (int x=0;x<self.reward;x++) {
-      [player.playerArea.rewardCounter incrementCounter];
-    }
+    [player gainReward:self.reward];
     [player.playerArea addCard:self];
     
     

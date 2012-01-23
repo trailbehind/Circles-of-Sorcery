@@ -140,43 +140,7 @@
                 }
               ]
   },
-  {
-  "name": "Chicken",
-  "type": "Permanent",
-  "subtype": "Animal",
-  "cost": 0,
-  "reward": 0,
-  "actions": [
-                {
-                "END_TURN": []
-                },
-                {
-                "COUNT_CARD": [2, "Chicken"]
-                },
-                {
-                "COPY_CARD": [1, "Chicken" ]
-                },
-                {
-                "CANCEL_ACTIONS": [ "Chicken" ]
-                }
-                ]
-  },
-  {
-  "name": "Chicken Coup",
-  "type": "Permanent",
-  "subtype": "Building",
-  "cost": 3,
-  "reward": 1,
-  "actions": [
-                {
-                "END_TURN": []
-                },
-                {
-                "SEARCH_DECK": [ ["Chicken"], "INTO_PLAY" ]
-                }
-              ]
-  },
-  {
+    {
   "name": "Pub",
   "type": "Permanent",
   "subtype": "Building",
@@ -200,21 +164,7 @@
                 {
                 "CHANGE_GOLD": [ 2, "DRAW_CARD", 1 ]
                 }
-                ]
-  },
-  {
-  "name": "Know Which Way the Wind Blows",
-  "type": "Effect",
-  "cost": 0,
-  "reward": 0,
-  "actions": [
-                {
-                "DRAW_CARD": [ 2 ]
-                },
-                {
-                "DISCARD_CARD": [ 1 ]
-                }
-                ]
+              ]
   },
   {
   "name": "Good Advice",
