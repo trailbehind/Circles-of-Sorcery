@@ -10,6 +10,8 @@
 #import "COSPlayerArea.h"
 #import "COSOpponentTray.h"
 #import "COSConstants.h"
+#import "COSPlayer.h"
+#import "COSGame.h"
 
 @implementation COSGameLayout
 
@@ -50,33 +52,30 @@
 }
 
 
-- (void) newGame {
-  
-  COSPlayer *p = playerOneArea.player;
-  for (UIView *v in [[[[UIApplication sharedApplication]delegate]window]subviews]) {
-    [v removeFromSuperview];    
-  }
-  [[[UIApplication sharedApplication]delegate]launchGame];
-  //[playerOneArea.widgets removeALlObjects];
-  //[playerOneArea setWidgetFrames];
-  //p.gold = 0;
-  
+- (void) showRules {
+  NSString *message = @"Play Farmers and then Farms to get Gold. Use Gold to buy cards and get Reward Points. Get 10 reward points and you win!";
+  UIAlertView *av = [[[UIAlertView alloc]initWithTitle:@"How to Play" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil]autorelease];
+  [av show];
 }
 
 
-- (id) initWithPlayers:(NSArray*)players {
-  self = [super initWithFrame:[[UIScreen mainScreen] bounds]];
-  playerOneArea = [[COSPlayerArea alloc]initWithFrame:self.bounds forPlayer:[players objectAtIndex:0]];
-  //playerTwoArea = [[COSPlayerArea alloc]initWithFrame:opponentTray.bounds forPlayer:[players objectAtIndex:1]];
+- (void) setupWithPlayers:(NSArray*)players {
+  for (UIView *v in [self subviews]) {
+    [v removeFromSuperview];
+  }
+  COSPlayer *playerOne = [players objectAtIndex:0];
   self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+ 
+  playerOneArea = [[COSPlayerArea alloc]initWithFrame:self.bounds forPlayer:playerOne];
+  //playerTwoArea = [[COSPlayerArea alloc]initWithFrame:opponentTray.bounds forPlayer:[players objectAtIndex:1]];
   
   
   [self addSubview:playerOneArea];
   currentPlayerArea = playerOneArea;
   
-  CGRect fr = playerOneArea.frame;
-  fr.origin.y -= 20;
-  playerOneArea.frame = fr;
+  //CGRect fr = playerOneArea.frame;
+  //fr.origin.y -= 20;
+  //playerOneArea.frame = fr;
   
   //CGRect trayFrame = CGRectMake(0, -668, self.frame.size.width, self.frame.size.height);
   //opponentTray = [[COSOpponentTray alloc]initWithFrame:trayFrame];
@@ -92,18 +91,33 @@
   newGameButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin;
   [newGameButton setTitle:@"New Game" forState:UIControlStateNormal];
   int buttonWidth = 150;
-  int buttonHeight = 30;
+  int buttonHeight = 50;
   newGameButton.frame = CGRectMake(playerOneArea.frame.size.width-buttonWidth-PADDING, PADDING, buttonWidth, buttonHeight);
-  [newGameButton addTarget:self action:@selector(newGame) forControlEvents:UIControlEventTouchUpInside];
+  [newGameButton addTarget:[[[UIApplication sharedApplication]delegate]game] action:@selector(makeNewGame) forControlEvents:UIControlEventTouchUpInside];
   [playerOneArea addSubview:newGameButton];
 
+  UIButton *deckEditorButton = [[UIButton buttonWithType:UIButtonTypeRoundedRect]retain];
+  deckEditorButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin;
+  [deckEditorButton setTitle:@"Edit Deck" forState:UIControlStateNormal];
+  deckEditorButton.frame = CGRectMake(playerOneArea.frame.size.width-buttonWidth-PADDING, buttonHeight +PADDING*2, buttonWidth, buttonHeight);
+  [deckEditorButton addTarget:[[[UIApplication sharedApplication]delegate]game] action:@selector(showDeckBuilder) forControlEvents:UIControlEventTouchUpInside];
+  [playerOneArea addSubview:deckEditorButton];
+
+  UIButton *howtoButton = [[UIButton buttonWithType:UIButtonTypeRoundedRect]retain];
+  howtoButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin;
+  [howtoButton setTitle:@"How to Play" forState:UIControlStateNormal];
+  howtoButton.frame = CGRectMake(playerOneArea.frame.size.width-buttonWidth-PADDING, buttonHeight*2 +PADDING*3, buttonWidth, buttonHeight);
+  [howtoButton addTarget:self action:@selector(showRules) forControlEvents:UIControlEventTouchUpInside];
+  [playerOneArea addSubview:howtoButton];
+
+  
+  
   endTurnButton = [[UIButton buttonWithType:UIButtonTypeRoundedRect]retain];
   endTurnButton.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleBottomMargin;
   [endTurnButton setTitle:@"End Turn" forState:UIControlStateNormal];
   endTurnButton.frame = CGRectMake(PADDING, PADDING, buttonWidth, buttonHeight);
   [endTurnButton addTarget:playerOneArea.player action:@selector(doEndOfTurnEffects) forControlEvents:UIControlEventTouchUpInside];
   [playerOneArea addSubview:endTurnButton];
-  return self;
 
 
 }

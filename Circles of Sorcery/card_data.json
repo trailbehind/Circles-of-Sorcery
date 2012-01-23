@@ -74,6 +74,7 @@
   {
   "name": "Abundant Harvest",
   "type": "Effect",
+  "subtype": "Effect",
   "cost": 1,
   "reward": 0,
   "actions": [
@@ -88,6 +89,7 @@
   {
   "name": "Summer School",
   "type": "Effect",
+  "subtype": "Effect",
   "cost": 2,
   "reward": 0,
   "actions": [
@@ -132,6 +134,7 @@
   {
   "name": "Corner the Market",
   "type": "Effect",
+  "subtype": "Effect",
   "cost": 0,
   "reward": 0,
   "actions": [
@@ -158,6 +161,7 @@
   {
   "name": "Price of Knowledge",
   "type": "Effect",
+  "subtype": "Effect",
   "cost": 0,
   "reward": 0,
   "actions": [
@@ -169,6 +173,7 @@
   {
   "name": "Good Advice",
   "type": "Effect",
+  "subtype": "Effect",
   "cost": 1,
   "reward": 0,
   "actions": [

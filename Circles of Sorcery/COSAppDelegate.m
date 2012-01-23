@@ -13,7 +13,7 @@
 
 @implementation COSAppDelegate
 
-@synthesize window = _window;
+@synthesize window = _window, game;
 
 - (void) dealloc {
   [game release];
@@ -21,35 +21,33 @@
 }
 
 
-- (void) launchGame {
-  [game release];
-  game = [[COSGame alloc]initWithCardRegistryFile:@"card_data.json"];
-  [self.window addSubview:game.view];  
-  [self.window makeKeyAndVisible];
-  [game showDeckBuilder];
+// after you edit the deck
+- (void) reloadRegistryAndMakeNewGame {
+  [game reloadRegistry:@"card_data.json"];
+  [game makeNewGame];
 }
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]]autorelease];
-  // Override point for customization after application launch.
-  self.window.backgroundColor = [UIColor whiteColor];
-
-  [self launchGame];
-  
+  self.window.backgroundColor = [UIColor colorWithRed:.6 green:.9 blue:1 alpha:1];
+  game = [[COSGame alloc]initWithCardRegistryFile:@"card_data.json"];
+  [self.window addSubview:game.view];
+  [game makeNewGame];
+  [self.window makeKeyAndVisible];  
   return YES;
 }
 
-- (void)applicationWillResignActive:(UIApplication *)application
-{
+
+- (void)applicationWillResignActive:(UIApplication *)application {
   /*
    Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
    Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
    */
 }
 
-- (void)applicationDidEnterBackground:(UIApplication *)application
-{
+
+- (void)applicationDidEnterBackground:(UIApplication *)application {
   /*
    Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
    If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.

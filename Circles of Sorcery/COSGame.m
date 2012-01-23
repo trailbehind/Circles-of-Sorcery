@@ -26,8 +26,11 @@
 
 - (void) loadView {
   [super loadView];
-  self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
-  gameLayout.frame = self.view.bounds;
+  [gameLayout release];
+  gameLayout = [[COSGameLayout alloc]init];
+  self.view = gameLayout;
+  //self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+  // gameLayout.frame = self.view.bounds;
 }
 
 
@@ -37,11 +40,6 @@
   return self;
 }
 
-
-- (void) createDisplayForPlayers:(NSArray*)p {
-  self.players = (NSMutableArray*)p;
-  gameLayout = [[COSGameLayout alloc]initWithPlayers:p];
-}
 
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {  
@@ -65,9 +63,7 @@
 }
 
 
-
-
-- (void) startGame {
+- (void) writeCardsToFile {
   NSString *fileString = @"";
   int i = 0;
   for (NSDictionary *cardDict in cardRegistry.cardList) {
@@ -80,7 +76,7 @@
     i++;
   }
   //NSLog(@"Writing string to file: %@", fileString);
- // NSLog(@"Writing to file %@", [self defaultDeckPath]);
+  // NSLog(@"Writing to file %@", [self defaultDeckPath]);
   
   if (![[NSFileManager defaultManager] fileExistsAtPath:[self defaultDeckPath]]) {
     [[NSFileManager defaultManager] createFileAtPath:[self defaultDeckPath] contents:nil attributes:nil];
@@ -88,22 +84,16 @@
   
   NSFileHandle *fileHandle = [NSFileHandle fileHandleForWritingAtPath:[self defaultDeckPath]];
   [fileHandle truncateFileAtOffset: 0];
-    
+  
   [fileHandle writeData:[fileString dataUsingEncoding:NSUTF8StringEncoding]];
   [fileHandle closeFile];
- 
+}
+
+
+- (void) startGame {
+  [self writeCardsToFile]; 
   [self dismissModalViewControllerAnimated:YES];
-  
-  // [(COSPlayer*)[players objectAtIndex:1]drawHand];
-  COSPlayer *playerOne = [[[COSPlayer alloc]initWithDeck:[self defaultDeckPath] game:self]autorelease];
-  COSPlayer *playerTwo = [[[COSPlayer alloc]initWithDeck:[self defaultDeckPath] game:self]autorelease];
-  NSMutableArray *players = [NSMutableArray arrayWithObjects:playerOne, playerTwo, nil];  
-  [self createDisplayForPlayers:players];
-  [(COSPlayer*)[players objectAtIndex:0]drawHand];
-  [self.view addSubview:gameLayout];
-  gameLayout.frame = self.view.frame;
-
-
+  [[[UIApplication sharedApplication]delegate]reloadRegistryAndMakeNewGame];
 }
 
 
@@ -119,5 +109,19 @@
   
 }
 
+
+- (void) reloadRegistry:(NSString*)filename {
+  self.cardRegistry = [[COSCardRegistry alloc]initWithFilename:filename];
+}
+
+
+- (void) makeNewGame {
+  COSPlayer *playerOne = [[[COSPlayer alloc]initWithDeck:[self defaultDeckPath] game:self]autorelease];
+  //COSPlayer *playerTwo = [[[COSPlayer alloc]initWithDeck:[game defaultDeckPath] game:game]autorelease];
+  self.players = [NSMutableArray arrayWithObjects:playerOne, nil];
+  self.gameLayout.frame = self.view.frame;
+  [self.gameLayout setupWithPlayers:self.players];
+  [(COSPlayer*)[self.players objectAtIndex:0]drawHand];
+}
 
 @end

@@ -95,10 +95,18 @@
                                        costLabelWidth, 
                                        17);
     // cost label at top of card
+    UIImageView *gold = [[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"gold.png"]]autorelease];
+    CGRect goldFrame = costLabelFrame;
+    goldFrame.origin.x -=6;
+    goldFrame.origin.y -=3;
+    goldFrame.size.width = 22;
+    goldFrame.size.height = 22;
+    gold.frame = goldFrame;
+    [self addSubview:gold];
     costLabel = [self addRetainedLabelWithText:[NSString stringWithFormat:@"%d", card.cost]
                                           font:TITLE_FONT
                                          frame:costLabelFrame];
-    
+        
     // art image just under the name
     CGRect artworkFrame = CGRectMake(PADDING, 
                                      PADDING*3, 
@@ -133,7 +141,7 @@
                                           font:TITLE_FONT
                                          frame:typeLabelFrame];
 
-    CGRect rewardLabelFrame = CGRectMake(self.frame.size.width-PADDING-costLabelWidth, 
+    CGRect rewardLabelFrame = CGRectMake(self.frame.size.width-PADDING-costLabelWidth-8, 
                                         self.frame.size.height - PADDING*3, 
                                         costLabelWidth, 
                                         PADDING*2);
@@ -141,6 +149,14 @@
                                           font:TITLE_FONT
                                          frame:rewardLabelFrame];
     rewardLabel.textAlignment = UITextAlignmentRight;
+    UIImageView *star = [[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"star.png"]]autorelease];
+    CGRect starFrame = rewardLabelFrame;
+    starFrame.origin.x -=5;
+    starFrame.origin.y -=6;
+    starFrame.size.width = 32;
+    starFrame.size.height = 32;
+    star.frame = starFrame;
+    [self addSubview:star];
     [self addSubview:rewardLabel];
     
   }

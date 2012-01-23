@@ -43,8 +43,8 @@
 }
 
 
-- (void) addButtonsAndLabels:(NSString*)title showPlus:(BOOL)showPlus showMinus:(BOOL)showMinus{
-  int buttonSize = 30;
+- (void) addButtonsAndLabels:(NSString*)title icon:(NSString*)icon showPlus:(BOOL)showPlus showMinus:(BOOL)showMinus{
+  int buttonSize = 60;
   
   UIButton *minusButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
   [minusButton setTitle:@"-" forState:UIControlStateNormal];
@@ -63,11 +63,13 @@
   CGSize expectedLabelSize = [titleLabel.text sizeWithFont:titleLabel.font 
                                          constrainedToSize:maximumLabelSize 
                                              lineBreakMode:titleLabel.lineBreakMode];
-  titleLabel.frame = CGRectMake(minusButton.frame.size.width+PADDING/2, 
+  titleLabel.frame = CGRectMake(0, 
                                 -5, 
                                 expectedLabelSize.width, 
                                 expectedLabelSize.height);    
   [self addSubview:titleLabel];
+  
+  
   
   counterLabel = [[UILabel alloc]init];
   counterLabel.backgroundColor = [UIColor clearColor];
@@ -75,26 +77,39 @@
   counterLabel.text = [NSString stringWithFormat:@"%d", counterValue];
   [self addSubview:counterLabel];
   
+  
+  UIImageView *star = [[[UIImageView alloc]initWithImage:[UIImage imageNamed:icon]]autorelease];
+  CGRect starFrame;
+  starFrame.origin.x =10;
+  starFrame.origin.y =40;
+  starFrame.size.width = 32;
+  starFrame.size.height = 32;
+  star.frame = starFrame;
+  [self addSubview:star];
+
+  
+  
+  self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, PADDING+titleLabel.frame.size.width, titleLabel.frame.size.height+PADDING+buttonSize);
   UIButton *plusButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
   [plusButton setTitle:@"+" forState:UIControlStateNormal];
-  plusButton.frame = CGRectMake(titleLabel.frame.origin.x+titleLabel.frame.size.width+PADDING/2, 
-                                0, 
+  plusButton.frame = CGRectMake(titleLabel.frame.size.width/2-titleLabel.frame.origin.x/2-buttonSize/2, 
+                                titleLabel.frame.size.height-3, 
                                 buttonSize, buttonSize);
   [plusButton addTarget:self 
                   action:@selector(incrementCounter) 
         forControlEvents:UIControlEventTouchUpInside];
   if (showPlus) {
     [self addSubview:plusButton];
+    [counterLabel removeFromSuperview];
   } 
-  self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, buttonSize*2+PADDING+titleLabel.frame.size.width, 40);
   [self setCounterLabelFrame];
 }
 
-- (id)initWithFrame:(CGRect)frame title:(NSString*)title startCount:(int)startCount  showPlus:(BOOL)showPlus showMinus:(BOOL)showMinus {
+- (id)initWithFrame:(CGRect)frame title:(NSString*)title icon:(NSString*)icon startCount:(int)startCount  showPlus:(BOOL)showPlus showMinus:(BOOL)showMinus {
   self = [super initWithFrame:frame];
   if (self) {
     counterValue = startCount;
-    [self addButtonsAndLabels:title showPlus:showPlus showMinus:showMinus];
+    [self addButtonsAndLabels:title icon:icon showPlus:showPlus showMinus:showMinus];
   }
   return self;
 }

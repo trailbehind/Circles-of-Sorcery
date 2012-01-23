@@ -15,6 +15,8 @@
 		A003C94D14CCE0C50058BEF1 /* request.wav in Resources */ = {isa = PBXBuildFile; fileRef = A003C94814CCE0C50058BEF1 /* request.wav */; };
 		A003C94E14CCE0C50058BEF1 /* silent.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A003C94914CCE0C50058BEF1 /* silent.mp3 */; };
 		A003C94F14CCE0C50058BEF1 /* success.wav in Resources */ = {isa = PBXBuildFile; fileRef = A003C94A14CCE0C50058BEF1 /* success.wav */; };
+		A003C95514CD58360058BEF1 /* gold.png in Resources */ = {isa = PBXBuildFile; fileRef = A003C95414CD58360058BEF1 /* gold.png */; };
+		A003C95814CD59780058BEF1 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = A003C95714CD59780058BEF1 /* star.png */; };
 		A008AA6914BD573F0057F436 /* farmer deck.txt in Resources */ = {isa = PBXBuildFile; fileRef = A008AA6814BD573F0057F436 /* farmer deck.txt */; };
 		A09A037E14C222C100DF0DD4 /* card_data.json in Resources */ = {isa = PBXBuildFile; fileRef = A09A037D14C222C100DF0DD4 /* card_data.json */; };
 		A09A038214C22E3100DF0DD4 /* COSCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = A09A038114C22E3100DF0DD4 /* COSCardView.m */; };
@@ -82,6 +84,8 @@
 		A003C94814CCE0C50058BEF1 /* request.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = request.wav; sourceTree = "<group>"; };
 		A003C94914CCE0C50058BEF1 /* silent.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = silent.mp3; sourceTree = "<group>"; };
 		A003C94A14CCE0C50058BEF1 /* success.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = success.wav; sourceTree = "<group>"; };
+		A003C95414CD58360058BEF1 /* gold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gold.png; sourceTree = "<group>"; };
+		A003C95714CD59780058BEF1 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		A008AA6814BD573F0057F436 /* farmer deck.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "farmer deck.txt"; sourceTree = "<group>"; };
 		A09A037D14C222C100DF0DD4 /* card_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = card_data.json; sourceTree = "<group>"; };
 		A09A038014C22E3100DF0DD4 /* COSCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COSCardView.h; sourceTree = "<group>"; };
@@ -345,6 +349,8 @@
 		A0EF8DA1149C35BF003C0926 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A003C95714CD59780058BEF1 /* star.png */,
+				A003C95414CD58360058BEF1 /* gold.png */,
 				A003C94614CCE0C50058BEF1 /* chime3.wav */,
 				A003C94714CCE0C50058BEF1 /* noSound.wav */,
 				A003C94814CCE0C50058BEF1 /* request.wav */,
@@ -459,6 +465,8 @@
 				A003C94D14CCE0C50058BEF1 /* request.wav in Resources */,
 				A003C94E14CCE0C50058BEF1 /* silent.mp3 in Resources */,
 				A003C94F14CCE0C50058BEF1 /* success.wav in Resources */,
+				A003C95514CD58360058BEF1 /* gold.png in Resources */,
+				A003C95814CD59780058BEF1 /* star.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

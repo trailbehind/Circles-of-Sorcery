@@ -21,8 +21,10 @@
 @property(nonatomic,retain) COSGameLayout *gameLayout;
 
 - (id) initWithCardRegistryFile:(NSString*)filename;
-- (void) createDisplayForPlayers:(NSArray*)p;
 - (void) showDeckBuilder;
 - (NSString*) lastDefaultDeck;
+- (NSString*) defaultDeckPath;
+- (void) reloadRegistry:(NSString*)filename;
+
 
 @end

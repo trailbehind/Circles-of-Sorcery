@@ -14,5 +14,6 @@
 }
 
 @property (strong, nonatomic) UIWindow *window;
+@property (nonatomic, retain) COSGame *game;
 
 @end

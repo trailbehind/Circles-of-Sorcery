@@ -6,7 +6,7 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#define CARD_HEIGHT 220
+#define CARD_HEIGHT 200
 #define CARD_WIDTH 150
 #define PADDING 10
 #define CARD_BORDER_WIDTH 5

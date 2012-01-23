@@ -40,6 +40,7 @@
                                    deckWidth, deckHeight);
   
   p.discardPile.frame = discardFrame;
+  [p.discardPile addLabel];
   p.discardPile.autoresizingMask = UIViewAutoresizingFlexibleTopMargin |UIViewAutoresizingFlexibleLeftMargin;
   [self addSubview:p.discardPile];
   
@@ -64,7 +65,9 @@
 
 
 - (void) setWidgetFrames {
-  int offset = 140;
+  int offset = 40;
+  int initialOffset = 120;
+  offset += initialOffset;
   for (UIView *widget in widgets) {
     CGRect fr = widget.frame;
     fr.origin.x = PADDING + offset;
@@ -94,13 +97,13 @@
 
 - (void) setupPlayArea {
   
-  CGRect rewardCounterFrame = CGRectMake(0, 0, 100, 50);
-  rewardCounter = [[COSPlusMinusCounter alloc]initWithFrame:rewardCounterFrame title:@"Reward" startCount:0 showPlus:NO showMinus:NO];
+  CGRect rewardCounterFrame = CGRectMake(0, 0, 60, 50);
+  rewardCounter = [[COSPlusMinusCounter alloc]initWithFrame:rewardCounterFrame title:@"Reward" icon:@"star.png" startCount:0 showPlus:NO showMinus:NO];
   [self addWidget:rewardCounter];
 
   
-  CGRect goldCounterFrame = CGRectMake(0, 0, 100, 50);
-  goldCounter = [[COSPlusMinusCounter alloc]initWithFrame:goldCounterFrame title:@"Gold" startCount:0 showPlus:NO showMinus:NO];
+  CGRect goldCounterFrame = CGRectMake(0, 0, 60, 50);
+  goldCounter = [[COSPlusMinusCounter alloc]initWithFrame:goldCounterFrame title:@"Gold" icon:@"gold.png" startCount:0 showPlus:NO showMinus:NO];
   [self addWidget:goldCounter];
 
   CGRect handRegionFrame = CGRectMake(0,
@@ -120,8 +123,7 @@
 - (id)initWithFrame:(CGRect)frame forPlayer:(COSPlayer*)p {
     self = [super initWithFrame:frame];
     if (self) {
-      self.autoresizingMask = UIViewAutoresizingFlexibleWidth |UIViewAutoresizingFlexibleHeight;
-      self.backgroundColor = [UIColor colorWithRed:.3 green:.5 blue:.7 alpha:.5];
+      self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
       player = [p retain];
       player.playerArea = self;
       [self setupPlayArea];
@@ -137,23 +139,25 @@
   int workerCount = 0;
   int buildingCount = 0;
   int equipmentCount = 0;
+  
+  int buttonOffset = 80;
   for (COSCard *card in self.cards) {
     CGRect frame = card.cardView.frame;
     if ([card.subtype isEqualToString:@"Farm"]) {
       frame.origin.x = PADDING + farmCount* frame.size.width/2;
-      frame.origin.y = 50;      
+      frame.origin.y = buttonOffset;      
       farmCount++;      
     } else if ([card.subtype isEqualToString:@"Worker"]) {
       frame.origin.x = PADDING + workerCount * frame.size.width/2;
-      frame.origin.y = frame.size.height + PADDING + 50;      
+      frame.origin.y = frame.size.height + PADDING + buttonOffset;      
       workerCount++;      
     } else if ([card.subtype isEqualToString:@"Building"]) {
       frame.origin.x = 400 + PADDING + buildingCount * frame.size.width/2;
-      frame.origin.y = 50;      
+      frame.origin.y = buttonOffset;      
       buildingCount++;      
     } else if ([card.subtype isEqualToString:@"Equipment"] || [card.subtype isEqualToString:@"Animal"]) {
       frame.origin.x = 400 + PADDING + equipmentCount * frame.size.width/2;
-      frame.origin.y = frame.size.height + PADDING + 50;      
+      frame.origin.y = frame.size.height + PADDING + buttonOffset;      
       equipmentCount++;      
     }
     card.cardView.frame = frame;

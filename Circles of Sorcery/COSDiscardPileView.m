@@ -31,6 +31,17 @@
   return @"Discard";
 }
 
+- (void) addLabel {
+  CGRect centeredFrame = CGRectMake(0, self.frame.size.height/2-PADDING, 
+                                    self.frame.size.width, PADDING*2);
+  UILabel *deckLabel = [[[UILabel alloc]initWithFrame:centeredFrame]autorelease];
+  deckLabel.backgroundColor = [UIColor clearColor];
+  deckLabel.textColor = [UIColor whiteColor];
+  deckLabel.textAlignment = UITextAlignmentCenter;
+  deckLabel.text = [self titleText];
+  [self addSubview:deckLabel];
+}
+
 
 - (id)initWithFrame:(CGRect)frame {
   self = [super initWithFrame:frame];
@@ -41,15 +52,8 @@
     self.layer.borderColor = CARD_BORDER_COLOR;
     self.layer.borderWidth = CARD_BORDER_WIDTH;
     
-    CGRect centeredFrame = CGRectMake(0, self.frame.size.height/2-PADDING, 
-                                      self.frame.size.width, PADDING*2);
-    UILabel *deckLabel = [[[UILabel alloc]initWithFrame:centeredFrame]autorelease];
-    deckLabel.backgroundColor = [UIColor clearColor];
-    deckLabel.textColor = [UIColor whiteColor];
-    deckLabel.textAlignment = UITextAlignmentCenter;
-    deckLabel.text = [self titleText];
-    [self addSubview:deckLabel];
-    
+
+    [self addLabel];
   }
   return self;
 }

@@ -52,6 +52,22 @@
 }
 
 
+- (void) drawFarmer {
+  if ([cards count] == 0) {
+    return;
+  }
+  
+  COSCard *farmCard;
+  for (COSCard *card in cards) {
+    if ([card.name isEqualToString:@"Farmer"]) {
+      farmCard = card;
+    }
+  }
+  [deckView drawCard:farmCard];
+  [cards removeObject:farmCard];
+}
+
+
 - (void) drawCard {
   NSLog(@"When drawing, count is %d", [cards count]);
   if ([cards count] == 0) {
