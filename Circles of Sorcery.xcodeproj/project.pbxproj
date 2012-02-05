@@ -62,6 +62,15 @@
 		A0EF8DF3149D9B2D003C0926 /* elemental_deck.csv in Resources */ = {isa = PBXBuildFile; fileRef = A0EF8DF1149D9B2D003C0926 /* elemental_deck.csv */; };
 		A0EF8DF4149D9B2D003C0926 /* nature_deck.csv in Resources */ = {isa = PBXBuildFile; fileRef = A0EF8DF2149D9B2D003C0926 /* nature_deck.csv */; };
 		A0EF8DF7149D9C68003C0926 /* NSMutableArray+Shuffle.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EF8DF6149D9C68003C0926 /* NSMutableArray+Shuffle.m */; };
+		A0F25E0714DE0F2600298186 /* COSTurnCounter.m in Sources */ = {isa = PBXBuildFile; fileRef = A0F25E0614DE0F2600298186 /* COSTurnCounter.m */; };
+		A0F25E0B14DE1D6200298186 /* COSScoreKeeper.m in Sources */ = {isa = PBXBuildFile; fileRef = A0F25E0A14DE1D6200298186 /* COSScoreKeeper.m */; };
+		A0F25E0E14DE33DB00298186 /* ScoreTable.m in Sources */ = {isa = PBXBuildFile; fileRef = A0F25E0D14DE33DB00298186 /* ScoreTable.m */; };
+		A0F25E1114DE3C0F00298186 /* COSScoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0F25E1014DE3C0F00298186 /* COSScoreView.m */; };
+		A0F25E1414DE448600298186 /* HighScoreKeeper.m in Sources */ = {isa = PBXBuildFile; fileRef = A0F25E1314DE448600298186 /* HighScoreKeeper.m */; };
+		A0F25E1714DE50C100298186 /* COSHighScoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0F25E1614DE50C100298186 /* COSHighScoreView.m */; };
+		A0F25E1A14DE513A00298186 /* COSHighScoreTable.m in Sources */ = {isa = PBXBuildFile; fileRef = A0F25E1914DE513900298186 /* COSHighScoreTable.m */; };
+		A0F25E1D14DE6AA900298186 /* COSTurnSummaryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0F25E1C14DE6AA800298186 /* COSTurnSummaryTableViewCell.m */; };
+		A0F25E1F14DE724200298186 /* cards.png in Resources */ = {isa = PBXBuildFile; fileRef = A0F25E1E14DE724200298186 /* cards.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -164,6 +173,23 @@
 		A0EF8DF2149D9B2D003C0926 /* nature_deck.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = nature_deck.csv; sourceTree = "<group>"; };
 		A0EF8DF5149D9C68003C0926 /* NSMutableArray+Shuffle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Shuffle.h"; sourceTree = "<group>"; };
 		A0EF8DF6149D9C68003C0926 /* NSMutableArray+Shuffle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Shuffle.m"; sourceTree = "<group>"; };
+		A0F25E0514DE0F2600298186 /* COSTurnCounter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COSTurnCounter.h; sourceTree = "<group>"; };
+		A0F25E0614DE0F2600298186 /* COSTurnCounter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COSTurnCounter.m; sourceTree = "<group>"; };
+		A0F25E0914DE1D6200298186 /* COSScoreKeeper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COSScoreKeeper.h; sourceTree = "<group>"; };
+		A0F25E0A14DE1D6200298186 /* COSScoreKeeper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COSScoreKeeper.m; sourceTree = "<group>"; };
+		A0F25E0C14DE33DB00298186 /* ScoreTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreTable.h; sourceTree = "<group>"; };
+		A0F25E0D14DE33DB00298186 /* ScoreTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreTable.m; sourceTree = "<group>"; };
+		A0F25E0F14DE3C0F00298186 /* COSScoreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COSScoreView.h; sourceTree = "<group>"; };
+		A0F25E1014DE3C0F00298186 /* COSScoreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COSScoreView.m; sourceTree = "<group>"; };
+		A0F25E1214DE448600298186 /* HighScoreKeeper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScoreKeeper.h; sourceTree = "<group>"; };
+		A0F25E1314DE448600298186 /* HighScoreKeeper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScoreKeeper.m; sourceTree = "<group>"; };
+		A0F25E1514DE50C100298186 /* COSHighScoreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COSHighScoreView.h; sourceTree = "<group>"; };
+		A0F25E1614DE50C100298186 /* COSHighScoreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COSHighScoreView.m; sourceTree = "<group>"; };
+		A0F25E1814DE513900298186 /* COSHighScoreTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COSHighScoreTable.h; sourceTree = "<group>"; };
+		A0F25E1914DE513900298186 /* COSHighScoreTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COSHighScoreTable.m; sourceTree = "<group>"; };
+		A0F25E1B14DE6AA800298186 /* COSTurnSummaryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COSTurnSummaryTableViewCell.h; sourceTree = "<group>"; };
+		A0F25E1C14DE6AA800298186 /* COSTurnSummaryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COSTurnSummaryTableViewCell.m; sourceTree = "<group>"; };
+		A0F25E1E14DE724200298186 /* cards.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cards.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,6 +292,16 @@
 		A0EF8D8B149C35BF003C0926 = {
 			isa = PBXGroup;
 			children = (
+				A0F25E1B14DE6AA800298186 /* COSTurnSummaryTableViewCell.h */,
+				A0F25E1C14DE6AA800298186 /* COSTurnSummaryTableViewCell.m */,
+				A0F25E1514DE50C100298186 /* COSHighScoreView.h */,
+				A0F25E1814DE513900298186 /* COSHighScoreTable.h */,
+				A0F25E1914DE513900298186 /* COSHighScoreTable.m */,
+				A0F25E1614DE50C100298186 /* COSHighScoreView.m */,
+				A0F25E0C14DE33DB00298186 /* ScoreTable.h */,
+				A0F25E0F14DE3C0F00298186 /* COSScoreView.h */,
+				A0F25E1014DE3C0F00298186 /* COSScoreView.m */,
+				A0F25E0D14DE33DB00298186 /* ScoreTable.m */,
 				A003C94414CCE0820058BEF1 /* AudioToolbox.framework */,
 				A003C94214CCE0580058BEF1 /* AVFoundation.framework */,
 				A0EF8DA0149C35BF003C0926 /* Circles of Sorcery */,
@@ -342,6 +378,12 @@
 				A09A041F14C5164E00DF0DD4 /* COSConvertWidget.m */,
 				A09A042114C5398400DF0DD4 /* COSDeckBuilderTableView.h */,
 				A09A042214C5398500DF0DD4 /* COSDeckBuilderTableView.m */,
+				A0F25E0514DE0F2600298186 /* COSTurnCounter.h */,
+				A0F25E0914DE1D6200298186 /* COSScoreKeeper.h */,
+				A0F25E0A14DE1D6200298186 /* COSScoreKeeper.m */,
+				A0F25E0614DE0F2600298186 /* COSTurnCounter.m */,
+				A0F25E1214DE448600298186 /* HighScoreKeeper.h */,
+				A0F25E1314DE448600298186 /* HighScoreKeeper.m */,
 			);
 			path = "Circles of Sorcery";
 			sourceTree = "<group>";
@@ -349,6 +391,7 @@
 		A0EF8DA1149C35BF003C0926 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A0F25E1E14DE724200298186 /* cards.png */,
 				A003C95714CD59780058BEF1 /* star.png */,
 				A003C95414CD58360058BEF1 /* gold.png */,
 				A003C94614CCE0C50058BEF1 /* chime3.wav */,
@@ -467,6 +510,7 @@
 				A003C94F14CCE0C50058BEF1 /* success.wav in Resources */,
 				A003C95514CD58360058BEF1 /* gold.png in Resources */,
 				A003C95814CD59780058BEF1 /* star.png in Resources */,
+				A0F25E1F14DE724200298186 /* cards.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -532,6 +576,14 @@
 				A09A042014C5165000DF0DD4 /* COSConvertWidget.m in Sources */,
 				A09A042314C5398600DF0DD4 /* COSDeckBuilderTableView.m in Sources */,
 				A003C93F14CCDFD10058BEF1 /* Sound.m in Sources */,
+				A0F25E0714DE0F2600298186 /* COSTurnCounter.m in Sources */,
+				A0F25E0B14DE1D6200298186 /* COSScoreKeeper.m in Sources */,
+				A0F25E0E14DE33DB00298186 /* ScoreTable.m in Sources */,
+				A0F25E1114DE3C0F00298186 /* COSScoreView.m in Sources */,
+				A0F25E1414DE448600298186 /* HighScoreKeeper.m in Sources */,
+				A0F25E1714DE50C100298186 /* COSHighScoreView.m in Sources */,
+				A0F25E1A14DE513A00298186 /* COSHighScoreTable.m in Sources */,
+				A0F25E1D14DE6AA900298186 /* COSTurnSummaryTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

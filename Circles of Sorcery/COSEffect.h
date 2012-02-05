@@ -17,7 +17,7 @@
 
 
 - (void) activate:(COSPlayer*)player;
-
+- (void) activateTradeEffect:(COSPlayer*)player;
 
 - (id) initForResourcesToGive:(NSString*)s
                     payAmount:(int)ra

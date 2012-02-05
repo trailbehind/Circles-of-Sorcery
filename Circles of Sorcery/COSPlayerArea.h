@@ -7,7 +7,7 @@
 //
 
 
-@class COSPlusMinusCounter, COSDeckView, COSPlayer, COSCard;
+@class COSPlusMinusCounter, COSDeckView, COSPlayer, COSCard, COSTurnCounter;
 
 @interface COSPlayerArea : UIView {
   
@@ -15,6 +15,7 @@
   COSDeckView *deckView;
   COSPlayer *player;
   NSMutableArray *cards, *widgets;
+  COSTurnCounter *turnCounter;
   
 }
 
@@ -23,6 +24,7 @@
 @property(nonatomic,retain) COSPlusMinusCounter *goldCounter, *rewardCounter;
 @property(nonatomic,retain) NSMutableArray *cards;
 @property(nonatomic,retain) COSDeckView *deckView;
+@property(nonatomic,retain) COSTurnCounter *turnCounter;
 
 
 - (id)initWithFrame:(CGRect)frame forPlayer:(COSPlayer*)p;

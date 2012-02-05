@@ -14,6 +14,7 @@
   UIButton *endTurnButton;
 }
 
-- (id) initWithPlayers:(NSArray*)players;
+- (void) setupWithPlayers:(NSArray*)players;
+
 
 @end

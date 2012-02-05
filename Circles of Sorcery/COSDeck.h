@@ -21,5 +21,7 @@
 
 - (id) initForFilename:(NSString*)filename player:(COSPlayer*)player game:(COSGame*)game;
 - (void) drawCard;
+- (void) drawFarmer;
+
 
 @end

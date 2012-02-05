@@ -3,18 +3,19 @@ Farmer
 Farmer
 Farmer
 Farmer
-Farmer
 Farm
 Farm
 Farm
 Farmhouse
 Tractor
 Good Advice
-Abundant Harvest
-Summer School
-Windmill
-Almanac
-Corner the Market
+Good Advice
+Good Advice
 Pub
 Price of Knowledge
 Rose Garden
+Thresher
+Thresher
+Thresher
+Windmill
+Windmill

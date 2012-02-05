@@ -58,6 +58,20 @@
 }
 
 
+// add to the player's hand
+- (CardResult) drawCards:(int)numberOfCards {
+  [player drawCards:numberOfCards keepScore:YES];
+  return CONTINUE_ACTIONS;
+}
+
+
+// add to the player's gold pile
+- (CardResult) giveReward:(int)amount {  
+  [player gainReward:amount];
+  return CONTINUE_ACTIONS;
+}
+
+
 // add to the player's gold pile
 - (CardResult) giveGold:(int)amount {  
   amount *= self.resourceModifier;
@@ -70,13 +84,6 @@
   [player gainGold:amount];
   return CONTINUE_ACTIONS;
     
-}
-
-
-// add to the player's hand
-- (CardResult) drawCards:(int)numberOfCards {
-  [player drawCards:numberOfCards];
-  return CONTINUE_ACTIONS;
 }
 
 
@@ -215,6 +222,9 @@
   if ([actionName isEqualToString:@"DISCARD_CARD"]) {
     return [self discardCards:[[parameters objectAtIndex:0]intValue]];
   }
+  if ([actionName isEqualToString:@"GET_REWARD"]) {
+    return [self giveReward:[[parameters objectAtIndex:0]intValue]];
+  }
   if ([actionName isEqualToString:@"GET_GOLD"]) {
     return [self giveGold:[[parameters objectAtIndex:0]intValue]];
   }
@@ -267,7 +277,7 @@
   for (int x=index+1;x<[actionParameters count];x++) {
     NSObject *param = [actionParameters objectAtIndex:x];
     if (![param isKindOfClass:[NSNumber class]]
-        && [param rangeOfString:@"_"].location != NSNotFound) {
+        && [(NSString*)param rangeOfString:@"_"].location != NSNotFound) {
       break;
     }
     [numbers addObject:param];
@@ -315,11 +325,11 @@
         if ([obj isKindOfClass:[NSNumber class]] && count == 0) {
           obj = [NSString stringWithFormat:@"%@", obj];
         } else if ([obj isKindOfClass:[NSArray class]]) {
-          if ([obj count] > 0) {
-            obj = [obj objectAtIndex:0];
+          if ([(NSArray*)obj count] > 0) {
+            obj = [(NSArray*)obj objectAtIndex:0];
           }
         } else if ([obj isKindOfClass:[NSString class]]
-                   && [obj rangeOfString:@"_"].location != NSNotFound) {
+                   && [(NSString*)obj rangeOfString:@"_"].location != NSNotFound) {
           obj = [self buildSubstring:actionParameters index:count];           
           doingCompound = YES;
         } else if ([obj isKindOfClass:[NSString class]] && !doingCompound) {
@@ -327,7 +337,7 @@
         } else {
           continue;
         }
-        token = [token stringByReplacingCharactersInRange:range withString:obj];
+        token = [(NSString*)token stringByReplacingCharactersInRange:range withString:(NSString*)obj];
           
       }
       displayText = [displayText stringByAppendingString:token];

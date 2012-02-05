@@ -27,9 +27,9 @@
                        player:(COSPlayer*)p {
   NSDictionary *resourceMap = [NSDictionary dictionaryWithObjectsAndKeys:
                                @"Gold", @"GET_GOLD", 
-                               @"Reward", @"REWARD_POINT", 
+                               @"Point", @"REWARD_POINT", 
                                @"Card", @"DRAW_CARD", nil];
-  self = [super initWithFrame:CGRectMake(0, 0, 100, 50) title:[NSString stringWithFormat:@"%d %@ for %d %@", payAmount,  [resourceMap objectForKey:resourceToGive], getAmount,[resourceMap objectForKey:resourceToGet]] icon:nil startCount:0 showPlus:YES showMinus:NO];
+  self = [super initWithFrame:CGRectMake(0, 0, 150, 75) title:[NSString stringWithFormat:@"%d %@ for %d %@", payAmount,  [resourceMap objectForKey:resourceToGive], getAmount,[resourceMap objectForKey:resourceToGet]] icon:nil startCount:0 showPlus:YES showMinus:NO];
   if (self) {
     COSEffect *e = [[[COSEffect alloc]initForResourcesToGive:resourceToGive
                                                         payAmount:payAmount

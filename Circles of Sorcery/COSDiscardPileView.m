@@ -72,10 +72,6 @@
   [UIView setAnimationDuration:0.25];
   [UIView setAnimationDelegate:self];
   [UIView setAnimationDidStopSelector:@selector(removeCard)];
-  //for (UIView *v in card.cardView.subviews) {
-  //  v.alpha = 0;
-  //}
-  NSLog(@"The card is %@", card);
   CGRect frame = card.cardView.frame;
   frame.origin = self.center;
   frame.size = CGSizeMake(0,0);
@@ -95,7 +91,6 @@
   [UIView setAnimationDuration:0.25];
   [UIView setAnimationDelegate:self];
   [UIView setAnimationDidStopSelector:@selector(shrinkCard)];
-  NSLog(@"The card is %@", card);
   //card.cardView.frame = self.frame;
   [UIView commitAnimations];
 }

@@ -11,6 +11,7 @@
 #import "COSCardRegistry.h"
 #import "COSPlayer.h"
 #import "COSDeckBuilderTableView.h"
+#import "COSAppDelegate.h"
 
 @implementation COSGame 
 @synthesize cardRegistry, players, gameLayout;
@@ -71,12 +72,9 @@
     UIPickerView *picker = [deckBuilder.pickerIndex objectForKey:cardName];
     for (int x=0;x<[picker selectedRowInComponent:0];x++) {
       fileString = [fileString stringByAppendingFormat:@"%@\n",cardName];
-      //NSLog(@"Writing string to file: %@", cardName);
     }
     i++;
   }
-  //NSLog(@"Writing string to file: %@", fileString);
-  // NSLog(@"Writing to file %@", [self defaultDeckPath]);
   
   if (![[NSFileManager defaultManager] fileExistsAtPath:[self defaultDeckPath]]) {
     [[NSFileManager defaultManager] createFileAtPath:[self defaultDeckPath] contents:nil attributes:nil];
@@ -93,7 +91,7 @@
 - (void) startGame {
   [self writeCardsToFile]; 
   [self dismissModalViewControllerAnimated:YES];
-  [[[UIApplication sharedApplication]delegate]reloadRegistryAndMakeNewGame];
+  [(COSAppDelegate*)[[UIApplication sharedApplication]delegate]reloadRegistryAndMakeNewGame];
 }
 
 

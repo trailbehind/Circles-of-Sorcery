@@ -8,6 +8,7 @@
   "DISCARD_CARD": "Discard %s cards. ",
   "REWARD_POINT": "gain %s reward points. ",
   "GET_GOLD": "gain %s gold. ",
+  "GET_REWARD": " Gain %s reward.",
   "TEST_FOR_CARD": "if you have a %s in play, ",
   "SACRIFICE_THIS": "Discard this. ",
   "SEARCH_DECK": "search your deck for %s and %s",

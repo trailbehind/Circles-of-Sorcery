@@ -185,13 +185,11 @@
                                      selector:@selector(clearTouchTime:) 
                                      userInfo:nil
                                       repeats:NO];
-      UITouch *touch = [touches anyObject];   
-      CGPoint location = [touch locationInView:artwork]; 
+      //UITouch *touch = [touches anyObject];   
+      // CGPoint location = [touch locationInView:artwork]; 
       
       if([card.type isEqualToString:@"Effect"]) {
-        NSLog(@"Playing an effect");
         [card activateForEvent:[[[card.actions objectAtIndex:0]allKeys]objectAtIndex:0]];
-        NSLog(@"Played an effect");
       }
 
     } else {

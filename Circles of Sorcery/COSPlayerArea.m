@@ -17,11 +17,13 @@
 #import "COSPlayer.h"
 #import "COSDeck.h"
 #import "COSCardView.h"
+#import "COSTurnCounter.h"
 
 @implementation COSPlayerArea
-@synthesize player, goldCounter, rewardCounter, cards, deckView;
+@synthesize player, goldCounter, rewardCounter, cards, deckView, turnCounter;
 
 - (void) dealloc {
+  [turnCounter release];
   [rewardCounter release];
   [goldCounter release];
   [deckView release];
@@ -97,12 +99,15 @@
 
 - (void) setupPlayArea {
   
-  CGRect rewardCounterFrame = CGRectMake(0, 0, 60, 50);
-  rewardCounter = [[COSPlusMinusCounter alloc]initWithFrame:rewardCounterFrame title:@"Reward" icon:@"star.png" startCount:0 showPlus:NO showMinus:NO];
+  turnCounter = [[COSTurnCounter alloc]initWithFrame:CGRectZero player:player];
+  [self addWidget:turnCounter];
+
+  CGRect rewardCounterFrame = CGRectMake(0, 0, 75, 50);
+  rewardCounter = [[COSPlusMinusCounter alloc]initWithFrame:rewardCounterFrame title:@"Points" icon:@"star.png" startCount:0 showPlus:NO showMinus:NO];
   [self addWidget:rewardCounter];
 
   
-  CGRect goldCounterFrame = CGRectMake(0, 0, 60, 50);
+  CGRect goldCounterFrame = CGRectMake(0, 0, 75, 50);
   goldCounter = [[COSPlusMinusCounter alloc]initWithFrame:goldCounterFrame title:@"Gold" icon:@"gold.png" startCount:0 showPlus:NO showMinus:NO];
   [self addWidget:goldCounter];
 
@@ -140,7 +145,7 @@
   int buildingCount = 0;
   int equipmentCount = 0;
   
-  int buttonOffset = 80;
+  int buttonOffset = 100;
   for (COSCard *card in self.cards) {
     CGRect frame = card.cardView.frame;
     if ([card.subtype isEqualToString:@"Farm"]) {

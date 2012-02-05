@@ -25,7 +25,7 @@
                                          constrainedToSize:maximumLabelSize 
                                              lineBreakMode:counterLabel.lineBreakMode];
   counterLabel.frame = CGRectMake(self.frame.size.width/2-expectedLabelSize.width/2, 
-                                  titleLabel.frame.origin.y + titleLabel.frame.size.height - 4, 
+                                  titleLabel.frame.origin.y + titleLabel.frame.size.height, 
                                   expectedLabelSize.width, 
                                   expectedLabelSize.height);
 }
@@ -58,20 +58,18 @@
   titleLabel = [[UILabel alloc]init];
   titleLabel.backgroundColor = [UIColor clearColor];
   titleLabel.text = title;
+  titleLabel.textAlignment = UITextAlignmentCenter;
   
-  CGSize maximumLabelSize = CGSizeMake(200,17);
-  CGSize expectedLabelSize = [titleLabel.text sizeWithFont:titleLabel.font 
-                                         constrainedToSize:maximumLabelSize 
-                                             lineBreakMode:titleLabel.lineBreakMode];
-  titleLabel.frame = CGRectMake(0, 
-                                -5, 
-                                expectedLabelSize.width, 
-                                expectedLabelSize.height);    
+    titleLabel.frame = CGRectMake(0, 
+                                0, 
+                                self.frame.size.width, 
+                                20);    
   [self addSubview:titleLabel];
   
   
   
   counterLabel = [[UILabel alloc]init];
+  counterLabel.textAlignment = UITextAlignmentCenter;
   counterLabel.backgroundColor = [UIColor clearColor];
   counterLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:16];
   counterLabel.text = [NSString stringWithFormat:@"%d", counterValue];
@@ -80,7 +78,7 @@
   
   UIImageView *star = [[[UIImageView alloc]initWithImage:[UIImage imageNamed:icon]]autorelease];
   CGRect starFrame;
-  starFrame.origin.x =10;
+  starFrame.origin.x =self.frame.size.width/2-16;
   starFrame.origin.y =40;
   starFrame.size.width = 32;
   starFrame.size.height = 32;
@@ -89,11 +87,10 @@
 
   
   
-  self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, PADDING+titleLabel.frame.size.width, titleLabel.frame.size.height+PADDING+buttonSize);
   UIButton *plusButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
   [plusButton setTitle:@"+" forState:UIControlStateNormal];
   plusButton.frame = CGRectMake(titleLabel.frame.size.width/2-titleLabel.frame.origin.x/2-buttonSize/2, 
-                                titleLabel.frame.size.height-3, 
+                                titleLabel.frame.size.height+2, 
                                 buttonSize, buttonSize);
   [plusButton addTarget:self 
                   action:@selector(incrementCounter) 

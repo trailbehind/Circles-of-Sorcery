@@ -10,4 +10,16 @@
 
 @implementation COSConstants
 
+NSString* documentsDirectory() {
+  static NSString* dir = nil;
+  if (!dir) {
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains (NSDocumentDirectory, NSUserDomainMask, YES);
+    dir = [[paths objectAtIndex:0] retain];	
+    
+  }
+  return dir;
+}
+
+
 @end

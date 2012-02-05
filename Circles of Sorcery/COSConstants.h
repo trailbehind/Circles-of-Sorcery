@@ -13,8 +13,14 @@
 #define CARD_BORDER_COLOR [[UIColor redColor]CGColor]
 #define TITLE_FONT [UIFont fontWithName:@"Helvetica-Bold" size:16]
 #define TEXT_FONT [UIFont fontWithName:@"Helvetica" size:14]
+#define NUMBER_OF_TURNS 7
 
 
-@interface COSConstants : NSObject
+@interface COSConstants : NSObject {
+  
+}
+
+
+NSString* documentsDirectory();
 
 @end

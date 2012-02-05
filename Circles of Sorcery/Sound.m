@@ -61,7 +61,6 @@
 }
 
 + (void) playDistanceChime {
-  if ([Sound silentMode]) return;
   static AVAudioPlayer* chimePlayer;
   if (!chimePlayer) {
     chimePlayer = [Sound getAudioPlayer:[Sound soundpath:@"chime3"]];  

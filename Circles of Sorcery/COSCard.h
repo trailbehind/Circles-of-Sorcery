@@ -42,5 +42,6 @@ typedef enum {
 - (void) highlightIfActivatable;
 - (BOOL) isActivatableForParameter:(NSString*)parameter;
 - (void) activateForEvent:(NSString*)eventName;
+- (void) activateIfActivatable;
 
 @end

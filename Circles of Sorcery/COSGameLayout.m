@@ -12,6 +12,7 @@
 #import "COSConstants.h"
 #import "COSPlayer.h"
 #import "COSGame.h"
+#import "COSAppDelegate.h"
 
 @implementation COSGameLayout
 
@@ -25,7 +26,7 @@
 }
 
 
-- (void) switchPlayers {
+/*- (void) switchPlayers {
   COSPlayerArea *otherPlayerArea;
   if ([currentPlayerArea isEqual: playerOneArea]) {
     currentPlayerArea = playerTwoArea;
@@ -49,11 +50,11 @@
   [self sendSubviewToBack:currentPlayerArea];
   [opponentTray sendSubviewToBack:otherPlayerArea];
 
-}
+}*/
 
 
 - (void) showRules {
-  NSString *message = @"Play Farmers and then Farms to get Gold. Use Gold to buy cards and get Reward Points. Get 10 reward points and you win!";
+  NSString *message = @"Play Farmers and then Farms to get Gold.\n\nUse Gold to buy cards.\n\nUse cards to get the highest score!";
   UIAlertView *av = [[[UIAlertView alloc]initWithTitle:@"How to Play" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil]autorelease];
   [av show];
 }
@@ -93,14 +94,14 @@
   int buttonWidth = 150;
   int buttonHeight = 50;
   newGameButton.frame = CGRectMake(playerOneArea.frame.size.width-buttonWidth-PADDING, PADDING, buttonWidth, buttonHeight);
-  [newGameButton addTarget:[[[UIApplication sharedApplication]delegate]game] action:@selector(makeNewGame) forControlEvents:UIControlEventTouchUpInside];
+  [newGameButton addTarget:[(COSAppDelegate*)[[UIApplication sharedApplication]delegate]game] action:@selector(makeNewGame) forControlEvents:UIControlEventTouchUpInside];
   [playerOneArea addSubview:newGameButton];
 
   UIButton *deckEditorButton = [[UIButton buttonWithType:UIButtonTypeRoundedRect]retain];
   deckEditorButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin;
   [deckEditorButton setTitle:@"Edit Deck" forState:UIControlStateNormal];
   deckEditorButton.frame = CGRectMake(playerOneArea.frame.size.width-buttonWidth-PADDING, buttonHeight +PADDING*2, buttonWidth, buttonHeight);
-  [deckEditorButton addTarget:[[[UIApplication sharedApplication]delegate]game] action:@selector(showDeckBuilder) forControlEvents:UIControlEventTouchUpInside];
+  [deckEditorButton addTarget:[(COSAppDelegate*)[[UIApplication sharedApplication]delegate]game] action:@selector(showDeckBuilder) forControlEvents:UIControlEventTouchUpInside];
   [playerOneArea addSubview:deckEditorButton];
 
   UIButton *howtoButton = [[UIButton buttonWithType:UIButtonTypeRoundedRect]retain];
@@ -116,7 +117,7 @@
   endTurnButton.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleBottomMargin;
   [endTurnButton setTitle:@"End Turn" forState:UIControlStateNormal];
   endTurnButton.frame = CGRectMake(PADDING, PADDING, buttonWidth, buttonHeight);
-  [endTurnButton addTarget:playerOneArea.player action:@selector(doEndOfTurnEffects) forControlEvents:UIControlEventTouchUpInside];
+  [endTurnButton addTarget:playerOneArea.player action:@selector(doEndOfTurnEffects:) forControlEvents:UIControlEventTouchUpInside];
   [playerOneArea addSubview:endTurnButton];
 
 

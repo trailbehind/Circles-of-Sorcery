@@ -22,6 +22,6 @@
 - (NSArray*) chooseCardsToDicard:(int)numberOfCards;
 - (void) playCard:(COSCard*)card;
 - (void)cardTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event card:(COSCard*)card;
-
+- (void)cardTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event card:(COSCard*)card;
 
 @end

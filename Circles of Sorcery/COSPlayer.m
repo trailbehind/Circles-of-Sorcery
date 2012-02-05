@@ -16,11 +16,12 @@
 #import "COSConvertWidget.h"
 #import "COSPlayerArea.h"
 #import "COSGame.h"
-
+#import "COSScoreKeeper.h"
+#import "COSConstants.h"
 
 @implementation COSPlayer
 @synthesize gold, rewardPoints, handContainer, cardsInPlay, deck, discardPile, game;
-@synthesize playerArea, activeEffects, effectWidgets, deckName;
+@synthesize playerArea, activeEffects, effectWidgets, deckName, scoreKeeper;
 
 
 - (void) dealloc {
@@ -31,20 +32,21 @@
   [deckName release];
   [playerArea release];
   [effectWidgets release];
+  [scoreKeeper release];
   [super dealloc];
 }
 
 
-- (void) drawCards:(int)numberOfCards {
+- (void) drawCards:(int)numberOfCards keepScore:(BOOL)keepScore {
+  if (keepScore) [scoreKeeper addScore:numberOfCards forThing:@"cards"];
   for (int x=0;x<numberOfCards;x++) {
-    NSLog(@"Drawing a card from %@", deck);
     [deck drawCard];
   }
 }
 
+
 - (void) drawHand {
-  [self drawCards:4];
- 
+  [self drawCards:4 keepScore:NO];
   COSCard *farmerCard = nil;
   for (COSCard *card in handContainer.cards) {
     if ([card.name isEqualToString:@"Farmer"]) {
@@ -52,12 +54,10 @@
     }
   }
   if (farmerCard) {
-    [self drawCards:1];
+    [self drawCards:1 keepScore:NO];
   } else {
     [deck drawFarmer];
   }
-
-
 }
 
 
@@ -74,7 +74,7 @@
     self.gold += amount;
   }
   if ([resourceName isEqualToString:@"DRAW_CARD"]) {
-    [self drawCards:amount];
+    [self drawCards:amount keepScore:YES];
   }
 }
 
@@ -85,11 +85,11 @@
     card.resourceToProduce = @"GET_GOLD";
     card.resourceModifier = 1;
   }
-  [self drawCards:1];
+  [self drawCards:1 keepScore:NO];
 }
 
-- (void) doEndOfTurnEffects {
-  
+
+- (void) doEndOfTurnEffects:(UIButton*)button {
   
   NSArray *cardInPlayClone = [[cardsInPlay copy]autorelease];
   
@@ -119,13 +119,20 @@
   }
   [self.effectWidgets removeAllObjects];
   
+  
+  [scoreKeeper endTurn];
+  
+  if (scoreKeeper.turnIndex == NUMBER_OF_TURNS) {
+    button.enabled = NO;
+  } else {
+    [playerArea.turnCounter incrementCounter];
+  }
   // next turn
   [self beginTurn];
 }
 
 
 - (void) setDeckForPath:(NSString*)path {
-  NSLog(@"Setting deck for path %@", path);
   self.deckName = path;
   self.deck = [[[COSDeck alloc] initForFilename:deckName player:self game:game]autorelease];  
 }
@@ -136,16 +143,23 @@
   game = [g retain];
   gold = 0;
   rewardPoints = 0;
+ 
   self.activeEffects = [NSMutableArray array];
   self.effectWidgets = [NSMutableArray array];
   self.cardsInPlay = [NSMutableArray array];
-  COSHandContainer *handContainer = [[[COSHandContainer alloc]initWithFrame:CGRectZero]autorelease];
-  self.handContainer = handContainer;
+  COSHandContainer *hc = [[[COSHandContainer alloc]initWithFrame:CGRectZero]autorelease];
+  self.handContainer = hc;
   
   COSDiscardPileView *discard = [[[COSDiscardPileView alloc]initWithFrame:CGRectZero]autorelease];
   self.discardPile = discard;
   
   [self setDeckForPath:d];
+  
+  scoreKeeper = [[COSScoreKeeper alloc]initWithPlayer:self];
+  [scoreKeeper addThingToTrack:@"gold"];
+  [scoreKeeper addThingToTrack:@"reward"];
+  [scoreKeeper addThingToTrack:@"cards"];
+
   return self;
 }
 
@@ -166,6 +180,9 @@
 
 - (BOOL) gainGold:(int)amount {
   self.gold += amount;
+  if (amount > 0) {
+    [scoreKeeper addScore:amount forThing:@"gold"];
+  }
   for (int x=0;x<abs(amount);x++) {
     if (amount <0) {
       [playerArea.goldCounter decrementCounter];      
@@ -200,13 +217,14 @@
 
 
 - (void) gainReward:(int)amount {
+  [scoreKeeper addScore:amount forThing:@"reward"];
   for (int x=0;x<abs(amount);x++) {
     self.rewardPoints++;
     [playerArea.rewardCounter incrementCounter];
-    if (rewardPoints == 10) {
-      UIAlertView *av = [[[UIAlertView alloc]initWithTitle:@"YOU WIN!" message:@"You got 10 reward points, so you win. Congrats!" delegate:self cancelButtonTitle:@"Keep Playing" otherButtonTitles:@"New Game", nil]autorelease];
-      [av show];
-    }
+    //if (rewardPoints == 10) {
+    //  UIAlertView *av = [[[UIAlertView alloc]initWithTitle:@"YOU WIN!" message:@"You got 10 reward points, so you win. Congrats!" delegate:self cancelButtonTitle:@"Keep Playing" otherButtonTitles:@"New Game", nil]autorelease];
+    //  [av show];
+    // }
   }
 }
 

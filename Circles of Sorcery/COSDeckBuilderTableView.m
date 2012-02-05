@@ -101,7 +101,6 @@
 
 - (NSMutableDictionary*) defaultCounts {
   if (!defaultCounts) {
-    //NSLog(@"Making counts dict");
     defaultCounts = [[NSMutableDictionary dictionary]retain];    
     COSDeck *deck = [[[COSDeck alloc]initForFilename:[self lastDefaultDeck] player:nil game:nil]autorelease];
     for (COSCard *c in deck.cards) {
@@ -115,7 +114,6 @@
         [defaultCounts setObject:newNum forKey:c.name];      
       }
     }
-    //NSLog(@"counts dict, %@", defaultCounts);
   }
   return defaultCounts;
 }
@@ -147,6 +145,7 @@
     [spinners addObject:pv];
     [pickerIndex setObject:pv forKey:cardName];
   }
+  return spinners;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

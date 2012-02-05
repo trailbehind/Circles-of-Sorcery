@@ -34,7 +34,6 @@
   NSArray* allLinedStrings = 
   [fileContents componentsSeparatedByCharactersInSet:
    [NSCharacterSet newlineCharacterSet]];
-  NSLog(@"The lined array is %@", allLinedStrings);
   cards = [[NSMutableArray alloc]init];
   for(NSString *cardName in allLinedStrings) {
     if ([cardName isEqualToString:@""]) {
@@ -46,7 +45,6 @@
 
   [cards shuffle];
   self.deckView = player.playerArea.deckView;
-  NSLog(@"after initin, count is %d", [cards count]);
 
   return self;  
 }
@@ -69,13 +67,11 @@
 
 
 - (void) drawCard {
-  NSLog(@"When drawing, count is %d", [cards count]);
   if ([cards count] == 0) {
     return;
   }
   COSCard *card = [cards lastObject];
   [deckView drawCard:card];
-  NSLog(@"Drawing from deckView %@", deckView);
   [cards removeLastObject];
 }
 

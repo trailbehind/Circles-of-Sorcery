@@ -18,7 +18,7 @@
 @property(nonatomic,assign) int counterValue;
 
 
-- (id)initWithFrame:(CGRect)frame title:(NSString*)title startCount:(int)startCount icon:(NSString*)icon showPlus:(BOOL)showPlus showMinus:(BOOL)showMinus;
+- (id)initWithFrame:(CGRect)frame title:(NSString*)title icon:(NSString*)icon startCount:(int)startCount  showPlus:(BOOL)showPlus showMinus:(BOOL)showMinus;
 - (void) incrementCounter;
 - (void) decrementCounter;
 

@@ -26,12 +26,10 @@
   NSString* filePath = [[NSBundle mainBundle] pathForResource:@"card_data.json" ofType:nil];
   NSData *fileData = [NSData dataWithContentsOfFile:filePath];                       
   cardList = [[[CJSONDeserializer deserializer] deserialize:fileData error:nil]retain];
-  //NSLog(@"The list is %@ with count %d", cardList, [cardList count]);
   cardIndex = [[NSMutableDictionary dictionaryWithCapacity:[cardList count]]retain];
   for (NSDictionary *cardDict in cardList) {
     [cardIndex setObject:cardDict forKey:[cardDict objectForKey:@"name"]];
   }
-  //NSLog(@"The card index is %@", cardIndex);
   
   NSString *translationFilePath = [[NSBundle mainBundle] pathForResource:@"ability_translation.json" ofType:nil];
   NSData *translationFileData = [NSData dataWithContentsOfFile:translationFilePath];                       

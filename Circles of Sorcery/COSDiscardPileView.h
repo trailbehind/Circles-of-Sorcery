@@ -19,6 +19,7 @@
 @property(nonatomic,retain) COSDiscardContainer *discardContainer;
 
 - (void) addCard:(COSCard*)card;
-
+- (void) discardThenPlay:(COSCard*)card;
+- (void) addLabel;
 
 @end

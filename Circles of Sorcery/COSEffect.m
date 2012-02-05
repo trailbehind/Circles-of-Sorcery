@@ -36,7 +36,7 @@
   // if they can pay enough, do the thing
   if ([player gainGold:-giveAmount]) {
     if ([resourceToGet isEqualToString:@"DRAW_CARD"]) {
-      [player drawCards:getAmount];
+      [player drawCards:getAmount keepScore:YES];
     } else if ([resourceToGet isEqualToString:@"REWARD_POINT"]) {
       [player gainReward:getAmount];
     }

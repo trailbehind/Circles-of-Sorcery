@@ -25,6 +25,6 @@
 - (NSString*) lastDefaultDeck;
 - (NSString*) defaultDeckPath;
 - (void) reloadRegistry:(NSString*)filename;
-
+- (void) makeNewGame;
 
 @end

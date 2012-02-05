@@ -48,6 +48,24 @@
                ]
   },
   {
+  "name": "Thresher",
+  "type": "Permanent",
+  "subtype": "Equipment",
+  "cost": 1,
+  "reward": 1,
+  "actions": [
+              {
+              "END_TURN": []
+              },
+              {
+              "GET_GOLD": [ -1 ]
+              },
+              {
+              "GET_REWARD": [ 1 ]
+              }
+              ]
+  },
+{
   "name": "Tractor",
   "type": "Permanent",
   "subtype": "Equipment",
@@ -106,11 +124,11 @@
   "reward": 1,
   "actions": [
                 {
-                "ACTIVATED_ABILITY": [ ]
+                "END_TURN": [ ]
                 },
-                {
-              "REPLACE_GOLD_PRODUCTION": [ "REPLACE_ABILITY", "gold", "Farm", "DRAW_CARD", 1 ]
-                }
+              {
+              "DRAW_CARD": [ 1 ]
+              }
                ]
   },
   {
@@ -130,18 +148,6 @@
               "REPLACE_GOLD_PRODUCTION": [ "REPLACE_ABILITY", "gold", "Farm", "GET_GOLD", 3 ]
               }
                ]
-  },
-  {
-  "name": "Corner the Market",
-  "type": "Effect",
-  "subtype": "Effect",
-  "cost": 0,
-  "reward": 0,
-  "actions": [
-                {
-                "CHANGE_GOLD": [ 1, "REWARD_POINT", 1 ]
-                }
-              ]
   },
     {
   "name": "Pub",
