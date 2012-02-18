@@ -166,6 +166,16 @@
       equipmentCount++;      
     }
     card.cardView.frame = frame;
+  
+    if ([card.subtype isEqualToString:@"Worker"]
+        && [card.buildings count] > 0) {
+      CGRect fr = [[[card.buildings objectAtIndex:0]cardView ]frame];
+      fr.origin.x += 20;
+      fr.origin.y += 30;
+      card.cardView.frame = fr;
+    }
+
+    
   }
 }
 

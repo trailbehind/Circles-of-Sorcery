@@ -1,5 +1,57 @@
  [
   {
+  "name": "Big Boss",
+  "type": "Permanent",
+  "subtype": "Worker",
+  "cost": 0,
+  "reward": 0,
+  "actions": [
+              {
+              "ACTIVATED_ABILITY": [ ]
+              },
+              {
+              "CHOOSE_BUILDING": [ 2 ]
+              }
+              ]
+  },
+  {
+  "name": "Worker",
+  "type": "Permanent",
+  "subtype": "Worker",
+  "cost": 0,
+  "reward": 0,
+  "actions": [
+              {
+              "ACTIVATED_ABILITY": [ ]
+              },
+              {
+              "CHOOSE_BUILDING": [ 1 ]
+              },
+              {
+              "IF_UNEQUIPPED": [ ]
+              },
+              {
+              "GET_GOLD": [ 1 ]
+              }
+
+              ]
+  },
+  {
+  "name": "Farm",
+  "type": "Permanent",
+  "subtype": "Building",
+  "cost": 1,
+  "reward": 1,
+  "actions": [
+              {
+              "EQUIP_WORKER": [ 1 ]
+              },
+              {
+              "GET_GOLD": [ 4 ]
+              }
+              ]
+  },
+  {
   "name": "Farmer",
   "type": "Permanent",
   "subtype": "Worker",
@@ -11,24 +63,6 @@
                 },
                 {
                 "GET_GOLD": [ 1 ]
-                }
-               ]
-  },
-  {
-  "name": "Farm",
-  "type": "Permanent",
-  "subtype": "Farm",
-  "cost": 1,
-  "reward": 1,
-  "actions": [
-                {
-                "END_TURN": []
-                },
-                {
-                "TEST_FOR_CARD": [ "Farmer" ]
-                },
-                {
-                "GET_GOLD": [ 2 ]
                 }
                ]
   },

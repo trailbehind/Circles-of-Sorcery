@@ -18,5 +18,8 @@
   "COUNT_CARD": "for each %s %s you have in play, ",
   "COPY_CARD": "put %s %s into play.",
   "INTO_PLAY": "put it into play.",
-  "CANCEL_ACTIONS": ""
+  "CANCEL_ACTIONS": "",
+  "CHOOSE_BUILDING": "You can attach this worker to a building.",
+  "EQUIP_WORKER": "If this has a worker running it, ",
+  "IF_UNEQUIPPED": "If this is not running a building, "
 }

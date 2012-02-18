@@ -19,6 +19,11 @@
 }
 
 
+- (NSString*) highScoresFilePath {
+  return [documentsDirectory() stringByAppendingString: @"/highScores.txt"];
+}  
+
+
 - (void) initHighScoresFromDisk {
   NSString *path = [self highScoresFilePath];
   if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
@@ -42,11 +47,6 @@
   }
   return sharedInstance;
 }
-
-
-- (NSString*) highScoresFilePath {
-  return [documentsDirectory() stringByAppendingString: @"/highScores.txt"];
-}  
 
 
 - (NSArray*) sortedScores {  

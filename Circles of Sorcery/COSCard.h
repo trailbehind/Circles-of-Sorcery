@@ -26,8 +26,10 @@ typedef enum {
   NSString *resourceToProduce;
   float resourceModifier;
   
+  NSMutableArray *workers, *buildings;
 }
 
+@property(nonatomic,retain) NSMutableArray *workers, *buildings;
 @property(nonatomic,retain) NSString *name, *type, *subtype;
 @property(nonatomic,assign) int cost, reward;
 @property(nonatomic,retain) NSMutableArray *actions;

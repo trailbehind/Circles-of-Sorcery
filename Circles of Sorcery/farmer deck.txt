@@ -1,21 +1,18 @@
-Farmer
-Farmer
-Farmer
-Farmer
-Farmer
+Worker
+Worker
+Worker
+Worker
+Worker
 Farm
 Farm
 Farm
-Farmhouse
-Tractor
-Good Advice
-Good Advice
-Good Advice
-Pub
-Price of Knowledge
-Rose Garden
-Thresher
-Thresher
-Thresher
-Windmill
-Windmill
+Farm
+Farm
+Farm
+Farmer
+Big Boss
+Big Boss
+Big Boss
+Big Boss
+Big Boss
+Big Boss

@@ -21,7 +21,7 @@
 
 @implementation COSPlayer
 @synthesize gold, rewardPoints, handContainer, cardsInPlay, deck, discardPile, game;
-@synthesize playerArea, activeEffects, effectWidgets, deckName, scoreKeeper;
+@synthesize playerArea, activeEffects, effectWidgets, deckName, scoreKeeper, activeWorker;
 
 
 - (void) dealloc {
@@ -33,6 +33,7 @@
   [playerArea release];
   [effectWidgets release];
   [scoreKeeper release];
+  [activeWorker release];
   [super dealloc];
 }
 
@@ -93,6 +94,22 @@
   
   NSArray *cardInPlayClone = [[cardsInPlay copy]autorelease];
   
+  // do all unequipped workers
+  for (COSCard *card in cardInPlayClone) {
+    if ([card isActivatableForParameter:@"IF_UNEQUIPPED"]
+        && [card.buildings count] == 0) {
+      [card activateForEvent:@"IF_UNEQUIPPED"];
+    }
+  }
+
+  // do all equipped buildings
+  for (COSCard *card in cardInPlayClone) {
+    if ([card isActivatableForParameter:@"EQUIP_WORKER"]
+         && [card isFullyStaffed]) {
+      [card activateForEvent:@"EQUIP_WORKER"];
+    }
+  }
+
   // do all begin end of turn effects
   for (COSCard *card in cardInPlayClone) {
     if ([card isActivatableForParameter:@"BEGIN_END_TURN"]) {

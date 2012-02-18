@@ -22,10 +22,12 @@
 #define DEFAULT_RESOURCE_TO_PRODUCE @"GET_GOLD"
 
 @implementation COSCard
-@synthesize name, type, cost, reward, actions, player, resourceToProduce, cardView, resourceModifier, subtype;
+@synthesize name, type, cost, reward, actions, player, resourceToProduce, cardView, resourceModifier, subtype, workers, buildings;
 
 
 - (void) dealloc {
+  [buildings release];
+  [workers release];
   [name release];
   [subtype release];
   [type release];
@@ -53,6 +55,9 @@
       cardView.handContainer = player.handContainer;
       cardView.discardPile = player.discardPile;
       resourceModifier = 1;
+      
+      self.workers = [NSMutableArray array];
+      self.buildings = [NSMutableArray array];
     }
     return self;
 }
@@ -173,6 +178,77 @@
 }
 
 
+- (BOOL) isFullyStaffed {
+  int staffCount = 0;
+  for (NSDictionary *action in self.actions) {
+    NSString *actionName = [[action allKeys]objectAtIndex:0];
+    if ([actionName isEqualToString:@"EQUIP_WORKER"]) {
+      NSArray *actionParameters = [action objectForKey:actionName];
+      staffCount = [[actionParameters objectAtIndex:0]intValue];
+    }
+  }
+  if ([self.workers count] == staffCount) {
+    return  YES;
+  }
+  return NO;
+}
+
+
+- (BOOL) isFullyEquipped {
+  int staffCount = 0;
+  for (NSDictionary *action in self.actions) {
+    NSString *actionName = [[action allKeys]objectAtIndex:0];
+    if ([actionName isEqualToString:@"CHOOSE_BUILDING"]) {
+      NSArray *actionParameters = [action objectForKey:actionName];
+      staffCount = [[actionParameters objectAtIndex:0]intValue];
+    }
+  }
+  if ([self.buildings count] == staffCount) {
+    return  YES;
+  }
+  return NO;
+}
+
+
+- (void) unhighlightUnequippedBuildings {
+  for (COSCard *card in player.cardsInPlay) {
+    if ([card.subtype isEqualToString:@"Building"]) {
+      [card.cardView unhighlight];
+    }
+  }  
+}
+
+
+- (CardResult) highlightAvailableBuildings {
+  for (COSCard *card in player.cardsInPlay) {
+    if ([card.subtype isEqualToString:@"Building"]
+        && ![card isFullyStaffed]) {
+      [card.cardView highlightForEffect];
+    }
+  }
+  return END_ACTIONS;
+}
+
+
+- (CardResult) equipWorker {
+  [player.activeWorker.buildings addObject:self];  
+  [self.workers addObject:player.activeWorker];
+  [[player.activeWorker.cardView superview]bringSubviewToFront:player.activeWorker.cardView];
+  CGRect fr = self.cardView.frame;
+  fr.origin.x += 20;
+  fr.origin.y += 30;
+  
+  [self.cardView unhighlight];
+  if ([player.activeWorker isFullyEquipped]) {
+    player.activeWorker.cardView.frame = fr;
+    player.activeWorker = nil;
+  } else {    
+  }
+  [player.playerArea alignCards];
+  return CONTINUE_ACTIONS;
+}
+
+
 // put this in discard
 - (CardResult) sacrifice {
   [[self.player cardsInPlay]removeObject:self];
@@ -257,6 +333,19 @@
   }
   if ([actionName isEqualToString:@"CANCEL_ACTIONS"]) {
     return [self cancelOtherActionsThisTurnFrom:[parameters objectAtIndex:0]];
+  }
+  if ([actionName isEqualToString:@"CHOOSE_BUILDING"]) {
+    if ([self.buildings count] > 0) {
+      for (COSCard *building in self.buildings) {
+        [building.workers removeObject:self];
+      }      
+      self.buildings = [NSMutableArray array];
+      [player.playerArea alignCards];
+      [self highlightIfActivatable];
+      return END_ACTIONS;
+    }
+    player.activeWorker = self;
+    return [self highlightAvailableBuildings];
   }
   return CONTINUE_ACTIONS;
 }
@@ -353,18 +442,25 @@
 - (void) activateForEvent:(NSString*)eventName {
   
   BOOL foundEvent = NO;
+  int x = 0;
   for (NSDictionary *action in actions) {
     if( [[[action allKeys]objectAtIndex:0]isEqualToString:eventName]) {
       foundEvent = YES;
       break;
     }
+    x++;
   }
   if (!foundEvent) {
     return;
   }
   
   int result;
+  int y = 0;
   for (NSDictionary *action in self.actions) {
+    if (y < x) {
+      y++;
+      continue;
+    }
     NSString *actionName = [[action allKeys]objectAtIndex:0];
     NSArray *actionParameters = [action objectForKey:actionName];
     if (result == NO_AND_CONTINUE) {
@@ -385,9 +481,11 @@
   if ([self.actions count] == 0) {
     return NO;
   }
-  if ([[[[self.actions objectAtIndex:0]allKeys]objectAtIndex:0]isEqualToString:parameter]) {
-    return YES;
-  }  
+  for (NSDictionary *dict in self.actions ) {
+    if ([[[dict allKeys]objectAtIndex:0] isEqualToString:parameter]) {
+      return YES;
+    }      
+  }
   return NO;
 }
 
@@ -403,8 +501,8 @@
   if ([actions count] == 0) {
     return;
   }
-  [self activateForEvent:[[[self.actions objectAtIndex:0]allKeys]objectAtIndex:0]];
   [self.cardView unhighlight];
+  [self activateForEvent:[[[self.actions objectAtIndex:0]allKeys]objectAtIndex:0]];
 }
 
 
@@ -426,6 +524,9 @@
 - (void) activateIfActivatable {
   if ([self isActivatableForParameter:@"ACTIVATED_ABILITY"]) {
     [self activateEffect];
+  }
+  if ([self isActivatableForParameter:@"EQUIP_WORKER"]) {
+    [self equipWorker];
   }
 }
 
