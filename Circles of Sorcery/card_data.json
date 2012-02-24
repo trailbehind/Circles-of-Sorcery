@@ -1,5 +1,29 @@
  [
   {
+  "name": "Seasonal Worker",
+  "type": "Permanent",
+  "subtype": "Worker",
+  "cost": 1,
+  "reward": 1,
+  "actions": [
+              {
+              "ACTIVATED_ABILITY": [ ]
+              },
+              {
+              "CHOOSE_BUILDING": [ 1 ]
+              },
+              {
+              "USE_AS_EFFECT": [ ]
+              },
+              {
+              "DRAW_CARD": [ 1 ]
+              },
+              {
+              "GET_GOLD": [ 1 ]
+              },
+              ]
+  },
+  {
   "name": "Big Boss",
   "type": "Permanent",
   "subtype": "Worker",
@@ -37,6 +61,50 @@
               ]
   },
   {
+  "name": "Artist",
+  "type": "Permanent",
+  "subtype": "Worker",
+  "cost": 0,
+  "reward": 0,
+  "actions": [
+              {
+              "ACTIVATED_ABILITY": [ ]
+              },
+              {
+              "CHOOSE_BUILDING": [ 1 ]
+              },
+              {
+              "IF_UNEQUIPPED": [ ]
+              },
+              {
+              "GET_REWARD": [ 1 ]
+              }
+              
+              ]
+  },
+  {
+  "name": "Historian",
+  "type": "Permanent",
+  "subtype": "Worker",
+  "cost": 3,
+  "reward": 2,
+  "actions": [
+              {
+              "ACTIVATED_ABILITY": [ ]
+              },
+              {
+              "CHOOSE_BUILDING": [ 1 ]
+              },
+              {
+              "IF_UNEQUIPPED": [ ]
+              },
+              {
+              "RETURN_EFFECT": [ ]
+              }
+              
+              ]
+  },
+  {
   "name": "Farm",
   "type": "Permanent",
   "subtype": "Building",
@@ -52,19 +120,19 @@
               ]
   },
   {
-  "name": "Farmer",
+  "name": "Theater",
   "type": "Permanent",
-  "subtype": "Worker",
-  "cost": 0,
-  "reward": 0,
+  "subtype": "Building",
+  "cost": 1,
+  "reward": 2,
   "actions": [
-                {
-                "END_TURN": []
-                },
-                {
-                "GET_GOLD": [ 1 ]
-                }
-               ]
+              {
+              "EQUIP_WORKER": [ 1 ]
+              },
+              {
+              "CHANGE_GOLD_ONCE": [ 2, "GET_REWARD", 1 ]
+              }
+              ]
   },
   {
   "name": "Farmhouse",

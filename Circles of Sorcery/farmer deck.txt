@@ -1,18 +1,23 @@
 Worker
-Worker
-Worker
-Worker
-Worker
+Big Boss
+Seasonal Worker
+Seasonal Worker
+Seasonal Worker
+Seasonal Worker
+Seasonal Worker
+Artist
+Artist
+Artist
+Artist
+Artist
 Farm
 Farm
 Farm
 Farm
 Farm
 Farm
-Farmer
-Big Boss
-Big Boss
-Big Boss
-Big Boss
-Big Boss
-Big Boss
+Theater
+Theater
+Historian
+Historian
+Historian

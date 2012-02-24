@@ -176,34 +176,25 @@
     return;
   }
   
-  if (![handContainer.cards containsObject:card]) {
-    if (!firstTouchTime) {
-      // first tap
+  if ([discardPile.cards containsObject:card]) {
+    [discardPile.discardContainer cardTouchesBegan:touches withEvent:event card:card];
+    return;
+  }
+
+  
+  if ([card.player.cardsInPlay containsObject:card]) {
+    if (!firstTouchTime) { // first tap
       self.firstTouchTime = [NSDate date];
       [NSTimer scheduledTimerWithTimeInterval:1
                                        target:self 
                                      selector:@selector(clearTouchTime:) 
                                      userInfo:nil
                                       repeats:NO];
-      //UITouch *touch = [touches anyObject];   
-      // CGPoint location = [touch locationInView:artwork]; 
-      
-      if([card.type isEqualToString:@"Effect"]) {
-        [card activateForEvent:[[[card.actions objectAtIndex:0]allKeys]objectAtIndex:0]];
-      }
-
-    } else {
-      // double tap
-      if ([discardPile.cards containsObject:card]) {
-        return;
-      }
+    } else {  // double tap
       [firstTouchTime release];
       firstTouchTime = nil; 
-      
       [card activateIfActivatable];
-      
     }
-    
   }
 }
 
@@ -215,12 +206,12 @@
     if (firstTouchTime) {
       [firstTouchTime release];
       firstTouchTime = nil;
-      if ([discardPile.cards containsObject:card]) {
-        [discardPile.cards removeObject:card];
-        [discardPile.discardContainer.cards removeObject:card];
-        [handContainer addCard:card];
-        [handContainer layoutCards];
-      }
+      //if ([discardPile.cards containsObject:card]) {
+      //  [discardPile.cards removeObject:card];
+      //  [discardPile.discardContainer.cards removeObject:card];
+      //  [handContainer addCard:card];
+      //  [handContainer layoutCards];
+      //}
   
       if ([deck.cards containsObject:card]) {
         [deck.cards removeObject:card];

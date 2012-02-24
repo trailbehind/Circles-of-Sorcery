@@ -19,6 +19,7 @@
   COSPlayerArea *playerArea;
   COSScoreKeeper *scoreKeeper;
   COSCard *activeWorker; 
+  NSString *choosingTypeFromDiscard;
 }
 
 @property(nonatomic, assign) int gold, rewardPoints;
@@ -31,6 +32,7 @@
 @property(nonatomic, retain) NSString *deckName;
 @property(nonatomic, retain) COSScoreKeeper *scoreKeeper;
 @property(nonatomic, retain) COSCard *activeWorker; 
+@property(nonatomic, retain) NSString *choosingTypeFromDiscard;
 
 - (void) drawCards:(int)numberOfCards keepScore:(BOOL)keepScore;
 - (int) selectGoldAmountWithIncrement:(int)increment;

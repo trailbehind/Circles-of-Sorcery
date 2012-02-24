@@ -81,10 +81,12 @@
 
 
 - (void) addCard:(COSCard*)card {   
-  [card.player.cardsInPlay removeObject:card];
-  card.player.rewardPoints -= card.reward;
-  for (int x=0;x<card.reward;x++) {
-    [card.player.playerArea.rewardCounter decrementCounter];
+  if ([card.player.cardsInPlay containsObject:card]) {
+    card.player.rewardPoints -= card.reward;
+    for (int x=0;x<card.reward;x++) {    
+      [card.player.playerArea.rewardCounter decrementCounter];
+    }
+    [card.player.cardsInPlay removeObject:card];
   }
   [cards addObject:card];
   [UIView beginAnimations:nil context:nil];

@@ -71,6 +71,7 @@
 		A0F25E1A14DE513A00298186 /* COSHighScoreTable.m in Sources */ = {isa = PBXBuildFile; fileRef = A0F25E1914DE513900298186 /* COSHighScoreTable.m */; };
 		A0F25E1D14DE6AA900298186 /* COSTurnSummaryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0F25E1C14DE6AA800298186 /* COSTurnSummaryTableViewCell.m */; };
 		A0F25E1F14DE724200298186 /* cards.png in Resources */ = {isa = PBXBuildFile; fileRef = A0F25E1E14DE724200298186 /* cards.png */; };
+		A0F8099114F21C580044B958 /* ChangeGoldModalView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0F8099014F21C570044B958 /* ChangeGoldModalView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -190,6 +191,8 @@
 		A0F25E1B14DE6AA800298186 /* COSTurnSummaryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COSTurnSummaryTableViewCell.h; sourceTree = "<group>"; };
 		A0F25E1C14DE6AA800298186 /* COSTurnSummaryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COSTurnSummaryTableViewCell.m; sourceTree = "<group>"; };
 		A0F25E1E14DE724200298186 /* cards.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cards.png; sourceTree = "<group>"; };
+		A0F8098F14F21C570044B958 /* ChangeGoldModalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeGoldModalView.h; sourceTree = "<group>"; };
+		A0F8099014F21C570044B958 /* ChangeGoldModalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeGoldModalView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -293,6 +296,8 @@
 			isa = PBXGroup;
 			children = (
 				A0F25E1B14DE6AA800298186 /* COSTurnSummaryTableViewCell.h */,
+				A0F8098F14F21C570044B958 /* ChangeGoldModalView.h */,
+				A0F8099014F21C570044B958 /* ChangeGoldModalView.m */,
 				A0F25E1C14DE6AA800298186 /* COSTurnSummaryTableViewCell.m */,
 				A0F25E1514DE50C100298186 /* COSHighScoreView.h */,
 				A0F25E1814DE513900298186 /* COSHighScoreTable.h */,
@@ -584,6 +589,7 @@
 				A0F25E1714DE50C100298186 /* COSHighScoreView.m in Sources */,
 				A0F25E1A14DE513A00298186 /* COSHighScoreTable.m in Sources */,
 				A0F25E1D14DE6AA900298186 /* COSTurnSummaryTableViewCell.m in Sources */,
+				A0F8099114F21C580044B958 /* ChangeGoldModalView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

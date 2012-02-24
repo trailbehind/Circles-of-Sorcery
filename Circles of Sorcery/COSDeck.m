@@ -50,14 +50,14 @@
 }
 
 
-- (void) drawFarmer {
+- (void) drawWorker {
   if ([cards count] == 0) {
     return;
   }
   
   COSCard *farmCard;
   for (COSCard *card in cards) {
-    if ([card.name isEqualToString:@"Farmer"]) {
+    if ([card.name isEqualToString:@"Worker"]) {
       farmCard = card;
     }
   }

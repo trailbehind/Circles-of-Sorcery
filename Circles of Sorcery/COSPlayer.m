@@ -21,7 +21,7 @@
 
 @implementation COSPlayer
 @synthesize gold, rewardPoints, handContainer, cardsInPlay, deck, discardPile, game;
-@synthesize playerArea, activeEffects, effectWidgets, deckName, scoreKeeper, activeWorker;
+@synthesize playerArea, activeEffects, effectWidgets, deckName, scoreKeeper, activeWorker, choosingTypeFromDiscard;
 
 
 - (void) dealloc {
@@ -34,6 +34,7 @@
   [effectWidgets release];
   [scoreKeeper release];
   [activeWorker release];
+  [choosingTypeFromDiscard release];
   [super dealloc];
 }
 
@@ -57,7 +58,7 @@
   if (farmerCard) {
     [self drawCards:1 keepScore:NO];
   } else {
-    [deck drawFarmer];
+    [deck drawWorker];
   }
 }
 

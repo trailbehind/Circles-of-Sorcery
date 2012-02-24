@@ -21,5 +21,6 @@
   "CANCEL_ACTIONS": "",
   "CHOOSE_BUILDING": "You can attach this worker to a building.",
   "EQUIP_WORKER": "If this has a worker running it, ",
+  "USE_AS_EFFECT": "\nYou may discard this to ",
   "IF_UNEQUIPPED": "If this is not running a building, "
 }

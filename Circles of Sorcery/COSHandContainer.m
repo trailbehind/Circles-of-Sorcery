@@ -66,17 +66,11 @@
 
 
 - (void) playCard:(COSCard*)card {
-  [self.cards removeObject:card];
-  [[self superview] addSubview:card.cardView];   
   [card playFromHand];
 }
 
 
 - (void)cardTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event card:(COSCard*)card {
-  if (card.player.gold < card.cost) {
-    return;
-  }
-  [card.player gainGold:-card.cost];
   self.scrollEnabled = NO;
   UITouch *touch = [[event allTouches] anyObject];
 	CGPoint point = [touch locationInView:self];
@@ -92,7 +86,8 @@
   }
   self.scrollEnabled = YES;
   if (card.cardView.frame.origin.y 
-      >= [card.cardView superview].frame.size.height-CARD_HEIGHT*2-20) {
+      >= [card.cardView superview].frame.size.height-CARD_HEIGHT*2-20
+      && ![self.cards containsObject:card]) {
     int numberOfPositions = (int)self.contentSize.width 
     / ((int)self.frame.size.width+10);
     int position = MIN(numberOfPositions, card.cardView.center.x / self.contentSize.width * numberOfPositions);

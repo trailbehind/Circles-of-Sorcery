@@ -10,6 +10,7 @@
 #import "COSDiscardPileView.h"
 #import "COSConstants.h"
 #import "COSCard.h"
+#import "COSPlayer.h"
 
 @implementation COSDiscardContainer
 
@@ -20,7 +21,20 @@
   [super dealloc];
 }
 
+- (void)cardTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event card:(COSCard*)card {
+  if ([card.type isEqualToString:card.player.choosingTypeFromDiscard]) {
+    [discardPile.cards removeObject:card];
+    [self.cards removeObject:card];
+    [card.player.handContainer.cards addObject :card];
+    [self layoutCards];
+    [card.player.handContainer layoutCards];    
+    card.player.choosingTypeFromDiscard = nil;
+  }
+}
 
+
+- (void)cardTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event card:(COSCard*)card {
+}
 
 
 - (void) hideDiscardContainer {

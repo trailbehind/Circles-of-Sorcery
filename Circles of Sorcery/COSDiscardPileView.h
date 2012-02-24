@@ -21,5 +21,6 @@
 - (void) addCard:(COSCard*)card;
 - (void) discardThenPlay:(COSCard*)card;
 - (void) addLabel;
+- (void) showDiscardPile;
 
 @end

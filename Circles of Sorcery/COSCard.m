@@ -18,6 +18,8 @@
 #import "COSPlayerArea.h"
 #import "COSPlusMinusCounter.h"
 #import "COSEffect.h"
+#import "COSDiscardPileView.h"
+#import "ChangeGoldModalView.h"
 
 #define DEFAULT_RESOURCE_TO_PRODUCE @"GET_GOLD"
 
@@ -178,6 +180,22 @@
 }
 
 
+
+// exchange gold for the resource to gain
+- (CardResult) changeGoldOnce:(int)amount
+        forResourcesNamed:(NSString*)resourcesToGain
+          resourcesToGain:(int)resourcesToGainQuantity {  
+  
+  ChangeGoldModalView *v = [[[ChangeGoldModalView alloc]initWithAmount:amount
+                                                     forResourcesNamed:resourcesToGain
+                                                       resourcesToGain:resourcesToGainQuantity 
+                                                                player:player]autorelease];
+  UIPopoverController *p = [[UIPopoverController alloc]initWithContentViewController:v];
+  [p presentPopoverFromRect:CGRectMake(0, 0, 1, 1) inView:player.playerArea permittedArrowDirections:0 animated:YES];
+  return CONTINUE_ACTIONS;
+}
+
+
 - (BOOL) isFullyStaffed {
   int staffCount = 0;
   for (NSDictionary *action in self.actions) {
@@ -287,6 +305,22 @@
 }
 
 
+- (CardResult) chooseEffectFromDiscard {
+  player.choosingTypeFromDiscard = @"Effect";
+  
+  
+  for (COSCard *c in player.discardPile.cards) {
+    if ([c.type isEqualToString:@"Effect"]) {
+      [player.discardPile showDiscardPile];
+      [player.discardPile.discardContainer layoutCards];
+      break;
+    }
+  }
+  return CONTINUE_ACTIONS;
+}
+
+
+
 - (CardResult) doActionForName:(NSString*)actionName 
                     parameters:(NSArray*)parameters lastResult:(int)lastResult {
  if ([actionName isEqualToString:@"SACRIFICE_THIS"]) {
@@ -318,6 +352,12 @@
                                  resourcesToGain:[[parameters objectAtIndex:4]intValue]
             ];
   }
+  if ([actionName isEqualToString:@"CHANGE_GOLD_ONCE"]) {
+    return [self changeGoldOnce:[[parameters objectAtIndex:0]intValue]
+          forResourcesNamed:[parameters objectAtIndex:1]
+            resourcesToGain:[[parameters objectAtIndex:2]intValue]
+            ];
+  }
   if ([actionName isEqualToString:@"CHANGE_GOLD"]) {
     return [self changeGold:[[parameters objectAtIndex:0]intValue]
           forResourcesNamed:[parameters objectAtIndex:1]
@@ -346,6 +386,9 @@
     }
     player.activeWorker = self;
     return [self highlightAvailableBuildings];
+  }
+  if ([actionName isEqualToString:@"RETURN_EFFECT"]) {
+    return [self chooseEffectFromDiscard];
   }
   return CONTINUE_ACTIONS;
 }
@@ -506,15 +549,59 @@
 }
 
 
+- (void) playAsPermanent {
+  [player gainGold:-self.cost];
+  [self highlightIfActivatable];
+  [self.player.cardsInPlay addObject:self];
+  [player gainReward:self.reward];
+  [player.playerArea addCard:self];
+  [cardView.handContainer.cards removeObject:self];
+  [[cardView.handContainer superview] addSubview:self.cardView];   
+}
+
+
+- (void) actionSheet:(UIActionSheet*)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+  switch (buttonIndex) {
+    case 0:
+      [cardView.handContainer.cards removeObject:self];
+      [self activateForEvent:@"USE_AS_EFFECT"];
+      [self.cardView.discardPile discardThenPlay:self];
+      break;
+    case 1:
+      [self playAsPermanent];
+      break;
+    default:
+      break;
+  }
+}
+
+
+- (void) showPlayOptions {
+  UIActionSheet *playActionSheet;
+  if (player.gold < cost) {
+    playActionSheet = [[[ UIActionSheet alloc]initWithTitle:@"Choose" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"Use Effect", nil]autorelease];
+  } else {
+    playActionSheet = [[[ UIActionSheet alloc]initWithTitle:@"Choose" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"Use Effect", @"Put into Play", nil]autorelease];
+  }
+
+  
+  [playActionSheet showInView:self.player.playerArea];
+}
+
 - (void) playFromHand {
+  if ([self isActivatableForParameter:@"USE_AS_EFFECT"]) {
+    [self showPlayOptions];
+    return;
+  }
+  
+  if (player.gold < cost) {
+    return;
+  }
+
   if([self.type isEqualToString:@"Permanent"]) {
-    [self highlightIfActivatable];
-    [self.player.cardsInPlay addObject:self];
-    [player gainReward:self.reward];
-    [player.playerArea addCard:self];
-    
-    
-  } else if([self.type isEqualToString:@"Effect"]) {
+    [self playAsPermanent];
+  } else if ([self.type isEqualToString:@"Effect"]) {
+    [cardView.handContainer.cards removeObject:self];
     [self.cardView.discardPile discardThenPlay:self];
     [self activateEffect];
   }

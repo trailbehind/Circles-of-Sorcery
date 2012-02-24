@@ -107,11 +107,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Circles of Sorcery/COSDiscardPileView.m"
-         timestampString = "350116530.502537"
+         timestampString = "351400291.02061"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "113"
-         endingLineNumber = "113"
+         startingLineNumber = "115"
+         endingLineNumber = "115"
          landmarkName = "-showDiscardPile"
          landmarkType = "5">
       </FileBreakpoint>
@@ -135,11 +135,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Circles of Sorcery/COSCard.m"
-         timestampString = "351233810.887563"
+         timestampString = "351411605.712045"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "50"
-         endingLineNumber = "50"
+         startingLineNumber = "52"
+         endingLineNumber = "52"
          landmarkName = "-initWithName:player:game:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -177,11 +177,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Circles of Sorcery/COSCard.m"
-         timestampString = "351233810.887563"
+         timestampString = "351411605.712045"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "50"
-         endingLineNumber = "50"
+         startingLineNumber = "52"
+         endingLineNumber = "52"
          landmarkName = "-initWithName:player:game:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -191,11 +191,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Circles of Sorcery/COSCard.m"
-         timestampString = "351238917.569243"
+         timestampString = "351411605.712045"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "353"
-         endingLineNumber = "353"
+         startingLineNumber = "396"
+         endingLineNumber = "396"
          landmarkName = "@implementation COSCard"
          landmarkType = "3">
       </FileBreakpoint>
@@ -205,11 +205,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Circles of Sorcery/COSCard.m"
-         timestampString = "351238917.569243"
+         timestampString = "351411605.712045"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "358"
-         endingLineNumber = "358"
+         startingLineNumber = "401"
+         endingLineNumber = "401"
          landmarkName = "-makeTextForAction:parameters:numberOfActions:numberInSequence:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -219,11 +219,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Circles of Sorcery/COSCard.m"
-         timestampString = "351238917.569243"
+         timestampString = "351411605.712045"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "396"
-         endingLineNumber = "396"
+         startingLineNumber = "439"
+         endingLineNumber = "439"
          landmarkName = "-displayText"
          landmarkType = "5">
       </FileBreakpoint>
@@ -247,11 +247,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Circles of Sorcery/COSCard.m"
-         timestampString = "351233810.887563"
+         timestampString = "351411605.712045"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "43"
-         endingLineNumber = "43"
+         startingLineNumber = "45"
+         endingLineNumber = "45"
          landmarkName = "-initWithName:player:game:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -289,11 +289,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Circles of Sorcery/COSHandContainer.m"
-         timestampString = "348969229.601135"
+         timestampString = "351400170.981689"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "119"
-         endingLineNumber = "119"
+         startingLineNumber = "114"
+         endingLineNumber = "114"
          landmarkName = "@implementation COSHandContainer"
          landmarkType = "3">
       </FileBreakpoint>
@@ -303,11 +303,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Circles of Sorcery/COSCard.m"
-         timestampString = "351233810.887563"
+         timestampString = "351411605.712045"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "127"
-         endingLineNumber = "127"
+         startingLineNumber = "129"
+         endingLineNumber = "129"
          landmarkName = "-searchDeckForCardsNamed:putInto:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -317,11 +317,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Circles of Sorcery/COSCard.m"
-         timestampString = "351233810.887563"
+         timestampString = "351411605.712045"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "84"
-         endingLineNumber = "84"
+         startingLineNumber = "86"
+         endingLineNumber = "86"
          landmarkName = "-giveGold:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -331,11 +331,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Circles of Sorcery/COSCard.m"
-         timestampString = "351233810.887563"
+         timestampString = "351411605.712045"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "154"
-         endingLineNumber = "154"
+         startingLineNumber = "156"
+         endingLineNumber = "156"
          landmarkName = "-replaceGoldFromResourcesNamed:goldToReplace:forResourcesNamed:resourcesToGain:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -345,11 +345,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Circles of Sorcery/COSCard.m"
-         timestampString = "351238917.569243"
+         timestampString = "351411605.712045"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "314"
-         endingLineNumber = "314"
+         startingLineNumber = "348"
+         endingLineNumber = "348"
          landmarkName = "-doActionForName:parameters:lastResult:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -401,11 +401,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Circles of Sorcery/COSCard.m"
-         timestampString = "351238917.569243"
+         timestampString = "351411605.712045"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "511"
-         endingLineNumber = "511"
+         startingLineNumber = "603"
+         endingLineNumber = "603"
          landmarkName = "-playFromHand"
          landmarkType = "5">
       </FileBreakpoint>
@@ -415,11 +415,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Circles of Sorcery/COSCard.m"
-         timestampString = "351238917.569243"
+         timestampString = "351411605.712045"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "525"
-         endingLineNumber = "525"
+         startingLineNumber = "612"
+         endingLineNumber = "612"
          landmarkName = "-activateIfActivatable"
          landmarkType = "5">
       </FileBreakpoint>
@@ -513,11 +513,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Circles of Sorcery/COSHandContainer.m"
-         timestampString = "348969037.494994"
+         timestampString = "351400170.981689"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "90"
-         endingLineNumber = "90"
+         startingLineNumber = "84"
+         endingLineNumber = "84"
          landmarkName = "-cardTouchesEnded:withEvent:card:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -527,11 +527,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Circles of Sorcery/COSHandContainer.m"
-         timestampString = "348969109.03073"
+         timestampString = "351400170.981689"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "89"
-         endingLineNumber = "89"
+         startingLineNumber = "83"
+         endingLineNumber = "83"
          landmarkName = "-cardTouchesEnded:withEvent:card:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -541,11 +541,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Circles of Sorcery/COSCard.m"
-         timestampString = "351233810.887563"
+         timestampString = "351411605.712045"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "172"
-         endingLineNumber = "172"
+         startingLineNumber = "174"
+         endingLineNumber = "174"
          landmarkName = "-changeGold:forResourcesNamed:resourcesToGain:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -639,11 +639,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Circles of Sorcery/COSCard.m"
-         timestampString = "351237991.332858"
+         timestampString = "351411605.712045"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "223"
-         endingLineNumber = "223"
+         startingLineNumber = "241"
+         endingLineNumber = "241"
          landmarkName = "-highlightAvailableBuildings"
          landmarkType = "5">
       </FileBreakpoint>
@@ -653,11 +653,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Circles of Sorcery/COSPlayer.m"
-         timestampString = "351234597.580941"
+         timestampString = "351405274.764225"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "94"
-         endingLineNumber = "94"
+         startingLineNumber = "95"
+         endingLineNumber = "95"
          landmarkName = "-doEndOfTurnEffects:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -667,11 +667,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Circles of Sorcery/COSCard.m"
-         timestampString = "351238917.569243"
+         timestampString = "351411605.712045"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "481"
-         endingLineNumber = "481"
+         startingLineNumber = "524"
+         endingLineNumber = "524"
          landmarkName = "-isActivatableForParameter:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -695,11 +695,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Circles of Sorcery/COSCard.m"
-         timestampString = "351238917.569243"
+         timestampString = "351411605.712045"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "443"
-         endingLineNumber = "443"
+         startingLineNumber = "486"
+         endingLineNumber = "486"
          landmarkName = "-activateForEvent:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -709,11 +709,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Circles of Sorcery/COSCard.m"
-         timestampString = "351238121.553381"
+         timestampString = "351411605.712045"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "234"
-         endingLineNumber = "234"
+         startingLineNumber = "252"
+         endingLineNumber = "252"
          landmarkName = "-equipWorker"
          landmarkType = "5">
       </FileBreakpoint>
@@ -723,11 +723,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Circles of Sorcery/COSCard.m"
-         timestampString = "351238202.493381"
+         timestampString = "351411605.712045"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "182"
-         endingLineNumber = "182"
+         startingLineNumber = "200"
+         endingLineNumber = "200"
          landmarkName = "-isFullyStaffed"
          landmarkType = "5">
       </FileBreakpoint>
@@ -765,7 +765,35 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Circles of Sorcery/COSPlayer.m"
-         timestampString = "351239199.639304"
+         timestampString = "351405274.764225"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "110"
+         endingLineNumber = "110"
+         landmarkName = "-doEndOfTurnEffects:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Circles of Sorcery/COSPlayer.m"
+         timestampString = "351405274.764225"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "108"
+         endingLineNumber = "108"
+         landmarkName = "-doEndOfTurnEffects:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Circles of Sorcery/COSPlayer.m"
+         timestampString = "351405274.764225"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "109"
@@ -778,13 +806,13 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "Circles of Sorcery/COSPlayer.m"
-         timestampString = "351239245.629511"
+         filePath = "Circles of Sorcery/COSHandContainer.m"
+         timestampString = "351400170.981689"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "107"
-         endingLineNumber = "107"
-         landmarkName = "-doEndOfTurnEffects:"
+         startingLineNumber = "91"
+         endingLineNumber = "91"
+         landmarkName = "-cardTouchesEnded:withEvent:card:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -792,23 +820,56 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "Circles of Sorcery/COSPlayer.m"
-         timestampString = "351239264.941642"
+         filePath = "Circles of Sorcery/COSCardView.m"
+         timestampString = "351406574.906072"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "108"
-         endingLineNumber = "108"
-         landmarkName = "-doEndOfTurnEffects:"
+         startingLineNumber = "203"
+         endingLineNumber = "203"
+         landmarkName = "-touchesEnded:withEvent:"
          landmarkType = "5">
       </FileBreakpoint>
-   </FileBreakpoints>
-   <ExceptionBreakpoints>
-      <ExceptionBreakpoint
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Circles of Sorcery/COSDiscardContainer.m"
+         timestampString = "351406524.314784"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "25"
+         endingLineNumber = "25"
+         landmarkName = "-cardTouchesBegan:withEvent:card:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Circles of Sorcery/COSCard.m"
+         timestampString = "351411605.712045"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "362"
+         endingLineNumber = "362"
+         landmarkName = "-doActionForName:parameters:lastResult:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         scope = "0"
-         stopOnStyle = "0">
-      </ExceptionBreakpoint>
-   </ExceptionBreakpoints>
+         isPathRelative = "1"
+         filePath = "ChangeGoldModalView.m"
+         timestampString = "351412049.612649"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "20"
+         endingLineNumber = "20"
+         landmarkName = "-initWithAmount:forResourcesNamed:resourcesToGain:player:"
+         landmarkType = "5">
+      </FileBreakpoint>
+   </FileBreakpoints>
 </Bucket>
