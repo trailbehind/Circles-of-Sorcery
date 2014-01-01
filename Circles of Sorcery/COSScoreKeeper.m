@@ -61,6 +61,8 @@
   turnIndex++;
   if (turnIndex == NUMBER_OF_TURNS) {
     COSScoreView *scoreView = [[[COSScoreView alloc]initWithScoreKeeper:self]autorelease];
+    scoreView.contentSizeForViewInPopover = CGSizeMake(320, 1200);
+    scoreView.view.backgroundColor = [UIColor blackColor];
     scoreViewPopover = [[UIPopoverController alloc]initWithContentViewController:scoreView];
     [scoreViewPopover presentPopoverFromRect:CGRectMake(player.playerArea.frame.size.width/2, 0, 1, 1) inView:player.playerArea permittedArrowDirections:0 animated:YES]; 
   }

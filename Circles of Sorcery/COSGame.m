@@ -43,11 +43,6 @@
 
 
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {  
-	return YES;
-}  
-
-
 - (NSString*) defaultDeckPath {
   NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
   NSString *documentsDirectory = [paths objectAtIndex:0];
@@ -121,5 +116,17 @@
   [self.gameLayout setupWithPlayers:self.players];
   [(COSPlayer*)[self.players objectAtIndex:0]drawHand];
 }
+
+- (BOOL)shouldAutorotate {
+  return [self shouldAutorotateToInterfaceOrientation:UIDeviceOrientationPortrait];
+}
+
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+	return YES;
+}
+
+
+
 
 @end

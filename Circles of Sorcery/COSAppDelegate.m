@@ -32,7 +32,7 @@
   self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]]autorelease];
   self.window.backgroundColor = [UIColor colorWithRed:.6 green:.9 blue:1 alpha:1];
   game = [[COSGame alloc]initWithCardRegistryFile:@"card_data.json"];
-  [self.window addSubview:game.view];
+  self.window.rootViewController = game;
   [game makeNewGame];
   [self.window makeKeyAndVisible];  
   return YES;
